@@ -1,8 +1,6 @@
 .vscode/
 env_config/
 .dist/
-*.o
-*.out
 
 
 
