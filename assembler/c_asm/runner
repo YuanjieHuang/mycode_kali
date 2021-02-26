@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eu
+set -o pipefail
+
+nasm -f macho -o test.o test.asm
+ld -o test -e _main test.o -macosx_version_min 10.7 -lc -no_pie
+./test || echo "Exit status: $?"

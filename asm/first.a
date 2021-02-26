@@ -1,9 +1,0 @@
-    .data                          ;此为数据区
-    sum DWORD 0                    ;定义名为sum的变量
-    .code                          ;此为代码区
-    main PROC
-        mov eax,5                  ;将数字5送入而eax寄存器
-        add eax,6                  ;eax寄存器加6
-        mox sum,eax
-        INVOKE ExitProcess,0       ;结束程序
-    main ENDP

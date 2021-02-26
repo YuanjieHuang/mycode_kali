@@ -1,3 +1,0 @@
-/home/yjie/GtestLearnLLT/CMakeFiles/rebuild_cache.dir
-/home/yjie/GtestLearnLLT/CMakeFiles/edit_cache.dir
-/home/yjie/GtestLearnLLT/CMakeFiles/GtestLearnLLT.dir
