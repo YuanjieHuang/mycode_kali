@@ -13,7 +13,7 @@ int main(void)
 		a = 2000;
 		printf("child, a = %d\n", a);
 	} else {
-		sleep(1);	//保证son先运行
+		// sleep(1);	//保证son先运行
 		printf("parent, a = %d\n", a);
 	}
 

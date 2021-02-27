@@ -19,10 +19,11 @@ int main(void)
 
 //        execl("/bin/ls", "ls", "-l", "-a", "-F", NULL);
 //        execl("./test", "test",  NULL);
-        execvp("ls", argv);
+        // execvp("ls", argv);
+        printf("I'am child pid= %d, getppid = %d\n", getpid(), getppid());
         perror("execlp");
         exit(1);
     }
-
+    printf("I'am main pid= %d, getppid = %d\n", getpid(), getppid());
     return 0;
 }

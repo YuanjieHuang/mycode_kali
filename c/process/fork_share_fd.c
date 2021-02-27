@@ -11,10 +11,10 @@
 
 int main(void)
 {
-    int fd1, fd2; pid_t pid;
+    int fd1, fd2; pid_t pid,child_pid,parent_pid;
     char buf[1024];
     char *str = "---------test for shared fd in parent child process-----\n";
-
+    printf("main begin\n");
     pid = fork();
     if (pid < 0) {
         perror("fork error");
@@ -26,7 +26,8 @@ int main(void)
             exit(1);
         }
         write(fd1, str, strlen(str));
-        printf("child wrote over...\n");
+        child_pid = getpid();
+        printf("child %d wrote over...\n",child_pid);
     } else {
         fd2 = open("test.txt", O_RDWR);
         if (fd2 < 0) {
@@ -36,7 +37,7 @@ int main(void)
         sleep(1);                   //保证子进程写入数据
         int len = read(fd2, buf, sizeof(buf));
         write(STDOUT_FILENO, buf, len);
-
+        printf("parent %d read over...\n",getpid());
         wait(NULL);
     }
 

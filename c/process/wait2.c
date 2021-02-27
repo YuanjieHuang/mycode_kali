@@ -16,7 +16,7 @@ int main(void)
 	} else if(pid == 0){		//son
 		printf("I'm process child, pid = %d\n", getpid());
 #if 1
-		execl("./abnor", "abnor", NULL);
+		execl("/bin/ls", "ls", NULL);
 		perror("execl error");
 		exit(1);
 #endif

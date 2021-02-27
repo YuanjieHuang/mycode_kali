@@ -26,5 +26,6 @@ void main()
    fgets(b,5,fp);
    fputs(a,fp);
    printf("%s\n",b);
-   fclose(fp);   
+   fclose(fp); 
+   fp =fdopen(fd,"r");  
 }

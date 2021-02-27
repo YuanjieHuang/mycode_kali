@@ -13,7 +13,7 @@
         mov   quotient, eax
         mov   tmp, edx
         mov ecx, premainder   // Or this I guess?
-        mov   [ecx], edx
+        mov   [ecx], edxe
     }
     *premainder = tmp;
     return quotient;     // or omit the return with a value in eax

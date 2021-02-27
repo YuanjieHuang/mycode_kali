@@ -18,7 +18,7 @@ typedef struct
 
 void handler(int signo)
 {
-	//printf("get signal\n");
+	printf("get signal\n");
 	return;
 }
 

@@ -1,3 +1,7 @@
+#include<pthread.h>
+#include<unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
 char message[32] = "Hello World";
 void *thread_func(void *arg);
 

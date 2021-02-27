@@ -6,12 +6,13 @@ int main(int argc, char *argv[])
 {
     printf("========================\n");
 
-    char *argvv[] = {"ls", "-l", "-F", "R", "-a", NULL};
+    char *argvv[] = {"ls", "-l", "-F",  "-a", NULL};
     
 
     pid_t pid = fork();
     if (pid == 0) {
-        execl("/bin/ls", "ls", "-l", "-F", "-a", NULL);
+        // execl("/bin/ls", "ls", "-l", "-F", "-a", NULL);
+        perror("execlp");
         execv("/bin/ls", argvv);
         perror("execlp");
         exit(1);

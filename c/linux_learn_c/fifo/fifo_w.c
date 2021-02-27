@@ -20,12 +20,10 @@ int main(int argc, char *argv[])
         printf("Enter like this: ./a.out fifoname\n");
         return -1;
     }
-    /*
     int ret = access("myfifo", F_OK);
     if (ret != 0) {
         mkfifo("myfifo", 0664);
     }
-    */
 
     fd = open(argv[1], O_WRONLY);
     if (fd < 0) 
