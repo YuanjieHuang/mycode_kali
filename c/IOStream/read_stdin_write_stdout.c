@@ -12,7 +12,7 @@ int main(void)
 	n = read(STDIN_FILENO, buf, 10);   // #define STDIN_FILENO 0   STDOUT_FILENO 1  STDERR_FILENO 2
 	if(n < 0){
 		perror("read STDIN_FILENO");
-        //printf("%d", errno);
+        // printf("%d", errno);
 		exit(1);
 	}
 	write(STDOUT_FILENO, buf, n);

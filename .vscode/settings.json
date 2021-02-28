@@ -17,6 +17,8 @@
         "cstdio": "c",
         "string_view": "c",
         "iostream": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "reg.h": "c",
+        "cerrno": "c"
     }
 }

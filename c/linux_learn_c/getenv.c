@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	char *p = NULL;
 
 	p = getenv(argv[1]);
-	//p = my_getenv(argv[1]);
+	p = my_getenv(argv[1]);
 
 	if (p == NULL)
 		printf("there is no match\n");

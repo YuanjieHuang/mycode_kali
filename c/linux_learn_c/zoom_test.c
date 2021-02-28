@@ -12,10 +12,11 @@ int main(void)
 
     if (pid == 0) {
             printf("---child, my parent= %d, going to sleep 10s\n", getppid());
-            sleep(10);
+            sleep(20);
             printf("-------------child die--------------\n");
     } else if (pid > 0) {
         while (1) {
+            printf("ppid:%d\n",getppid());
             wpid = wait(&status);
             if (wpid == -1) {
                 perror("wait err");

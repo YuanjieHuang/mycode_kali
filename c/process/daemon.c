@@ -80,3 +80,21 @@ int main()
 		fflush(fp);
 		sleep(1);
 }
+
+
+ if (fork() != 0) {
+    exit(0);
+  }
+  setsid();
+  if (fork() != 0) {
+    exit(0);
+  }
+
+  close(0);
+  close(1);
+  close(2);
+  open("/dev/null", O_RDWR);
+  dup(0);
+  dup(0);
+  return true;
+}

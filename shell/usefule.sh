@@ -3,6 +3,9 @@
 find .. -iname '*.o' |xargs -i cp {} .
 # mkdir ./bak && find . -name "*.c" |xargs -i cp {} ./bak
 find .. |egrep '\.o$' |wc
+find /usr/include/ -iname '*.h' | xargs grep 'ORIG_EAX' -sl
+
+
 
 git status | grep deleted | awk '{print $2}'
 git rm `git status | grep deleted | awk '{print $2}'`
