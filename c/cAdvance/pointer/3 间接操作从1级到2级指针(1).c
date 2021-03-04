@@ -15,6 +15,7 @@ int main(void)
 	int * p = NULL;
 
 	change_pointer(&p);// change_pointer::p = &  main::p
+	printf("*p p_Addr:   %p",p);
 
 	return 0;
 }
