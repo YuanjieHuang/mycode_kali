@@ -19,6 +19,9 @@
         "iostream": "cpp",
         "stdio.h": "c",
         "reg.h": "c",
-        "cerrno": "c"
+        "cerrno": "c",
+        "stdlib.h": "c",
+        "condition_variable": "c",
+        "mutex": "c"
     }
 }

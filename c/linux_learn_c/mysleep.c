@@ -25,12 +25,13 @@ unsigned int mysleep(unsigned int nsecs)
 
     return unslept;
 }
-
+static unsigned int ret=0, i=0;
 int main(void)
 {
     while(1){
-        mysleep(20);
-        printf("Two seconds passed\n");
+        
+        mysleep(1);
+        printf("ret:%d Two seconds passed i:%d\n",ret, ++i);
     }
     return 0;
 }

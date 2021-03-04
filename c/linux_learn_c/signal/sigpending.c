@@ -19,7 +19,7 @@ void printset(sigset_t *ped)
 int main(void)
 {
 	sigset_t set, ped;
-#if 1
+#if 0
 	sigemptyset(&set);
 	sigaddset(&set, SIGINT);
 #else

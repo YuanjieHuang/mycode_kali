@@ -46,8 +46,10 @@ unsigned int mysleep(unsigned int sec)
 int main(void)
 {
 	while(1){
-		mysleep(5);
-		printf("Five seconds passed\n");
+		
+		unsigned int ret=0, i=0;
+		ret = mysleep(1);
+		printf("ret:%d Five seconds passed:%d\n",ret, i++);
 	}
 
 	return 0;
