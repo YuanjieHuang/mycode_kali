@@ -3,11 +3,11 @@
 
 using namespace std;
 
-//³éÏóÀà1
+//æŠ½è±¡ç±»1
 class Interface1
 {
 public:
-	//´¿Ğéº¯Êı
+	//çº¯è™šå‡½æ•°
 	virtual void func(int a, int b) = 0;
 	virtual void func2(int a) = 0;
 };
@@ -18,7 +18,7 @@ public:
 	virtual void func(int a, int b) = 0;
 };
 
-//µ±´¿Ğéº¯ÊıÔÚ¶à¼Ì³ĞÖĞ³öÏÖÁËÖØ¸´£¬ ÄÇÃ´ÔÚ×ÓÀàÖĞÖ»ÒªÖØĞÂÖØĞ´Ò»´Î¾Í¿ÉÒÔÁË
+//å½“çº¯è™šå‡½æ•°åœ¨å¤šç»§æ‰¿ä¸­å‡ºç°äº†é‡å¤ï¼Œ é‚£ä¹ˆåœ¨å­ç±»ä¸­åªè¦é‡æ–°é‡å†™ä¸€æ¬¡å°±å¯ä»¥äº†
 class Child : public Interface1, public Interface2
 {
 public:

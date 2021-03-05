@@ -58,7 +58,6 @@ int main(void)
 	int num = 0;
 	int pos = 0;
 
-	/*
 	num = sizeof(keywords) / sizeof(*keywords); //16 / 4 = 4;
 
 	searcheKeyTable(keywords, num, "do", &pos);
@@ -68,7 +67,6 @@ int main(void)
 		return -1;
 	}
 	printf("do 在 第%d 个位置\n", pos+1);
-	*/
 	for (i = 0; keywords[i] != NULL; i++) {
 		printf("%s\n", keywords[i]);
 	}

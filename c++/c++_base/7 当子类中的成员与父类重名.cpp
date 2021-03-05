@@ -19,13 +19,13 @@ class Child :public Parent
 public :
 	Child(int a, int aa) : Parent(aa)
 	{
-		this->a = a; //ÈÃChild µÄa  = a£¬ ÈÃ¸¸Ç×µÄa = aa
+		this->a = a; //è®©Child çš„a  = aï¼Œ è®©çˆ¶äº²çš„a = aa
 	}
 
 	void print()
 	{
-		cout << "a = " << a << endl; //Ä¬ÈÏÊÇÊ¹ÓÃ µ±Ç°ÀàµÄÖØÃûµÄ±äÁ¿
-		cout << "Parent::a = " << Parent::a << endl;  //Èç¹ûÏë·ÃÎÊ¸¸ÀàÖÐµÄÖØÃû±äÁ¿ ÐèÒª¼ÓÉÏ¸¸ÀàµÄ×÷ÓÃÓò
+		cout << "a = " << a << endl; //é»˜è®¤æ˜¯ä½¿ç”¨ å½“å‰ç±»çš„é‡åçš„å˜é‡
+		cout << "Parent::a = " << Parent::a << endl;  //å¦‚æžœæƒ³è®¿é—®çˆ¶ç±»ä¸­çš„é‡åå˜é‡ éœ€è¦åŠ ä¸Šçˆ¶ç±»çš„ä½œç”¨åŸŸ
 	} 
 
 	int a;

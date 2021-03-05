@@ -23,22 +23,22 @@ struct Teacher
 
 void motifyTeacher(Teacher &t) //
 {
-	t.id = 100; // ���˵t��һ����ָ�룬 *t ����ָ��ָ���ڴ�ռ�  (*t).id = 100
-	//����Ҫ��ͼ�޸Ļ��߻�ȡ�Ѿ���ʼ�������õ�ʱ�� ����������һ�����ص�*�Ĳ���
+	t.id = 100; // 如果说t是一个常指针， *t 就是指针指向内存空间  (*t).id = 100
+	//当你要试图修改或者获取已经初始化的引用的时候， 编译器会有一个隐藏的*的操作
 }
 
-void motifyA(int *const a)   //��ָ�� Ҳ��һ�������� Ҳ�Ǳ���Ҫ��ʼ����  Ҳ���ܱ��޸�
+void motifyA(int *const a)   //常指针 也是一个常量， 也是必须要初始化，  也不能被修改
 {
 	*a = 100;
 }
 
 void motifyB(int &a)
 {
-	a = 1000; //a ʵ������һ������ָ�룬 ����������һ��a��ֵ������������һ�����εĲ����� *
+	a = 1000; //a 实际上是一个常量指针， 但是如果你给一个a赋值，编译器会有一个隐形的操作， *
 }
 
-//���о����õ�ʱ�� �����Խ���������Ϊ һ�� ��ָ��
-//���������õ�ʱ�� ���Խ���������Ϊ һ�������ı���
+//在研究引用的时候 ，可以将引用理解为 一个 常指针
+//在理解引用的时候， 可以将引用理解为 一个变量的别名
 
 void test()
 {
@@ -49,20 +49,20 @@ void test()
 
 	cout << "value = " << value << endl;
 
-	motifyB(value);  // int value --> int &a  , int& a = value ������ָ��ָ���ĸ�������ʱ�� �������ṩ������һ�����εĲ���
+	motifyB(value);  // int value --> int &a  , int& a = value 给引用指定指向哪个变量的时候， 编译器提供又有了一个隐形的操作
 						// a = &value;
 
 	cout << "value = " << value << endl;
 
-	motifyTeacher(t1);  //���˵ motifyTeacher ���β���һ����ָ�룬Teacher *const t = &t1;
-								//���������� Teacher &t �β���һ�����ã� Teacher &t = &t1;
-								//�������ó�ʼ����ʱ�� ����һ��&  �����β���
+	motifyTeacher(t1);  //如果说 motifyTeacher 的形参是一个常指针，Teacher *const t = &t1;
+								//编译器发现 Teacher &t 形参是一个引用， Teacher &t = &t1;
+								//当给引用初始化的时候， 会有一个&  的隐形操作
 }
 
 
 void motifyAA(int *a)
 {
-	*a = 100;   //��ӵĸ�ֵ
+	*a = 100;   //间接的赋值
 }
 
 void motifyBB(int &a) //int &a = a;    a = &a;
@@ -72,10 +72,10 @@ void motifyBB(int &a) //int &a = a;    a = &a;
 
 void test2()
 {
-	int a = 10; //����һ
+	int a = 10; //条件一
 
 
-	motifyAA(&a); //int*a = &a; //�����˹���
+	motifyAA(&a); //int*a = &a; //建立了关联
 
 	motifyBB(a);
 }
@@ -88,29 +88,29 @@ int main(void)
 
 	const int c_a = 10;
 
-	//c_a = 20;//�����ڳ�ʼ��֮�󣬲��ܹ����޸���
+	//c_a = 20;//常量在初始化之后，不能够再修改了
 
-	int &re = a; //���ñ����ʼ��.  �����ڳ�ʼ��֮��Ҳ���ܹ����ı�
-	re = b; // a = b ������ ��re����ָ��b
-
-	cout << "re = " << re << endl;
-	cout << "a = " << a << endl;
-	cout << "b = " << b << endl;
-
-	re = 100; //�Ǹõ�a ����b��
+	int &re = a; //引用必须初始化.  引用在初始化之后，也不能够被改变
+	re = b; // a = b 而不是 让re引用指向b
 
 	cout << "re = " << re << endl;
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
 
-	//1 ���� ������һ�� ������
+	re = 100; //是该的a 还是b？
+
+	cout << "re = " << re << endl;
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+
+	//1 引用 可能是一个 常量？
 
 	cout << "sizeof(TypeA): " << sizeof(TypeA) << endl;
 	cout << "sizeof(TypeB):" << sizeof(TypeB) << endl;
 
-	//ͨ�����������С�� ���ֲ���������ʲô���� ����4���ֽڣ�����ָ��Ĵ�Сһ����
+	//通过对引用求大小， 发现不管引用是什么类型 都是4个字节，都跟指针的大小一样。
 
-	//2 ���ÿ�����һ�� ָ�룿
+	//2 引用可能是一个 指针？
 
 
 	test();

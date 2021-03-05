@@ -22,6 +22,18 @@
         "cerrno": "c",
         "stdlib.h": "c",
         "condition_variable": "c",
-        "mutex": "c"
+        "mutex": "c",
+        "chrono": "cpp",
+        "unordered_map": "cpp",
+        "memory": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "algorithm": "cpp",
+        "iomanip": "cpp",
+        "exception": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "optional": "cpp"
     }
 }

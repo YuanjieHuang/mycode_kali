@@ -3,11 +3,11 @@
 
 using namespace std;
 
-//µãÀà
+//ç‚¹ç±»
 class Point
 {
 public:
-	//ÉèÖÃÒ»¸öµãµÄ×ø±ê
+	//è®¾ç½®ä¸€ä¸ªç‚¹çš„åæ ‡
 	void setXY(int x, int y)
 	{
 		m_x = x;
@@ -29,24 +29,24 @@ private:
 	int m_y;
 };
 
-//Ô² Àà
+//åœ† ç±»
 class Circle
 {
 public:
-	//ÉèÖÃ×ø±ê
+	//è®¾ç½®åæ ‡
 	void setXY(int x, int y)
 	{
 		m_x = x;
 		m_y = y;
 	}
 
-	//ÉèÖÃ°ë¾¶
+	//è®¾ç½®åŠå¾„
 	void setR(int r)
 	{
 		m_r = r;
 	}
 
-	//Èç¹ûtrue ´ú±íµãÔÚÔ²µÄÄÚ²¿
+	//å¦‚æœtrue ä»£è¡¨ç‚¹åœ¨åœ†çš„å†…éƒ¨
 	bool judgePoint(Point &p)
 	{
 		int dd = (p.getX() - m_x) * (p.getX() - m_x) + (p.getY() - m_y) *(p.getY() - m_y);
@@ -77,10 +77,10 @@ int main(void)
 
 
 	if (c.judgePoint(p) == true) {
-		cout << "µãÔÚÔ²µÄÄÚ²¿" << endl;
+		cout << "ç‚¹åœ¨åœ†çš„å†…éƒ¨" << endl;
 	}
 	else {
-		cout << "µãÔÚÔ²µÄÍâ²¿" << endl;
+		cout << "ç‚¹åœ¨åœ†çš„å¤–éƒ¨" << endl;
 	}
 	
 	return 0;

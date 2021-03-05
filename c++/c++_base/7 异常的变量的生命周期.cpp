@@ -3,19 +3,19 @@
 
 using namespace std;
 
-//Ê¹ÓÃÒì³£µÄ·½Ê½½øĞĞ´¦Àí
+//ä½¿ç”¨å¼‚å¸¸çš„æ–¹å¼è¿›è¡Œå¤„ç†
 
 
 void my_strcpy1(char *dst, char *from) {
 	if (dst == NULL) {
-		throw 1; //1 ´ú±íÄ¿µÄµØÖ·ÓĞÎÊÌâ
+		throw 1; //1 ä»£è¡¨ç›®çš„åœ°å€æœ‰é—®é¢˜
 	}
 	else if (from == NULL) {
-		throw 2; //2 ´ú±íÔ´µØÖ·ÓĞÎÊÌâ
+		throw 2; //2 ä»£è¡¨æºåœ°å€æœ‰é—®é¢˜
 	}
 
 	if (*from == 'a') {
-		throw 3; //´ú±ícopy¹ı³Ì³öÏÖÎÊÌâ
+		throw 3; //ä»£è¡¨copyè¿‡ç¨‹å‡ºç°é—®é¢˜
 	}
 
 
@@ -31,14 +31,14 @@ void my_strcpy1(char *dst, char *from) {
 void my_strcpy2(char* dst, char *from) 
 {
 	if (dst == NULL) {
-		throw "Ä¿µÄµØÖ·ÓĞÎÊÌâ"; //1 ´ú±íÄ¿µÄµØÖ·ÓĞÎÊÌâ
+		throw "ç›®çš„åœ°å€æœ‰é—®é¢˜"; //1 ä»£è¡¨ç›®çš„åœ°å€æœ‰é—®é¢˜
 	}
 	else if (from == NULL) {
-		throw "Ô´µØÖ·ÓĞÎÊÌâ"; //2 ´ú±íÔ´µØÖ·ÓĞÎÊÌâ
+		throw "æºåœ°å€æœ‰é—®é¢˜"; //2 ä»£è¡¨æºåœ°å€æœ‰é—®é¢˜
 	}
 
 	if (*from == 'a') {
-		throw "copy¹ı³Ì³öÏÖÎÊÌâ"; //´ú±ícopy¹ı³Ì³öÏÖÎÊÌâ
+		throw "copyè¿‡ç¨‹å‡ºç°é—®é¢˜"; //ä»£è¡¨copyè¿‡ç¨‹å‡ºç°é—®é¢˜
 	}
 
 
@@ -50,7 +50,7 @@ void my_strcpy2(char* dst, char *from)
 	*dst = '\0';
 }
 
-//Ä¿µÄµØÖ·ÓĞÎÊÌâµÄÒì³£ÀàĞÍ
+//ç›®çš„åœ°å€æœ‰é—®é¢˜çš„å¼‚å¸¸ç±»å‹
 class BadDstAddrType{};
 class BadSrcAddrType{};
 class BadProcessAddrType{
@@ -64,7 +64,7 @@ public:
 		cout << "BadProcessAddrType(const BadProcessAddrType &)..." << endl;
 	}
 	void print() {
-		cout << "copy¹ı³Ì³öÏÖÁËÒì³£" << endl;
+		cout << "copyè¿‡ç¨‹å‡ºç°äº†å¼‚å¸¸" << endl;
 	}
 	~BadProcessAddrType(){
 		cout << "~BadProcessAddrType()..." << endl;
@@ -74,14 +74,14 @@ public:
 void my_strcpy3(char *dst, char *from)
 {
 	if (dst == NULL) {
-		throw BadDstAddrType(); //1 ´ú±íÄ¿µÄµØÖ·ÓĞÎÊÌâ
+		throw BadDstAddrType(); //1 ä»£è¡¨ç›®çš„åœ°å€æœ‰é—®é¢˜
 	}
 	else if (from == NULL) {
-		throw BadSrcAddrType(); //2 ´ú±íÔ´µØÖ·ÓĞÎÊÌâ
+		throw BadSrcAddrType(); //2 ä»£è¡¨æºåœ°å€æœ‰é—®é¢˜
 	}
 
 	if (*from == 'a') {
-		//throw new BadProcessAddrType(); //ÔÚÅ×³öÕâ¸öBadProcessAddrType() »á´´½¨Ò»¸öÄäÃû¶ÔÏó 
+		//throw new BadProcessAddrType(); //åœ¨æŠ›å‡ºè¿™ä¸ªBadProcessAddrType() ä¼šåˆ›å»ºä¸€ä¸ªåŒ¿åå¯¹è±¡ 
 		throw BadProcessAddrType();
 	}
 
@@ -104,30 +104,30 @@ int main(void)
 	}
 	catch (int e)
 	{
-		cout << "²¶»ñµ½Òì³£´úÂëe = " << e << endl;
+		cout << "æ•è·åˆ°å¼‚å¸¸ä»£ç e = " << e << endl;
 	}
 	catch (char *e)
 	{
-		cout << "²¶»ñµ½char*ÀàĞÍÒì³£e = " << e << endl;
+		cout << "æ•è·åˆ°char*ç±»å‹å¼‚å¸¸e = " << e << endl;
 	}
-	//catch (BadProcessAddrType e) { //BadProcessAddrType e = ÄäÃû¶ÔÏótemp //ÔÚ²¶»ñµÄÊ±ºò£¬Èç¹ûÓÃÒ»¸öÔªËØ²¶»ñ
-													//»á·¢Éú¿½±´¹¹Ôì£¬Òì³£¶ÔÏóeºÍ±»Å×³öÀ´µÄÄäÃû¶ÔÏó²»ÊÇÒ»¸ö¶ÔÏó
-													//»áÓĞÉî¿½±´ºÍÇ³¿½±´µÄ·çÏÕ
-//		cout << "²¶»ñµ½ÁËBadProcessAddrType Òì³£ÀàĞÍe  " << endl;
+	//catch (BadProcessAddrType e) { //BadProcessAddrType e = åŒ¿åå¯¹è±¡temp //åœ¨æ•è·çš„æ—¶å€™ï¼Œå¦‚æœç”¨ä¸€ä¸ªå…ƒç´ æ•è·
+													//ä¼šå‘ç”Ÿæ‹·è´æ„é€ ï¼Œå¼‚å¸¸å¯¹è±¡eå’Œè¢«æŠ›å‡ºæ¥çš„åŒ¿åå¯¹è±¡ä¸æ˜¯ä¸€ä¸ªå¯¹è±¡
+													//ä¼šæœ‰æ·±æ‹·è´å’Œæµ…æ‹·è´çš„é£é™©
+//		cout << "æ•è·åˆ°äº†BadProcessAddrType å¼‚å¸¸ç±»å‹e  " << endl;
 //		e.print();
 //	}
-	catch (BadProcessAddrType *e) { //´ËÊ±ÄÇ¸öÄäÃû¶ÔÏóÒÑ¾­±»ÊÍ·ÅÁË£¬eÊÇÒ»¸öÒ°Ö¸Õë
-		cout << "²¶»ñµ½ÁËBadProcessAddrType* Òì³£ÀàĞÍe" << endl;
-		delete e; //Èç¹ûÅ×³öµÄÒì³£ÀàĞÍÊÇnew³öÀ´µÄ£¬ĞèÒªÏÔÊ¾µÄdeleteµô
+	catch (BadProcessAddrType *e) { //æ­¤æ—¶é‚£ä¸ªåŒ¿åå¯¹è±¡å·²ç»è¢«é‡Šæ”¾äº†ï¼Œeæ˜¯ä¸€ä¸ªé‡æŒ‡é’ˆ
+		cout << "æ•è·åˆ°äº†BadProcessAddrType* å¼‚å¸¸ç±»å‹e" << endl;
+		delete e; //å¦‚æœæŠ›å‡ºçš„å¼‚å¸¸ç±»å‹æ˜¯newå‡ºæ¥çš„ï¼Œéœ€è¦æ˜¾ç¤ºçš„deleteæ‰
 	}
-	catch (BadProcessAddrType &e) { //1 ÆÕÍ¨ÔªËØÀàĞÍµÄÒì³£²¶»ñ£¬²»ÄÜ¹»¸ú ÒıÓÃ²¶»ñÍ¬Ê±´æÔÚ¡£
-		cout << "²¶»ñµ½ÁË BadProcessAddrType & Òì³£ÀàĞÍ" << endl;
-		//±àÒëÆ÷·¢ÏÖÊ¹ÓÃÒıÓÃ²¶»ñµÄ£¬ÄÇÃ´²»»áÁ¢¿ÌÊÍ·ÅµôÄäÃû¶ÔÏó£¬ ¶øÊÇÔÚÒì³£´¦ÀíÍêÖ®ºó£¬²Å°ÑeÊÍ·Å¡£
-		//¿ÉÒÔÀí½âÎª BadProcessAddrType &e = BadProcessAddrType()
+	catch (BadProcessAddrType &e) { //1 æ™®é€šå…ƒç´ ç±»å‹çš„å¼‚å¸¸æ•è·ï¼Œä¸èƒ½å¤Ÿè·Ÿ å¼•ç”¨æ•è·åŒæ—¶å­˜åœ¨ã€‚
+		cout << "æ•è·åˆ°äº† BadProcessAddrType & å¼‚å¸¸ç±»å‹" << endl;
+		//ç¼–è¯‘å™¨å‘ç°ä½¿ç”¨å¼•ç”¨æ•è·çš„ï¼Œé‚£ä¹ˆä¸ä¼šç«‹åˆ»é‡Šæ”¾æ‰åŒ¿åå¯¹è±¡ï¼Œ è€Œæ˜¯åœ¨å¼‚å¸¸å¤„ç†å®Œä¹‹åï¼Œæ‰æŠŠeé‡Šæ”¾ã€‚
+		//å¯ä»¥ç†è§£ä¸º BadProcessAddrType &e = BadProcessAddrType()
 	}
 	catch(...) 
 	{
-		cout << "²¶»ñµ½Î´ÖªÒì³£" << endl;
+		cout << "æ•è·åˆ°æœªçŸ¥å¼‚å¸¸" << endl;
 	}
 }
 
@@ -135,14 +135,14 @@ int main(void)
 int my_strcpy(char *dst, char *from)
 {
 	if (dst == NULL) {
-		return 1; //1 ´ú±íÄ¿µÄµØÖ·ÓĞÎÊÌâ
+		return 1; //1 ä»£è¡¨ç›®çš„åœ°å€æœ‰é—®é¢˜
 	}
 	else if (from == NULL) {
-		return 2; //2 ´ú±íÔ´µØÖ·ÓĞÎÊÌâ
+		return 2; //2 ä»£è¡¨æºåœ°å€æœ‰é—®é¢˜
 	}
 
 	if (*from == 'a') {
-		return 3; //´ú±ícopy¹ı³Ì³öÏÖÎÊÌâ
+		return 3; //ä»£è¡¨copyè¿‡ç¨‹å‡ºç°é—®é¢˜
 	}
 
 
@@ -156,7 +156,7 @@ int my_strcpy(char *dst, char *from)
 	return 0;
 }
 
-//´«Í³µÄ²¶»ñ´íÎó·½·¨
+//ä¼ ç»Ÿçš„æ•è·é”™è¯¯æ–¹æ³•
 int main(void)
 {
 	char buf1[] = "a234567";
@@ -168,14 +168,14 @@ int main(void)
 		switch (ret)
 		{
 		case 1:
-			cout << "Ä¿µÄµØÖ·ÓĞÎÊÌâ" << endl;
+			cout << "ç›®çš„åœ°å€æœ‰é—®é¢˜" << endl;
 			break;
 		case 2:
-			cout << "Ô­µØÖ·ÓĞÎÊÌâ" << endl;
+			cout << "åŸåœ°å€æœ‰é—®é¢˜" << endl;
 
 			break;
 		case 3:
-			cout << "¿½±´¹ı³ÌÓĞÎÊÌâ" << endl;
+			cout << "æ‹·è´è¿‡ç¨‹æœ‰é—®é¢˜" << endl;
 
 			break;
 		default:

@@ -10,13 +10,13 @@ public:
 	{
 		m_a = 0;
 		m_b = 0;
-		cout << "0£¬0 ¹¹Ôì" << endl;
+		cout << "0ï¼Œ0 æž„é€ " << endl;
 	}
 	Test(int a, int b)
 	{
 		m_a = a;
 		m_b = b;
-		cout << "a = " << m_a << ", b = " << m_b << "¹¹Ôì " << endl;
+		cout << "a = " << m_a << ", b = " << m_b << "æž„é€  " << endl;
 	}
 
 	void setA(int a)
@@ -35,7 +35,7 @@ public:
 
 	~Test()
 	{
-		cout << "a = " << m_a << ", b = " << m_b << "Îö¹¹ " << endl;
+		cout << "a = " << m_a << ", b = " << m_b << "æžæž„ " << endl;
 	}
 private:
 	int m_a;
@@ -43,7 +43,7 @@ private:
 };
 
 
-//CÓïÑÔÖÐ
+//Cè¯­è¨€ä¸­
 void test1()
 {
 	int *p = (int*)malloc(sizeof(int));
@@ -51,7 +51,7 @@ void test1()
 	cout << *p << endl;
 	if (p != NULL) {
 		free(p);
-		//delete p; //delete ¿ÉÒÔÊÍ·ÅmallocµÄ¿ª±ÙµÄÄÚ´æ
+		//delete p; //delete å¯ä»¥é‡Šæ”¾mallocçš„å¼€è¾Ÿçš„å†…å­˜
 	}
 
 	int *array_p = (int*)malloc(sizeof(int)* 10);
@@ -70,31 +70,31 @@ void test1()
 
 	cout << " --------  " << endl;
 
-	Test *tp = (Test*)malloc(sizeof(Test)); //²»»áµ÷ÓÃ¶ÔÏóµÄ¹¹Ôìº¯Êý
+	Test *tp = (Test*)malloc(sizeof(Test)); //ä¸ä¼šè°ƒç”¨å¯¹è±¡çš„æž„é€ å‡½æ•°
 	//p(10, 20);
 	tp->setA(10);
-	tp->setB(20); //malloc³öÀ´µÄ¶ÔÏóÖ¸Õë£¬Ö»ÄÜ¹»Í¨¹ý³ÉÔ±º¯ÊýÀ´½øÐÐ³õÊ¼»¯
+	tp->setB(20); //mallocå‡ºæ¥çš„å¯¹è±¡æŒ‡é’ˆï¼Œåªèƒ½å¤Ÿé€šè¿‡æˆå‘˜å‡½æ•°æ¥è¿›è¡Œåˆå§‹åŒ–
 	tp->printT();
 
 	if (tp != NULL) {
-		free(tp); //²»»áµ÷ÓÃ¶ÔÏóµÄÎö¹¹
+		free(tp); //ä¸ä¼šè°ƒç”¨å¯¹è±¡çš„æžæž„
 	}
 }
 
-//malloc ºÍfree ÔÚ¶ÔÓÚÆÕÍ¨±äÁ¿ÊÇ¿ÉÒÔ»ìºÏÊ¹ÓÃµÄ£¬µ«ÊÇmallocºÍfreeÊÇº¯Êý£¬
-//new ºÍdelete ÊÇ²Ù×÷·û¡£²»ÊÇÒ»¸öº¯Êý¡£
+//malloc å’Œfree åœ¨å¯¹äºŽæ™®é€šå˜é‡æ˜¯å¯ä»¥æ··åˆä½¿ç”¨çš„ï¼Œä½†æ˜¯mallocå’Œfreeæ˜¯å‡½æ•°ï¼Œ
+//new å’Œdelete æ˜¯æ“ä½œç¬¦ã€‚ä¸æ˜¯ä¸€ä¸ªå‡½æ•°ã€‚
 
-//C++ÖÐµÄnew delete
+//C++ä¸­çš„new delete
 void test2()
 {
-	//new ÄÜ¹»Íê³ÉËùÓÐmallocµÄÐèÇó
-	int *p = new int; //ÔÚ¶ÑÉÏ¶¯Ì¬¿ª±Ù4¸ö×Ö½Ú
+	//new èƒ½å¤Ÿå®Œæˆæ‰€æœ‰mallocçš„éœ€æ±‚
+	int *p = new int; //åœ¨å †ä¸ŠåŠ¨æ€å¼€è¾Ÿ4ä¸ªå­—èŠ‚
 	*p = 10;
 	cout << *p << endl;
 
 	if (p != NULL) {
-		//delete p; //delete Ò»¸ö±äÁ¿
-		free(p); //ÓÃnew¿ª±ÙµÄÄÚ´æ£¬ freeÒ²ÄÜ¹»ÊÍ·Å¡£
+		//delete p; //delete ä¸€ä¸ªå˜é‡
+		free(p); //ç”¨newå¼€è¾Ÿçš„å†…å­˜ï¼Œ freeä¹Ÿèƒ½å¤Ÿé‡Šæ”¾ã€‚
 	}
 
 	cout << "-----" << endl;
@@ -108,16 +108,16 @@ void test2()
 	}
 
 	if (array_p != NULL) {
-		delete[]   array_p; //delete Ò»¸öÊý×é
+		delete[]   array_p; //delete ä¸€ä¸ªæ•°ç»„
 	}
 
 
 	cout << "-------" << endl;
-	//Test *tp = new Test(10, 20);//µ÷ÓÃÁËÓÐ²ÎÊýµÄ¹¹Ôìº¯Êý //new ÔÚ´´½¨Ò»¸ö¶ÔÏóµÄÊ±ºò£¬»áµ÷ÓÃ¶ÔÏóµÄ¹¹Ôìº¯Êý
-	Test *tp = new Test;//µ÷ÓÃÁËÎÞ²Î¹¹Ôìº¯Êý
+	//Test *tp = new Test(10, 20);//è°ƒç”¨äº†æœ‰å‚æ•°çš„æž„é€ å‡½æ•° //new åœ¨åˆ›å»ºä¸€ä¸ªå¯¹è±¡çš„æ—¶å€™ï¼Œä¼šè°ƒç”¨å¯¹è±¡çš„æž„é€ å‡½æ•°
+	Test *tp = new Test;//è°ƒç”¨äº†æ— å‚æž„é€ å‡½æ•°
 	tp->printT();
 	if (tp != NULL) {
-		delete tp; //deleteÔÚÊÍ·ÅÒ»¸ö¶ÔÏóÖ¸ÕëµÄÊ±ºò£¬»áµ÷ÓÃ¶ÔÏóÎö¹¹º¯Êý
+		delete tp; //deleteåœ¨é‡Šæ”¾ä¸€ä¸ªå¯¹è±¡æŒ‡é’ˆçš„æ—¶å€™ï¼Œä¼šè°ƒç”¨å¯¹è±¡æžæž„å‡½æ•°
 	}
 }
 

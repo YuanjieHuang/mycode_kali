@@ -10,7 +10,7 @@ public:
 	{
 		this->a = a;
 	}
-	virtual void print() //¸øÒ»¸ö³ÉÔ±º¯Êý ¶¨ÒåÎª Ðéº¯Êý¡£
+	virtual void print() //ç»™ä¸€ä¸ªæˆå‘˜å‡½æ•° å®šä¹‰ä¸º è™šå‡½æ•°ã€‚
 	{
 		cout << "Parent ::print() : a = " << a << endl;
 	}
@@ -27,9 +27,9 @@ public:
 		this->b = b;
 	}
 
-	//ÖØ¶¨Òå¸¸Ààº¯Êý£º ·¢ÉúÔÚ×ÓÀàºÍ¸¸ÀàÖ®¼ä
-	//µ±×ÓÀàÖØÐ´¸¸ÀàµÄ³ÉÔ±º¯Êý£¬Èç¹û¸¸ÀàÖÐÕâ¸öº¯Êý²»ÊÇÐéº¯Êý£¬ ÊÇº¯ÊýµÄÖØ¶¨Òå
-	//Èç¹û×ÓÀàÖØÐ´¸¸ÀàµÄ³ÉÔ±º¯Êý£¬ Èç¹û¸¸ÀàÖÐµÄÕâ¸öº¯ÊýÊÇ Ðéº¯Êý¡£ ÕâÊÇº¯ÊýµÄÖØÐ´¡£
+	//é‡å®šä¹‰çˆ¶ç±»å‡½æ•°ï¼š å‘ç”Ÿåœ¨å­ç±»å’Œçˆ¶ç±»ä¹‹é—´
+	//å½“å­ç±»é‡å†™çˆ¶ç±»çš„æˆå‘˜å‡½æ•°ï¼Œå¦‚æžœçˆ¶ç±»ä¸­è¿™ä¸ªå‡½æ•°ä¸æ˜¯è™šå‡½æ•°ï¼Œ æ˜¯å‡½æ•°çš„é‡å®šä¹‰
+	//å¦‚æžœå­ç±»é‡å†™çˆ¶ç±»çš„æˆå‘˜å‡½æ•°ï¼Œ å¦‚æžœçˆ¶ç±»ä¸­çš„è¿™ä¸ªå‡½æ•°æ˜¯ è™šå‡½æ•°ã€‚ è¿™æ˜¯å‡½æ•°çš„é‡å†™ã€‚
 	virtual void print()
 	{
 		cout << "Child: print b:" << b << endl;
@@ -52,30 +52,30 @@ private:
 };
 */
 
-//1999 ¿ÉÒÔÀûÓÃ¶àÌ¬µÄÌØÐÔÀ´µ÷ÓÃÎ´À´Ð´µÄ¶ÔÏóµÄ·½·¨¡£
+//1999 å¯ä»¥åˆ©ç”¨å¤šæ€çš„ç‰¹æ€§æ¥è°ƒç”¨æœªæ¥å†™çš„å¯¹è±¡çš„æ–¹æ³•ã€‚
 
-void myPrintFunc(Parent *p) //  ÈÃ¸¸ÀàÖ¸ÕëÖ¸Ïò×ÓÀà¶ÔÏóµÄÊ±ºò£¬
+void myPrintFunc(Parent *p) //  è®©çˆ¶ç±»æŒ‡é’ˆæŒ‡å‘å­ç±»å¯¹è±¡çš„æ—¶å€™ï¼Œ
 {
-	p->print();// ÔÙ´ËÊ± printº¯Êý ·¢ÉúÁË¶àÌ¬ÏÖÏó
+	p->print();// å†æ­¤æ—¶ printå‡½æ•° å‘ç”Ÿäº†å¤šæ€çŽ°è±¡
 }
 
 int main(void)
 {
 	Child c(10, 20);
-	c.print(); //µ÷ÓÃµÄ×ÓÀàµÄprint
+	c.print(); //è°ƒç”¨çš„å­ç±»çš„print
 
 	Parent p(100);
-	p.print(); //µ÷ÓÃµÄ¸¸ÀàµÄprint
+	p.print(); //è°ƒç”¨çš„çˆ¶ç±»çš„print
 
 	cout << "  -----  " << endl;
-	myPrintFunc(&p); //Ï£Íûµ÷ÓÃ¸¸ÀàµÄprint
+	myPrintFunc(&p); //å¸Œæœ›è°ƒç”¨çˆ¶ç±»çš„print
 
 	cout << " ------  " << endl;
-	myPrintFunc(&c); //Ï£Íûµ÷ÓÃ×ÓÀàµÄprint  //Parent* p = &c;  ¸¸ÀàÖ¸ÕëÖ¸Ïò×ÓÀà¶ÔÏó¡£
-								//±àÒëÆ÷ »á ²»¹ÜÄã´«µÝ½øÀ´µÄÊÇ¸¸Àà¶ÔÏó»¹ÊÇ×ÓÀà¶ÔÏó£¬ ¶¼»á¸øÄãµ÷ÓÃ¸¸Àà¡£
-								//±àÒëÆ÷×öÁËÒ»¸ö°²È«µÄ¾Ù´ë£¬ ¼´Ê¹Äã´«µÝÊÇ×ÓÀà
-								//±àÒëÆ÷Ò²ÈÏÎª µ÷ÓÃ¸¸ÀàµÄprint ÊÇ°²È«£¬ËûÄÜ¹»±£Ö¤¸¸ÀàµÄprintº¯ÊýÊÇÒ»¶¨´æÔÚµÄ¡£
-								//Ã»ÓÐÃ°ÏÕÈ¥µ÷ÓÃ×ÓÀàµÄprint
+	myPrintFunc(&c); //å¸Œæœ›è°ƒç”¨å­ç±»çš„print  //Parent* p = &c;  çˆ¶ç±»æŒ‡é’ˆæŒ‡å‘å­ç±»å¯¹è±¡ã€‚
+								//ç¼–è¯‘å™¨ ä¼š ä¸ç®¡ä½ ä¼ é€’è¿›æ¥çš„æ˜¯çˆ¶ç±»å¯¹è±¡è¿˜æ˜¯å­ç±»å¯¹è±¡ï¼Œ éƒ½ä¼šç»™ä½ è°ƒç”¨çˆ¶ç±»ã€‚
+								//ç¼–è¯‘å™¨åšäº†ä¸€ä¸ªå®‰å…¨çš„ä¸¾æŽªï¼Œ å³ä½¿ä½ ä¼ é€’æ˜¯å­ç±»
+								//ç¼–è¯‘å™¨ä¹Ÿè®¤ä¸º è°ƒç”¨çˆ¶ç±»çš„print æ˜¯å®‰å…¨ï¼Œä»–èƒ½å¤Ÿä¿è¯çˆ¶ç±»çš„printå‡½æ•°æ˜¯ä¸€å®šå­˜åœ¨çš„ã€‚
+								//æ²¡æœ‰å†’é™©åŽ»è°ƒç”¨å­ç±»çš„print
 	//Child2 c2;
 	//myPrintFunc(&c2);
 	

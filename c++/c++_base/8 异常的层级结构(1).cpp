@@ -107,7 +107,7 @@ public:
 		}
 	}
 private:
-	int len;//ÔªËØµÄ¸öÊý
+	int len;//å…ƒç´ çš„ä¸ªæ•°
 	int *space;
 };
 
@@ -126,31 +126,31 @@ int main(void)
 	}
 	catch (eSize &e) //eSize &e = eNagtive(len);
 	{
-		cout << "²¶»ñµ½Òì³£" << endl;
-		e.printErr();//·¢Éú¶àÌ¬
+		cout << "æ•èŽ·åˆ°å¼‚å¸¸" << endl;
+		e.printErr();//å‘ç”Ÿå¤šæ€
 	}
 
 #if 0
 	catch (eNagtive &e)
 	{
-		cout << "²¶»ñµ½eNagive Òì³£" << endl;
+		cout << "æ•èŽ·åˆ°eNagive å¼‚å¸¸" << endl;
 		e.printErr();
 	}
 	catch (eZero &e) {
-		cout << "²¶»ñµ½eZero Òì³£" << endl;
+		cout << "æ•èŽ·åˆ°eZero å¼‚å¸¸" << endl;
 		e.printErr();
 	}
 	catch (eTooBig &e) {
-		cout << "²¶»ñµ½eTooBig Òì³£" << endl;
+		cout << "æ•èŽ·åˆ°eTooBig å¼‚å¸¸" << endl;
 		e.printErr();
 	}
 	catch (eTooSmall &e) {
-		cout << "²¶»ñµ½eTooSmall Òì³£" << endl;
+		cout << "æ•èŽ·åˆ°eTooSmall å¼‚å¸¸" << endl;
 		e.printErr();
 	}
 	catch (...)
 	{
-		cout << "²¶»ñµ½Î´ÖªÒì³£" << endl;
+		cout << "æ•èŽ·åˆ°æœªçŸ¥å¼‚å¸¸" << endl;
 	}
 #endif
 
