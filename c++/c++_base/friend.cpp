@@ -10,7 +10,7 @@ class Point;
 class PointManager
 {
 public:
-	//Èç¹û½â¾öÑ­»·Ç°ÖÃÉùÃ÷µÄÎÊÌâ£¬Ó¦¸Ã½«º¯ÊıµÄÉùÃ÷ºÍº¯ÊıµÄ¶¨Òå·Ö¿ªĞ´¡£
+	//å¦‚æœè§£å†³å¾ªç¯å‰ç½®å£°æ˜çš„é—®é¢˜ï¼Œåº”è¯¥å°†å‡½æ•°çš„å£°æ˜å’Œå‡½æ•°çš„å®šä¹‰åˆ†å¼€å†™ã€‚
 	double PointDistance(Point & p1, Point &p2);
 };
 
@@ -38,12 +38,12 @@ public:
 		return this->y;
 	}
 
-	//PointÀàÈÏÎª È«¾Öº¯Êı£¨ÀàÍâ²¿µÄº¯Êı£©PointDistance ÊÇÎÒµÄÒ»¸ö¸çÃÇ¡£Õâ¸öº¯Êı
-	//¿ÉÒÔÊ¹ÓÃÎÒµÄË½ÓĞ³ÉÔ±
-	//ÉùÃ÷Ò»¸öÈ«¾Öº¯ÊıÎª×Ô¼ºµÄÓÑÔª
+	//Pointç±»è®¤ä¸º å…¨å±€å‡½æ•°ï¼ˆç±»å¤–éƒ¨çš„å‡½æ•°ï¼‰PointDistance æ˜¯æˆ‘çš„ä¸€ä¸ªå“¥ä»¬ã€‚è¿™ä¸ªå‡½æ•°
+	//å¯ä»¥ä½¿ç”¨æˆ‘çš„ç§æœ‰æˆå‘˜
+	//å£°æ˜ä¸€ä¸ªå…¨å±€å‡½æ•°ä¸ºè‡ªå·±çš„å‹å…ƒ
 	friend double PointDistance(Point & p1, Point &p2);
 
-	//ÉùÃ÷Ò»¸ö ÆäËûÀàµÄ³ÉÔ±º¯ÊıÎª×Ô¼ºµÄÓÑÔª
+	//å£°æ˜ä¸€ä¸ª å…¶ä»–ç±»çš„æˆå‘˜å‡½æ•°ä¸ºè‡ªå·±çš„å‹å…ƒ
 	friend double PointManager::PointDistance(Point & p1, Point &p2); 
 
 private:
@@ -67,8 +67,8 @@ double PointManager::PointDistance(Point & p1, Point &p2)
 
 
 
-//1 Í¨¹ıÈ«¾Ö·½Ê½Ğ´Ò»¸öÁÁµãÖ®¼äµÄ¾àÀë
-//Èç¹û·¢ÏÖÓĞÒ»¸ö·½Ê½ ÊÇÈ«¾ÖµÄ²»ÊÇÀà×Ô¼ºµÄ³ÉÔ±º¯Êı
+//1 é€šè¿‡å…¨å±€æ–¹å¼å†™ä¸€ä¸ªäº®ç‚¹ä¹‹é—´çš„è·ç¦»
+//å¦‚æœå‘ç°æœ‰ä¸€ä¸ªæ–¹å¼ æ˜¯å…¨å±€çš„ä¸æ˜¯ç±»è‡ªå·±çš„æˆå‘˜å‡½æ•°
 double PointDistance(Point & p1, Point &p2)
 {
 	//int dd_x = p1.getX() - p2.getX();
@@ -84,11 +84,11 @@ int main(void)
 	Point p1(1, 2);
 	Point p2(0, 0);
 
-	cout << "Á½µãÖ®¼äµÄ¾àÀëÊÇ " << PointDistance(p1, p2) << endl;
+	cout << "ä¸¤ç‚¹ä¹‹é—´çš„è·ç¦»æ˜¯ " << PointDistance(p1, p2) << endl;
 
 
 	PointManager pm;
-	cout << "Á½µãÖ®¼äµÄ¾àÀëÊÇ " << pm.PointDistance(p1, p2) << endl;
+	cout << "ä¸¤ç‚¹ä¹‹é—´çš„è·ç¦»æ˜¯ " << pm.PointDistance(p1, p2) << endl;
 
 
 	

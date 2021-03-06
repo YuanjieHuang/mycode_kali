@@ -22,10 +22,10 @@ public:
 };
 
 
-class MyAutoPtr //¶¨ÒåÒ»¸öÖ¸ÏòAÀàµÄÖÇÄÜÖ¸Õë
+class MyAutoPtr //å®šä¹‰ä¸€ä¸ªæŒ‡å‘Aç±»çš„æ™ºèƒ½æŒ‡é’ˆ
 {
 public:
-	//ÓĞ²ÎÊıµÄ¹¹Ôìº¯Êı£¬  ½«AµÄ¶ÔÏóµÄµØÖ·  ½ÓÊÕ¹ıÀ´¡£
+	//æœ‰å‚æ•°çš„æ„é€ å‡½æ•°ï¼Œ  å°†Açš„å¯¹è±¡çš„åœ°å€  æ¥æ”¶è¿‡æ¥ã€‚
 	MyAutoPtr(A* ptr) //ptr = new A;
 	{
 		this->m_p = ptr;
@@ -49,16 +49,16 @@ public:
 	}
 
 private:
-	A* m_p;//Ö¸ÏòA¶ÔÏóµÄµØÖ·¡£
+	A* m_p;//æŒ‡å‘Aå¯¹è±¡çš„åœ°å€ã€‚
 };
 
 
-void test1()
-{
-	//Ö»ÄÜÖ¸Õë²»ĞèÒªÎÒÃÇÊÖ¶¯ deleteÕâ¸ö¿Õ¼ä
-	auto_ptr<A>   auto_p(new A);    //ÖÇÄÜÖ¸Õë¡£
-	auto_p->func();
-}
+// void test1()
+// {
+// 	//åªèƒ½æŒ‡é’ˆä¸éœ€è¦æˆ‘ä»¬æ‰‹åŠ¨ deleteè¿™ä¸ªç©ºé—´
+// 	auto_ptr<A>   auto_p(new A);    //æ™ºèƒ½æŒ‡é’ˆã€‚
+// 	auto_p->func();
+// }
 
 void test2()
 {
@@ -81,7 +81,7 @@ void test2()
 
 	(*auto_p).func();   //(*m_p).func();
 
-	//Ïú»Ùauto_p   ¾Í»áµ÷ÓÃauto_p Îö¹¹º¯Êı
+	//é”€æ¯auto_p   å°±ä¼šè°ƒç”¨auto_p ææ„å‡½æ•°
 }
 
 
@@ -109,13 +109,13 @@ int main(void)
 	
 	test2();
 
-	string str1 = "12312321";
+	string str1 = "12312321+";
 	string str2 = str1;
 	string str3;
 
 	str3 = str1 + str2;
 
-	cout << str1 << endl;
+	cout << str3 << endl;
 
 
 	return 0;

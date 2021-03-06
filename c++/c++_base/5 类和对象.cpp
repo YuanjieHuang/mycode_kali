@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//¶¨ÒåÒ»¸öÀà
+//å®šä¹‰ä¸€ä¸ªç±»
 struct  Hero
 {
 public:
@@ -12,38 +12,38 @@ public:
 
 };
 
-//¶¨ÒåÒ»¸öÀàµÄ¹Ø¼ü×Ö
-class AdvHero //¶¨ÒåÒ»¸öÀàÃû
+//å®šä¹‰ä¸€ä¸ªç±»çš„å…³é”®å­—
+class AdvHero //å®šä¹‰ä¸€ä¸ªç±»å
 {
-public: //·ÃÎÊ¿ØÖÆ·û  ·ÃÎÊÈ¨ÏŞ
+public: //è®¿é—®æ§åˆ¶ç¬¦  è®¿é—®æƒé™
 	int sex;
-	char name[64]; //³ÉÔ±±äÁ¿
+	char name[64]; //æˆå‘˜å˜é‡
 
 
-	//³ÉÔ±º¯Êı
+	//æˆå‘˜å‡½æ•°
 	void printHero()
 	{
-		cout << "ĞÔ±ğ:" << sex << endl;
-		cout << "ĞÕÃû" << name << endl;
+		cout << "æ€§åˆ«:" << sex << endl;
+		cout << "å§“å" << name << endl;
 	}
 };
 
-//¶¨ÒåÒ»¸öanimalÀà
+//å®šä¹‰ä¸€ä¸ªanimalç±»
 class Animal{
 public:
 	char color[64];
 	char kind[64];
 
-	//ÓµÓĞĞ´×ÖµÄ³ÉÔ±º¯Êı
+	//æ‹¥æœ‰å†™å­—çš„æˆå‘˜å‡½æ•°
 	void write()
 	{
-		cout << kind << "¿ªÊ¼Ğ´×ÖÁË" << endl;
+		cout << kind << "å¼€å§‹å†™å­—äº†" << endl;
 	}
 
-	//ÓµÓĞÅÜ²½µÄ·½·¨
+	//æ‹¥æœ‰è·‘æ­¥çš„æ–¹æ³•
 	void run()
 	{
-		cout << kind << "ÅÜ²½ÁË" << endl;
+		cout << kind << "è·‘æ­¥äº†" << endl;
 	}
 };
 
@@ -55,30 +55,30 @@ int main(void)
 	strcpy(chunBro.name, "chunBro");
 
 
-	AdvHero gailun; //Í¨¹ıAdvHeroÀà ´´½¨Ò»¸ö¶ÔÏó¡£
+	AdvHero gailun; //é€šè¿‡AdvHeroç±» åˆ›å»ºä¸€ä¸ªå¯¹è±¡ã€‚
 	gailun.sex = 1;
-	strcpy(gailun.name, "¸ÇÂ×");
+	strcpy(gailun.name, "ç›–ä¼¦");
 
 
 	/*
-	cout << "ĞÔ±ğ" << gailun.sex << endl;
-	cout << "ĞÕÃû:" << gailun.name << endl;
+	cout << "æ€§åˆ«" << gailun.sex << endl;
+	cout << "å§“å:" << gailun.name << endl;
 	*/
 
-	gailun.printHero();//Í¨¹ı¶ÔÏó Ö±½Óµ÷ÓÃ³ÉÔ±º¯Êı
+	gailun.printHero();//é€šè¿‡å¯¹è±¡ ç›´æ¥è°ƒç”¨æˆå‘˜å‡½æ•°
 
 
 	Animal dog;
 	Animal sheep;
 
-	strcpy(dog.kind, "¹·");
-	strcpy(dog.color, "»ÆÉ«");
+	strcpy(dog.kind, "ç‹—");
+	strcpy(dog.color, "é»„è‰²");
 
 	dog.run();
 	dog.write();
 
-	strcpy(sheep.kind, "Ñò");
-	strcpy(sheep.color, "°×");
+	strcpy(sheep.kind, "ç¾Š");
+	strcpy(sheep.color, "ç™½");
 
 	sheep.run();
 	sheep.write();

@@ -9,7 +9,7 @@ struct Teacher
 	char name[64];
 };
 
-void printT(Teacher t) //¾Ö²¿ÁÙÊ±±äÁ¿£¬  »á·¢ÉúÖµ¿½±´
+void printT(Teacher t) //å±€éƒ¨ä¸´æ—¶å˜é‡ï¼Œ  ä¼šå‘ç”Ÿå€¼æ‹·è´
 {
 	cout << "id = " << t.id << endl;
 	cout << "name = " << t.name << endl;
@@ -23,9 +23,9 @@ void printT2(Teacher *t)
 	t->id = 100;
 }
 
-void printT3(Teacher &t)//Teacher & t = t1;  t ¾ÍÊÇt1µÄÒ»¸ö±ğÃû 
+void printT3(Teacher &t)//Teacher & t = t1;  t å°±æ˜¯t1çš„ä¸€ä¸ªåˆ«å 
 
-//ÔÚÀí½âÒıÓÃµÄÊ±ºò£¬  ¾Íµ±±äÁ¿µÄ±ğÃûÀ´Àí½â¡£
+//åœ¨ç†è§£å¼•ç”¨çš„æ—¶å€™ï¼Œ  å°±å½“å˜é‡çš„åˆ«åæ¥ç†è§£ã€‚
 {
 	cout << "id = " << t.id << endl;
 	cout << "name = " << t.name << endl;
@@ -33,7 +33,7 @@ void printT3(Teacher &t)//Teacher & t = t1;  t ¾ÍÊÇt1µÄÒ»¸ö±ğÃû
 }
 
 
-//½»»»²»³É¹¦
+//äº¤æ¢ä¸æˆåŠŸ
 void my_swap01(int a, int b)
 {
 	int temp = a;

@@ -154,12 +154,12 @@ void test6()
 int main(void)
 {
 	
-	//test3();
-	//test4();
+	test3();
+	test4();
 
-	//func();
+	func();
 
-	//test5();
+	test5();
 	test6();
 
 
