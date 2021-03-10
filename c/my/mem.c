@@ -1,10 +1,18 @@
     #include <stdio.h>
+    #include <stddef.h>
     char *str1 = "c.biancheng.net";  //字符串在常量区，str1在全局数据区
     int n;  //全局数据区
     char* func(){
         char *str = "C语言中文网";  //字符串在常量区
         return str;
     }
+    struct s
+    {
+       char a;
+       int b[2];
+       float c;
+    };
+    
 
     // int  __attribute__((cdecl)) max(int m, int n)
     // {
@@ -30,5 +38,6 @@
         //  char strStackOver[1024*1024*1024] = {0};
             int m, n;
         printf("%#X, %#X\n", m, n);
+        printf("offsetof(struct s,c):%d,sieof(s):%d\n", offsetof(struct s,c), sizeof(struct s));
         return 0;
     }

@@ -35,6 +35,14 @@
         "limits": "cpp",
         "new": "cpp",
         "optional": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "math.h": "c",
+        "string": "cpp",
+        "sched.h": "c",
+        "time.h": "c",
+        "unistd.h": "c",
+        "cstdlib": "c",
+        "compare": "cpp",
+        "valarray": "cpp"
     }
 }

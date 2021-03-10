@@ -11,6 +11,18 @@
 #define MaxNum 20//图最大顶点数
 #define MaxValue 65535
 
+#define MAX_VERTEX_NUM 20
+typedef struct EdgeNode
+{
+    int adjvex;
+    struct Node * next;
+}EdgeNode;
+typedef struct VertexNode
+{
+    int     data;
+    EdgeNode * first;
+}VertexNode;
+
 typedef struct
 {
     char Vertex[MaxNum];                //保存顶点信息
