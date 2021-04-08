@@ -51,5 +51,11 @@ int main(void)
 	cout << "bb = " << bb << endl;
 	cout << "&bb =" << &bb << endl;
 
+	// 2、数组的引用：对数组名取一个别名
+	int array[2]={1, 2};
+	int (&a)[2]= array; //a为引用，引用对象为array
+	a[0]=3;
+	cout<<array[0]<<endl;
+
 	return 0;
 }
