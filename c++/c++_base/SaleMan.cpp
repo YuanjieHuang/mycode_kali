@@ -14,23 +14,23 @@ SaleMan::~SaleMan()
 
 void SaleMan::init()
 {
-	cout << "ÇëÊäÈë ÏúÊÛÈËÔ±µÄĞÕÃû" << endl;
+	cout << "è¯·è¾“å…¥ é”€å”®äººå‘˜çš„å§“å" << endl;
 	cin >> name;
 
-	this->salePersent = 0.04; //°´4%  Ìá³É
+	this->salePersent = 0.04; //æŒ‰4%  ææˆ
 }
 
-//µÃµ½Ô±¹¤µÄĞ½Ë®µÄ·½·¨
+//å¾—åˆ°å‘˜å·¥çš„è–ªæ°´çš„æ–¹æ³•
 void SaleMan::getPay()
 {
-	cout << "ÇëÊäÈë¸ÃÔ±¹¤±¾ÔÂµÄÏúÊÛ¶î" << endl;
+	cout << "è¯·è¾“å…¥è¯¥å‘˜å·¥æœ¬æœˆçš„é”€å”®é¢" << endl;
 	cin >> saleAmount;
 
-	//¼ÆËãĞ½Ë®
+	//è®¡ç®—è–ªæ°´
 	this->salary = this->saleAmount * this->salePersent;
 }
 
-//Ô±¹¤µÄÉı¼¶·½·¨
+//å‘˜å·¥çš„å‡çº§æ–¹æ³•
 void SaleMan::uplevel(int addLevel)
 {
 	this->level += addLevel;

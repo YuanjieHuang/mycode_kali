@@ -9,7 +9,6 @@
 1.其中声明私有数据成员cpu、ram、carom，声明公有成员函数run、stop，可在其中输出提示信息
 2.在main（）函数中声明一个Computer类的对象，调用其成员函数
 */
-#include "pch.h"
 #include <iostream>
 using namespace std;
 

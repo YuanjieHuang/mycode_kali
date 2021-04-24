@@ -1,5 +1,3 @@
-// ConsoleApplication1.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
 /*
 枚举类定义
 1.语法形式
@@ -22,7 +20,8 @@ enum class 枚举类型名：底层类型 {枚举值列表};
 
 #include <iostream>
 using namespace std;
-
+// 在C++11新标准中推出了一种新的枚举定义办法叫做枚举类，也称作强类型枚举。
+// enum class 枚举类型名: 底层类型 {枚举值列表};
 enum class Side{Right,Left};
 enum class Thing{wrong,Right};	//不冲突,在一般类里面相同的名字会发生冲突
 
@@ -31,7 +30,7 @@ int main()
 
     //std::cout << "Hello World!\n"; 
 	Side s = Side::Right;
-	Thing w = Thing::wrong;
+	Thing w = Thing::wrong;//使用Type的枚举值wrong：
 	cout << (s == w) << endl;  //编译错误，无法直接比较不同的枚举类
 	return 0;	
 }
