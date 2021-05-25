@@ -236,7 +236,28 @@ int map_emplace_hint()
 }
 
 // 和 map 容器的区别在于，multimap 容器中可以同时存储多（≥2）个键相同的键值对。
+std::multimap<std::string, std::string>mymultimap;
+//借助 pair 类模板的构造函数来生成各个pair类型的键值对
+multimap<string, string>mymultimap{
+    pair<string,string>{"C语言教程", "http://c.biancheng.net/c/"},
+    pair<string,string>{ "Python教程", "http://c.biancheng.net/python/"},
+    pair<string,string>{ "STL教程", "http://c.biancheng.net/stl/"}
+};
 
+//调用 make_pair() 函数，生成键值对元素
+//创建并初始化 multimap 容器
+multimap<string, string>mymultimap{
+    make_pair("C语言教程", "http://c.biancheng.net/c/"),
+    make_pair("Python教程", "http://c.biancheng.net/python/"),
+    make_pair("STL教程", "http://c.biancheng.net/stl/")
+};
+//创建一个会返回临时 multimap 对象的函数
+multimap<string, string> dismultimap() {
+    multimap<string, string>tempmultimap{ {"C语言教程", "http://c.biancheng.net/c/"},{"Python教程", "http://c.biancheng.net/python/"} };
+    return tempmultimap;
+}  
+//调用 multimap 类模板的移动构造函数创建 newMultimap 容器
+multimap<string, string>newmultimap(dismultimap());
 int multimap_func()
 {
     //创建并初始化 multimap 容器

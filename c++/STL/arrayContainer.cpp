@@ -3,6 +3,12 @@
 #include <array>
 #include <cstring>
 using namespace std;
+void array_construct()
+{
+    std::array<double, 10> values;//各个元素的值是不确定的（array 容器不会做默认初始化操作）。
+    std::array<double, 10> values {};//容器中所有的元素都会被初始化为 0.0。
+    std::array<double, 10> values {0.5,1.0,1.5,2.0};//这里只初始化了前 4 个元素，剩余的元素都会被初始化为 0.0
+}
 int array_get()
 {
     std::array<int, 4> values{};

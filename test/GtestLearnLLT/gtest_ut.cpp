@@ -1,8 +1,8 @@
-extern "C" {
+// extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include "func.h"
-}
+// }
 
 #include <limits.h>
 #include <mockcpp/mockcpp.hpp>
@@ -102,3 +102,11 @@ TEST_F(GtestUt, ut_add_05)
     ret = test_stub_func();
     EXPECT_EQ(ret, 1011);
 }
+TEST_F(GtestUt, my_div)
+{
+    int ret;
+
+    ret = test_my_div(6, 3);
+    EXPECT_EQ(2, ret);
+}
+

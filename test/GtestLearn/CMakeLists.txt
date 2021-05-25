@@ -8,6 +8,7 @@ set(SOURCE_FILES
     main.c
     include/func.h
     func.c
+    A.cpp
     include/ex_func.h
     include/ex_func.c)
 

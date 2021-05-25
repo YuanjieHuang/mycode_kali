@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 /*
 在C语言中，有两种方式表示字符串：
@@ -21,8 +22,19 @@ int str_define(){
     return 0;
 }
 
-int str_visit(){
+extern "C" int str_visit(){
+    typedef class Test{
+        Test(string s):name(s)
+        {}
+        string name;
+    }Test;
+    // string str("huang");
+    // Test test(str);
+    // test.name = s;
     string s = "1234567890";
+    vector<string> v;
+    v.emplace_back(s);
+    cout<<*v.begin()<<endl;
     for(int i=0,len=s.length(); i<len; i++){
         cout<<s[i]<<" ";
     }
@@ -32,20 +44,20 @@ int str_visit(){
     return 0;
 }
 
-int str_append(){
-    string s1 = "first ";
-    string s2 = "second ";
-    char *s3 = "third ";
-    char s4[] = "fourth ";
-    char ch = '@';
-    string s5 = s1 + s2;
-    string s6 = s1 + s3;
-    string s7 = s1 + s4;
-    string s8 = s1 + ch;
+// int str_append(){
+//     string s1 = "first ";
+//     string s2 = "second ";
+//     char *s3 = "third ";
+//     char s4[] = "fourth ";
+//     char ch = '@';
+//     string s5 = s1 + s2;
+//     string s6 = s1 + s3;
+//     string s7 = s1 + s4;
+//     string s8 = s1 + ch;
 
-    cout<<s5<<endl<<s6<<endl<<s7<<endl<<s8<<endl;
-    return 0;
-}
+//     cout<<s5<<endl<<s6<<endl<<s7<<endl<<s8<<endl;
+//     return 0;
+// }
 
 int str_insert(){
     string s1, s2, s3;
@@ -113,7 +125,7 @@ int main()
 {
     // str_define();
     str_visit();
-    str_append();
+    // str_append();
     // str_insert();
     // str_erase();
     // get_substr();

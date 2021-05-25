@@ -1,6 +1,9 @@
 #include <string.h> 
 #include <stdio.h> 
+/*
+已知一棵二叉树的根节点指针为T，求该二叉树叶节点个数？
 
+*/
 typedef struct BiTNode{
     char data;   /*结点的数据域*/
     struct BiTNode *lchild , *rchild;  /*指向左孩子和右孩子*/

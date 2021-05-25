@@ -207,7 +207,7 @@ int main()
 	CMultiDelegate onclick;
 	onclick += newDelegate(Say);
  
-	// onclick += newDelegate(&A(),&A::Say);   //注意这里不能传入 new A(), 因为会内存泄漏。
+	onclick += newDelegate(&A(),&A::Say);   //注意这里不能传入 new A(), 因为会内存泄漏。
  
 	onclick();
 }

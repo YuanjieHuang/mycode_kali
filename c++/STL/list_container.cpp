@@ -1,8 +1,8 @@
-    #include <iostream>
-    #include <list>
-    #include <array>
-    #include <forward_list>
-    using namespace std;
+#include <iostream>
+#include <list>
+#include <array>
+#include <forward_list>
+using namespace std;
 
 int list_insert()
 {

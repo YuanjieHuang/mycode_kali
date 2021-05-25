@@ -1,5 +1,10 @@
 #include "stdio.h"
-
+/*
+求C位于二叉树中的层数？
+        A
+    B       E
+  C    D       F
+*/
 typedef struct BiTNode{
     char data;   /*结点的数据域*/
     struct BiTNode *lchild , *rchild;  /*指向左孩子和右孩子*/

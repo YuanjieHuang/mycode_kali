@@ -73,7 +73,7 @@ bool LinkIntersect(link * L1, link * L2) {
     if (num1 < num2) {
         plong = L2;
         pshort = L1;
-        step = num2 = num1;
+        step = num2 - num1;
     }
     //在plong链表中找到和pshort等长度的子链表
     temp = plong;

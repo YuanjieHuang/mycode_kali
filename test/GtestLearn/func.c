@@ -54,3 +54,9 @@ int test_stub_func()
     printf("get extern value succeed, ex value %d\n", a);
     return ret;
 }
+
+int test_my_div(int a, int b)
+{
+    printf("a:%d/b:%d=%c ",a, b, a/b);
+    return a/b;
+}

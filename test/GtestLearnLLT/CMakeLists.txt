@@ -25,7 +25,8 @@ set(SRC_FILES
         # ${CMAKE_CURRENT_SOURCE_DIR}/../GtestLearn/main.c
         ${CMAKE_CURRENT_SOURCE_DIR}/stubs/my_stubs.c
         ${THIRD_PARTY_PATH}/googlemock/src/gmock-all.cc
-        gtest_ut.cpp
+        gtest_ut.cpp 
+        A_test.cpp
         main.cpp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
