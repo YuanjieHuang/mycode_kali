@@ -11,7 +11,7 @@ using namespace std;
 class A
 {
 public:
-	A(int a=0,int b=0):a(a),b(b){}
+	A(int a=1,int b=0):a(a),b(b){}
 	void print()
 	{
 		cout<<"a="<<a<<"  "<<"b="<<b<<endl;
@@ -26,9 +26,9 @@ int test_non_static_mem_data(void)
 	A ap;
 	ap.print();//输出a和b的默认值
 	int A::*aptr=&A::a;//aptr为A这个类中，a的成员指针
-	int A::*bptr=&A::b;////aptr为A这个类中，b的成员指针
-	printf("aptr=%d,bptr=%d\n",aptr,bptr);//输出两个指针值
-	ap.*bptr=5;//通过成员指针修改成员的值
+	int A::*bp=&A::b;////aptr为A这个类中，b的成员指针
+	printf("aptr=%d,bp=%d\n",aptr,bp);//输出两个指针值
+	ap.*bp=5;//通过成员指针修改成员的值
 	ap.print();
 	return 0;
 }
@@ -53,12 +53,14 @@ typedef void (B::*pFunB)(void);
 int test_static_mem_data(void)
 {
 	const int *p=&B::a;
-	printf("p=%p\n",p);
+	printf("p address=%p\n",p);
+	printf("p value=%d\n",*p);
 	return 0;
 }
 
 int main()
 {
+	test_non_static_mem_data();
     test_static_mem_data();
     return 0;
 }

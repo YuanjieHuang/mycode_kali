@@ -23,10 +23,35 @@ int io_construct()
         oFile.close();
     return 0;
 }
+int read_write_txt()
+{
+    // int x,sum=0;
+    string x;
+    ifstream srcFile("in.txt", ios::in); //以文本模式打开in.txt备读
+    if (!srcFile) { //打开失败
+        cout << "error opening source file." << endl;
+        return 0;
+    }
+    ofstream destFile("out.txt", ios::out); //以文本模式打开out.txt备写
+    if (!destFile) {
+        srcFile.close(); //程序结束前不能忘记关闭以前打开过的文件
+        cout << "error opening destination file." << endl;
+        return 0;
+    }
+    //可以像用cin那样用ifstream对象
+    while (srcFile >> x) {
+        // sum += x;
+        //可以像 cout 那样使用 ofstream 对象
+        destFile << x << " ";
+    }
+    // cout << "sum：" << sum << endl;
+    destFile.close();
+    srcFile.close();
+    return 0;
+}
 
 int outFile_fail()
 {
-    const char *url="http://c.biancheng.net/cplus/";
     ofstream outFile;
     outFile.close();
     if (outFile.fail()) {
@@ -50,7 +75,7 @@ int ofstream_flush()
     //刷新输出流缓冲区
     destFile.flush();
     //程序抛出一个异常
-    throw "Exception";
+    // throw "Exception";
     //关闭打开的 out.txt 文件
     destFile.close();
     return 0;
@@ -188,7 +213,15 @@ int seekg_bin_search()
 
 int main()
 {
-    ofstream_write();
-    ifstream_read();
+    read_write_txt();
+    // io_construct();
+    // outFile_fail();
+    // ofstream_write();
+    // ofstream_flush();
+    // ifstream_read();
+    // f_put();
+    // f_get();
+    // f_getline();
+    // seekg_bin_search();
     return 0;
 }

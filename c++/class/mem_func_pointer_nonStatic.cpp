@@ -32,23 +32,23 @@ int main00(int argc, const char * argv[])
 }
 
 
-int test(int a)
+int minus_1(int a)
 {
     return a-1;
 }
-int test2(int (*fun)(int),int b)
+int test2(int (*fun)(int),int b)//(*fun)(int)如何带如参？
 {
     
     int c = fun(10)+b;
     return c;
 }
  
-int main01(int argc, const char * argv[])
+int main01()
 {
     
     typedef int (*fp)(int a);
-    fp f = test;
-    cout<<test2(f, 1)<<endl; // 调用 test2 的时候，把test函数的地址作为参数传递给了 test2
+    fp f = minus_1;
+    cout<<test2(f, 2)<<endl; // 调用 test2 的时候，把test函数的地址作为参数传递给了 test2
     return 0;
 }
 
@@ -56,7 +56,7 @@ int main01(int argc, const char * argv[])
 class A
 {
     public:
-        A(int aa = 0):a(aa){}
+        A(int aa = 3):a(aa){}
  
         ~A(){}
  
@@ -104,7 +104,8 @@ class B:public A
  
 int main(void)
 {
-    A a;
+    main01();
+    A a(1);
     B b;
     void (A::*ptr)(int) = &A::setA;
     A* pa = &a;
@@ -113,20 +114,27 @@ int main(void)
     printf("A::set(): %p\n", &A::setA);
 
     //对于虚函数， 返回其在虚函数表的偏移位置
-    printf("B::print(): %p\n", &A::print);
-    printf("B::print(): %p\n", &A::printa);
+    printf("A::print(): %p\n", &A::print);
+    printf("A::printa(): %p\n", &A::printa);
+    printf("B::print(): %p\n", &B::print);
+    printf("B::printa(): %p\n", &B::printa);
  
     a.print();
+    b.print();
     a.setA(10);
     a.print();
+    b.print();
     a.setA(100);
     a.print();
+    b.print();
     
     // 使用 .* (实例对象)或者 ->*（实例对象指针）调用类成员函数指针所指向的函数 
     //对于指向类成员函数的函数指针，引用时必须传入一个类对象的this指针，所以必须由类实体调用
     (pa->*ptr)(1000);
     a.print();
+    b.print();
     (a.*ptr)(10000);
     a.print();
+    b.print();
     return 0;
 }

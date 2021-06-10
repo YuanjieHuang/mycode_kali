@@ -42,6 +42,7 @@ extern "C" int str_visit(){
     s[5] = '5';
     cout<<s<<endl;
     return 0;
+    vector
 }
 
 // int str_append(){

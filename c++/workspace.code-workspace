@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../../Bilibili-plus"
+		},
+		{
+			"path": "../../DesignPattern"
 		}
 	],
 	"settings": {
@@ -94,7 +97,12 @@
 			"cinttypes": "cpp",
 			"typeindex": "cpp",
 			"variant": "cpp",
-			"pthread_alloc": "cpp"
+			"pthread_alloc": "cpp",
+			"hash_map": "cpp",
+			"hash_set": "cpp",
+			"slist": "cpp",
+			"common.h": "c",
+			"dlfcn.h": "c"
 		}
 	}
 }
