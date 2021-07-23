@@ -62,6 +62,5 @@ main()
         sum = sum + (c-48) * pow(2,i);  /*转换为十进制*/
     }
     printf("Decimal is %d\n",sum);
-    getche();
 }
 

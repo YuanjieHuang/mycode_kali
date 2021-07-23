@@ -78,6 +78,10 @@
         "cfenv": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "pthread.h": "c",
+        "climits": "cpp",
+        "stddef.h": "c",
+        "string.h": "c"
     }
 }

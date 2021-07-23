@@ -11,6 +11,7 @@
 
 #define TypeA 100
 #define TypeB 200
+#define SERVER 2
 
 #define LEN (sizeof(MSG) - sizeof(long))
 
@@ -32,13 +33,13 @@ int main()
 		perror("fail to ftok");
 		exit(-1);
 	}
-
+	
 	if ((msgid = msgget(key, 0666|IPC_CREAT)) < 0)
 	{
 		perror("fail to msgget");
 		exit(-1);
 	}
-
+	printf("key:%d msgid:%d\n",key, msgid);
 	if ((pid = fork()) < 0)
 	{
 		perror("fail to fork");
@@ -60,7 +61,7 @@ int main()
 	}
 	else  // send message
 	{
-		buf.mtype = TypeA;
+		buf.mtype = SERVER;
 		while ( 1 )
 		{
 			printf("send to clientA : ");

@@ -36,6 +36,5 @@ main()
    BiTree T = NULL;  /*最开始T指向空*/
    CreatBiTree(&T);  /*创建二叉树*/
    PreOrderTraverse(T,level); /*遍历二叉树，找到包含D字符结点位于二叉树中的层数*/
-   getche();
 }
 

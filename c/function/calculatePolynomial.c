@@ -14,7 +14,7 @@ double polynomial1D(double a[], int n, double x)
 
 void polynomial_mul(double A[], double B[], int n, double R[], int k)
 {
-    int i, j;
+    int i, j, m;
     for(i=0; i<k; i++)                  //初始化
     {
         R[i] = 0.0;

@@ -102,7 +102,12 @@
 			"hash_set": "cpp",
 			"slist": "cpp",
 			"common.h": "c",
-			"dlfcn.h": "c"
+			"dlfcn.h": "c",
+			"string.h": "c",
+			"malloc.h": "c",
+			"io.h": "c",
+			"signal.h": "c",
+			"elf.h": "c"
 		}
 	}
 }

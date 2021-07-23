@@ -60,6 +60,5 @@ main()
     for(i=0;i<len;i++)
         printf("%d ",Sqlist[i]);            /*输出顺序表中的所有元素*/
     printf("\nThe spare length is %d\n",MaxSize - len);     /*显示表中的剩余空间*/
-    getche();
 }
 

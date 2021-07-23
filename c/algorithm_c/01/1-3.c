@@ -98,6 +98,5 @@ main()
       q=q->next;
     }
     destroyLinkList(&l);  /*释放掉该链表*/
-    getche();
 }
 

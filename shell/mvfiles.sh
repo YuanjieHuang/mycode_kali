@@ -1,6 +1,4 @@
 #!/bin/bash
-#:>>!
-#function arr("01" "02" "03" )
 CUR_DIR=$(cd `dirname $0` ;pwd)
 path=$CUR_DIR/..
 echo $path

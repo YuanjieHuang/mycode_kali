@@ -31,15 +31,18 @@ aux_source_directory(../AccountMangerTest/source AccountMangerTest)
 aux_source_directory(../simpleTest/ simpleTest)
 set(SRC_FILES
 ${THIRD_PARTY_PATH}/googlemock/src/gmock-all.cc
-${CMAKE_CURRENT_SOURCE_DIR}/../GtestLearn/func.c
-${CMAKE_CURRENT_SOURCE_DIR}/../GtestLearn/ex_func.c
+# ${CMAKE_CURRENT_SOURCE_DIR}/../GtestLearn/func.c
+# ${CMAKE_CURRENT_SOURCE_DIR}/../GtestLearn/ex_func.c
 # ${CMAKE_CURRENT_SOURCE_DIR}/../GtestLearn/main.c
 # ${CMAKE_CURRENT_SOURCE_DIR}/stubs/my_stubs.c
-${CMAKE_CURRENT_SOURCE_DIR}/../../c/algorithm_c/algorithm/sort.c
-        gtest_ut.cpp gmock_test.cpp
+# ${CMAKE_CURRENT_SOURCE_DIR}/../../c/algorithm_c/algorithm/sort.c
+        # gtest_ut.cpp 
+        gmock_test.cpp
+        A_test.cpp
+        # key_spy.cpp
         main.cpp
-        ${AccountMangerTest}
-        ${simpleTest}
+        # ${AccountMangerTest}
+        # ${simpleTest}
         )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")

@@ -1,5 +1,4 @@
 #include "stdio.h"
-#include "conio.h"
 #define MaxSize 10
 typedef int ElemType ;  /*将int定义为ElemType*/
 
@@ -66,6 +65,5 @@ if(i<1||i>L->length) exit(0);
     printf("\nDelete the fifth element\n");
     for(i=0;i<l.length;i++)       /*打印出删除后的结果*/
         printf("%d ",l.elem[i]);
-   getche();
 }
 

@@ -12,6 +12,7 @@
 
 #define TypeA 100
 #define TypeB 200
+#define SERVER 2
 
 #define LEN (sizeof(MSG) - sizeof(long))
 
@@ -39,7 +40,7 @@ int main()
 		perror("fail to msgget");
 		exit(-1);
 	}
-
+	printf("key:%d msgid:%d\n",key, msgid);
 	if ((pid = fork()) < 0)
 	{
 		perror("fail to fork");
@@ -49,7 +50,7 @@ int main()
 	{
 		while ( 1 )
 		{
-			msgrcv(msgid, &buf, LEN, TypeA, 0);
+			msgrcv(msgid, &buf, LEN, SERVER, 0);
 			if (strncmp(buf.mtext, "quit", 4) == 0) 
 			{
 				kill(getppid(), SIGUSR1);
@@ -61,7 +62,7 @@ int main()
 	}
 	else  // send message
 	{
-		buf.mtype = TypeB;
+		buf.mtype = SERVER;
 		while ( 1 )
 		{
 			printf("send to clientB : ");

@@ -69,6 +69,5 @@ main()
     VNode G[5];
     CreatGraph(5,G);
     DFS(G,0);
-    getche();
 }
 

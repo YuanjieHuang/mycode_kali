@@ -35,6 +35,32 @@ using namespace testing;
 //     ASSERT_EQ(var, 10);    
 // }
 
+bool print_helloworld(void)
+{
+    printf("mockcpp helloworld\n");
+    return true;
+}
+
+bool print_fake_helloworld(void)
+{
+    printf("Fake mockcpp helloworld\n");
+    return false;
+}
+
+bool mockcpp_helloworld(void)
+{
+    return print_helloworld();
+}
+
+TEST(mockercpp, helloworld) {
+    bool ret;
+    MOCKER(print_helloworld)
+        .stubs()
+        .will(invoke(print_fake_helloworld));
+    ret = mockcpp_helloworld();
+    EXPECT_EQ(false, ret);
+}
+
 TEST(StringMothodTest, strcmp) {
     const char *cmp0 = "hello";
     const char *cmp1 = "hello";
@@ -146,14 +172,64 @@ TEST_F(GtestUt, ut_add_04)
 
 TEST_F(GtestUt, ut_add_05)
 {
-    int ret;
+    int ret,ret2;
     int ex_value;
     MOCKER(ex_get_value)
-    .stubs()
+    .expects(exactly(1))
     .will(returnValue(1));
+    // .then(returnValue(0xFFFF));
     ret = test_stub_func();
     EXPECT_EQ(ret, 1);
+
+    // MOCKER(ex_get_value)
+    // .stubs()
+    // .will(returnValue(0xFFFF));
+    // ret2 = test_stub_func();
+    // EXPECT_EQ(ret2, 666);
 }
+
+TEST_F(GtestUt, test06)
+{
+    int i=0,repeat_cnt = 20,expect_var = 100;
+    //入参1,2:前repeat_cnt次，返回值为expect_var；第repeat_cnt+1次，返回值expect_var+1
+    MOCKER(add)
+        .defaults()
+        .with(eq(1), eq(2))
+        .will(repeat(expect_var, repeat_cnt))
+        .then(returnValue(expect_var+1));
+    //入参3,4:第一次返回值为expect_var；第2,3,4....次，返回值expect_var+1
+    MOCKER(add)
+        .defaults()
+        .with(eq(3), eq(4))
+        .will(returnValue(expect_var))
+        .then(returnValue(expect_var+1));
+ 
+ 
+    for(i = 0; i < repeat_cnt; i++)
+    {
+      EXPECT_EQ(expect_var, add(1,2));  
+    }
+    EXPECT_EQ(expect_var + 1, add(1,2));
+    
+    EXPECT_EQ(expect_var, add(3,4));
+    EXPECT_EQ(expect_var+1, add(3,4));//之后的返回值均为expect_var+1
+    EXPECT_EQ(expect_var+1, add(3,4));//第3次
+}
+
+void testMtehodParaInOut(int input,int *p_output)
+{
+    *p_output = input +1;
+}
+TEST(return_pointer, outBoundP_test07)
+{
+int in_var = 10,expect_var = 12,real_var1 = 0; 
+MOCKER(testMtehodParaInOut)
+    .stubs()
+    .with(eq(in_var),outBoundP(&expect_var,sizeof(expect_var))); //指定出参的指针内容为12
+testMtehodParaInOut(in_var,&real_var1);//调用后，real_var1的指针内容为12
+EXPECT_EQ(expect_var, real_var1);
+}
+
 #if 0
 TEST(mockcpp detail sample)
 {

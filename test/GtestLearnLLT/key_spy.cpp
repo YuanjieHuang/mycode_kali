@@ -10,12 +10,12 @@ void test()
     int var = 10;
     func(var);
 }
-TEST(spy test)
+TEST(spy, test)
 {
     int var;
     MOCKER(func)
         .stubs()
-        .with(spy(var));
+        .with(eq(10),spy(var))
         .with(eq(10));
 
     test();

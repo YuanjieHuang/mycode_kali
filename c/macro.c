@@ -5,14 +5,22 @@
 #include <string.h>
 #include "macro.h"
 
+// #pragma pack(1)
  struct student
  {
      char gender;
      int id;
      int age;
      char name[20];
- };
-int main(void)
+ }__attribute__ ((packed));
+// #pragma pack()
+int main()
+{
+    unsigned int offset = offsetof(struct student, id);
+    printf("offset:%d\n", offset);
+    return 0;
+}
+int test(void)
 {
     int i = 1;  
     char *s = "three";    

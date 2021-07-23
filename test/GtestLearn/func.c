@@ -16,8 +16,8 @@ int multi(int a, int b)
 
 int add_struct(struct test_t *test)
 {
-    int sum;
-    int multi_v;
+    int sum = 0;
+    int multi_v = 0;
 
     printf("start to compute the sum of a %d and b %d\n", test->a, test->b);
 
@@ -48,7 +48,7 @@ int test_stub_func()
     ret = ex_get_value(&a);
     if (ret == 0xFFFF) {
         printf("get extern value failed, ret %d\n", ret);
-        return ret;
+        return 666;
     }
 
     printf("get extern value succeed, ex value %d\n", a);

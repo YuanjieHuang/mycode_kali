@@ -53,6 +53,5 @@ main()
         printf("%c",e);
     }
     printf("\n");
-    getche();
 }
 

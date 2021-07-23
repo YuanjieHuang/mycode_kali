@@ -26,7 +26,7 @@ bool check_func(AA *p)
     return false;
 }
 
-TEST(sample test)
+TEST(sample, test)
 {
     MOCKER(func)
         .stubs()

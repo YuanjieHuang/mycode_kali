@@ -17,7 +17,7 @@ int main(void)
     } else if (pid == 0) {
         char *argv[] = {"ls", "-l", "-a", "-F", NULL};
 
-//        execl("/bin/ls", "ls", "-l", "-a", "-F", NULL);
+       execl("/bin/ls", "ls", "-l", "-a", "-F", NULL);
 //        execl("./test", "test",  NULL);
         // execvp("ls", argv);
         printf("I'am child pid= %d, getppid = %d\n", getpid(), getppid());

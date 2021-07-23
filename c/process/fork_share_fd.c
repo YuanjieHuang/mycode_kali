@@ -11,7 +11,8 @@
 
 int main(void)
 {
-    int fd1, fd2; pid_t pid,child_pid,parent_pid;
+    int fd1, fd2; 
+    pid_t pid,child_pid,parent_pid;
     char buf[1024];
     char *str = "---------test for shared fd in parent child process-----\n";
     printf("main begin\n");
@@ -20,14 +21,14 @@ int main(void)
         perror("fork error");
         exit(1);
     } else if (pid == 0) {
-        fd1 = open("test.txt", O_RDWR);
+        fd1 = open("test.txt", O_RDWR|O_CREAT);
         if (fd1 < 0) {
             perror("open error");
             exit(1);
         }
         write(fd1, str, strlen(str));
         child_pid = getpid();
-        printf("child %d wrote over...\n",child_pid);
+        printf("child %d wrote over...\n",child_pid|O_CREAT);
     } else {
         fd2 = open("test.txt", O_RDWR);
         if (fd2 < 0) {
