@@ -14,7 +14,7 @@
 
     #define A 0
     #define B 0
-    #if 1
+    
     void my_pthread()
     {
         if(vfork() == 0)
@@ -120,10 +120,11 @@
         fstat(fd, &sb); /* 取得文件大小 */
         start = mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
         if(start == MAP_FAILED) /* 判断是否映射成功 */
-            {
-                return;
-            }
-        printf("%s", start); munmap(start, sb.st_size); /* 解除映射 */
+        {
+            return;
+        }
+        printf("%s", start); 
+        munmap(start, sb.st_size); /* 解除映射 */
         close(fd);
     }
 
@@ -183,17 +184,3 @@
 
         
     }
-    #elif 1
-    void main(){
-    double a = 123.45;
-    double b = -1234.56;
-    char *ptr;
-    int decpt, sign;
-    gcvt(a, 5, ptr);
-    printf("a value=%s\n", ptr);
-    ptr = gcvt(b, 6, ptr);
-    printf("b value=%s\n", ptr);
-}
-#else
-
-    #endif

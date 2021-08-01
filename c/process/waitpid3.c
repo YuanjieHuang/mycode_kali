@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
 	int n = 5, i;				
-pid_t p, q;
+    pid_t p, q;
 
 	if(argc == 2){	
 		n = atoi(argv[1]);
@@ -32,14 +32,5 @@ pid_t p, q;
 		printf("I'm %dth child, pid = %d\n", 
 				i+1, getpid());
 	}
-    ///
-    //./
-    //
-    //
-    //
-    //
-    //
-    //
-
 	return 0;
 }

@@ -14,11 +14,12 @@
     };
     
 
-    // int  __attribute__((cdecl)) max(int m, int n)
-    // {
-    // int max = m>n ? m : n;
-    // return max; 
-    // }
+    int  __attribute__((cdecl)) max(int m, int n)
+    {
+        int max = m>n ? m : n;
+        return max; 
+    }
+
     int main(){
         int a;  //栈区
         char *str2 = "01234";  //字符串在常量区，str2在栈区
@@ -36,7 +37,7 @@
         printf("%s\n", pstr);
 
         //  char strStackOver[1024*1024*1024] = {0};
-            int m, n;
+        int m, n;
         printf("%#X, %#X\n", m, n);
         printf("offsetof(struct s,c):%d,sieof(s):%d\n", offsetof(struct s,c), sizeof(struct s));
         return 0;

@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
     pid_t pid = fork();
     if (pid == 0) {
         // execl("/bin/ls", "ls", "-l", "-F", "-a", NULL);
-        perror("execlp");
+        // perror("execl");
         execv("/bin/ls", argvv);
-        perror("execlp");
+        perror("execv");
         exit(1);
 
     } else if (pid > 0) {

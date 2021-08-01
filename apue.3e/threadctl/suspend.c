@@ -53,6 +53,7 @@ main(void)
 		err_exit(err, "can't create thread");
 
 	pthread_mutex_lock(&lock);
+	printf("quit flag:%u", quitflag);
 	while (quitflag == 0)
 		pthread_cond_wait(&waitloc, &lock);
 	pthread_mutex_unlock(&lock);

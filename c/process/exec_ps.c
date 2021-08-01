@@ -13,7 +13,7 @@ int main(void)
 		exit(1);
 	}
 
-	dup2(fd, STDOUT_FILENO);
+	dup2(STDOUT_FILENO, fd);
 
 	execlp("ps", "ps", "ax", NULL);
 	//close(fd);

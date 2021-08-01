@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <fcntl.h>
-
+#include <sys/stat.h>
 void creat_daemon(void){
 	int i;
 	int fd0;
@@ -18,7 +18,7 @@ void creat_daemon(void){
 		exit(0);//
 	}
 
-	setid(0);//设置新的会话
+	setsid();//设置新的会话
 	sa.sa_handler=SIG_IGN;
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags=0;
@@ -50,5 +50,5 @@ int main()
 		sleep(1);
 
 	}
-
+	return 0;
 }

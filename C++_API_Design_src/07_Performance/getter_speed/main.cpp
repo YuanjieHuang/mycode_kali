@@ -8,7 +8,7 @@
 /// Distributed under the X11/MIT License. See LICENSE.txt.
 /// See http://APIBook.com/ for the latest version.
 ///
-
+#include <unistd.h>
 #include "vector.h"
 #include "autotimer.h"
 #include <stdio.h>
