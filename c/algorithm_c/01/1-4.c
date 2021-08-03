@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "math.h"
+#include <math.h>
 #define STACK_INIT_SIZE 20
 #define STACKINCREMENT 10
 

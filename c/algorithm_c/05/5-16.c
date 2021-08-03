@@ -22,8 +22,8 @@ double getPI(int n)
      int count=n;
      while(count)
     {
-        x=random(101);
-        y=random(101);
+        x=random();
+        y=random();
         if(x*x+y*y<=10000)
             inCircle++;
         count--;

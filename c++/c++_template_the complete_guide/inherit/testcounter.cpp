@@ -24,5 +24,5 @@ int main()
     std::cout << "number of MyString<char>:    " 
               << MyString<char>::live() << std::endl;
     std::cout << "number of MyString<wchar_t>: " 
-              << ws.live() << std::endl;
+              << MyString<wchar_t>::live() << std::endl;
 }

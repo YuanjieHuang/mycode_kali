@@ -71,6 +71,5 @@ main()
    {
         printf("%d%6d%6d\n",psn[i].num,psn[i].score,psn[i].rand);
    }
-   getche();
 }
 

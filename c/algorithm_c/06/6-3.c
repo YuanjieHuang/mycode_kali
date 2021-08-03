@@ -17,5 +17,4 @@ main()
 {
     printf("There are following numbers according with the condition\n");
     func();
-    getche();
 }

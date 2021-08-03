@@ -15,8 +15,7 @@ class NotVirtual {
 
 class Virtual {
   public:
-    virtual void foo() {
-    }
+    virtual void foo() = 0;
 };
 
 template <typename VBase>

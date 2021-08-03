@@ -25,6 +25,5 @@ main()
     printf("Student ID:   %d\n",stu[addr].id);         /*输出查找到的记录的信息*/
     printf("Student name: %s\n",stu[addr].name);
     printf("Student score: %f\n",stu[addr].score);
-    getche();
 }
 

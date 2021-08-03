@@ -16,6 +16,5 @@ main()
     scanf("%f",&x);                /*输入自变量x*/
     p = Rand(n,x);
     printf("The result of   P%d(%f) = %f\n",n,x,p) ;        /*输出结果*/
-    getche();
 }
 

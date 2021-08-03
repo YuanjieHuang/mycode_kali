@@ -30,6 +30,5 @@ main()
     printf("\nThe result of Shell's sorting for the array is\n");
     for(i=1;i<=10;i++)
         printf("%d ",a[i]);                            /*输出排序后的结果*/
-    getche();
 }
 

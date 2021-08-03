@@ -13,7 +13,7 @@
 ;
 ;  Build using these commands:
 ;    nasm -f elf64 -g -F stabs uppercaser2.asm
-;    ld -o uppercaser2 uppercaser2.o -m efl_i386
+;    ld -o uppercaser2 uppercaser2.o -m elf_i386
 ;
 SECTION .bss			; Section containing uninitialized data
 

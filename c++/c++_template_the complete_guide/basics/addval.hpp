@@ -8,8 +8,10 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
+#include <iostream>
 template <typename T, int VAL>
 T addValue (T const& x)
 {
+    std::cout<<"addValue:"<<x + VAL<<std::endl;
     return x + VAL;
 }

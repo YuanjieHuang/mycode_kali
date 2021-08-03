@@ -37,5 +37,4 @@ main()
 {
     int coin[30] = {2,2,2,2,2,2,2,2,2,2, 2,2,2,2,2,2,2,2,2,2, 2,2,2,2,2,2,2,1,2,2};
     printf("The %dth coin is false\n",getFalseCoin(coin,0,29));
-    getche();
 }

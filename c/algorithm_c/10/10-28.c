@@ -13,5 +13,4 @@ main()
     str[i]=c;
     printf("The result is\n");
     printf("%s",str);
-    getche();
 }

@@ -13,7 +13,7 @@
 ;
 ;  Build using these commands:
 ;    nasm -f elf -g -F stabs hexdump1.asm
-;    ld -o hexdump1 hexdump1.o -m efl_i386
+;    ld -o hexdump1 hexdump1.o -m elf_i386
 ;
 SECTION .bss			; Section containing uninitialized data
 

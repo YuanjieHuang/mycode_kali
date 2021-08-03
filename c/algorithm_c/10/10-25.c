@@ -26,5 +26,4 @@ main()
     printf("The string before deleting: %s\n",str);	/*输出原字符串的内容*/
     delChar(str,c);							/*删除指定的字符*/
     printf("The string after deleting: %s\n",str);		/*输出处理后的字符串*/
-    getche();
 }

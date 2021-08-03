@@ -63,6 +63,5 @@ main()
             }
             else
             printf("The horse cannot travel the chess board\n");
-            getche();        
 }
 

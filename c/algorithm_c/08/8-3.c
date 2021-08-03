@@ -19,6 +19,5 @@ main()
     printf("High limitation:");
     scanf("%f",&b);
     printf("The result of integration is %f",ING(a,b));
-    getche();
 }
 

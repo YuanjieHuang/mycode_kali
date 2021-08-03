@@ -39,5 +39,4 @@ main()
    CreatBiTree(&T);			/*创建二叉树*/
    getLeaves(T,&count); 		/*遍历二叉树，得到叶结点的个数，用count返回叶结点的个数*/
    printf("The number of leaves of BTree are %d\n",count);
-   getche();
 }

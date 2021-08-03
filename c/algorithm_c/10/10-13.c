@@ -14,5 +14,4 @@ long Sum(int a,int n)
 main()
 {
     printf("The result of 5+55+555+5555+55555 is %ld\n",Sum(5,5));
-    getche();
 }

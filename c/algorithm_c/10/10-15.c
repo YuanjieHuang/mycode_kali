@@ -25,17 +25,16 @@ void myitoa(int n ,char *str)
         i++;
         n = n / 10;
     }
-    /*iÎª×Ö·û´®µÄ³¤¶È*/
-    reverse(str,i); /*µ÷ÓÃº¯Êıstr½«×Ö·û´®ÄæÖÃ*/
+    /*iä¸ºå­—ç¬¦ä¸²çš„é•¿åº¦*/
+    reverse(str,i); /*è°ƒç”¨å‡½æ•°strå°†å­—ç¬¦ä¸²é€†ç½®*/
     str[i] = '\0';
 }
 
 main()
 {
-    int n = 1263;				/*ÉèÖÃÕûÊın=1263*/
-    char str[5];					/*¶¨Òå×Ö·ûÊı×é£¬ÓÃÀ´´æ·ÅnµÄ×Ö·û´®*/
-    myitoa(n,str);				/*½«ÕûÊın×ª»»Îª¶ÔÓ¦µÄ×Ö·û´®str*/
-    printf("The integer is %d\n",n);	/*´òÓ¡³öÕûÊın*/
-    printf("The string of this integer is %s\n",str);	/*´òÓ¡³ö×ª»»ºóµÄ×Ö·û´®str*/
-    getche();
+    int n = 1263;				/*è®¾ç½®æ•´æ•°n=1263*/
+    char str[5];					/*å®šä¹‰å­—ç¬¦æ•°ç»„ï¼Œç”¨æ¥å­˜æ”¾nçš„å­—ç¬¦ä¸²*/
+    myitoa(n,str);				/*å°†æ•´æ•°nè½¬æ¢ä¸ºå¯¹åº”çš„å­—ç¬¦ä¸²str*/
+    printf("The integer is %d\n",n);	/*æ‰“å°å‡ºæ•´æ•°n*/
+    printf("The string of this integer is %s\n",str);	/*æ‰“å°å‡ºè½¬æ¢åçš„å­—ç¬¦ä¸²str*/
 }

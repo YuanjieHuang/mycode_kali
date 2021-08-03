@@ -15,6 +15,5 @@ main()
         n = 1.0;
     }
     printf("Sn = %f\n",s);            /*输出结果*/
-    getche();
 }
 

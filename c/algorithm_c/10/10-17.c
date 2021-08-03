@@ -22,5 +22,4 @@ main()
     printf("The orginal string is %s\n",str);			/*打印出该字符串*/
     loopMove(str,6);							/*循环右移6位*/
     printf("The string be loopmoved is %s\n",str);	/*打印出循环右移后的字符串str*/
-    getche();
 }

@@ -13,9 +13,8 @@ void mystrcpy(char *src,char *dst)
 
 main()
 {
-    char dst[14],*src="hello world!\n";		/*ÉèÖÃÔ´×Ö·û´®ºÍÄ¿µÄ×Ö·û´®*/
-    printf("src: %s",src);						/*´òÓ¡³öÔ´×Ö·û´®srcÖĞµÄÄÚÈİ*/
-    mystrcpy(src,dst);					/*µ÷ÓÃº¯Êımystrcpy ½øĞĞ×Ö·û´®¿½±´*/
-    printf("dst: %s",dst);						/*´òÓ¡³öÄ¿µÄ×Ö·û´®dstÖĞµÄÄÚÈİ*/
-    getche();
+    char dst[14],*src="hello world!\n";		/*è®¾ç½®æºå­—ç¬¦ä¸²å’Œç›®çš„å­—ç¬¦ä¸²*/
+    printf("src: %s",src);						/*æ‰“å°å‡ºæºå­—ç¬¦ä¸²srcä¸­çš„å†…å®¹*/
+    mystrcpy(src,dst);					/*è°ƒç”¨å‡½æ•°mystrcpy è¿›è¡Œå­—ç¬¦ä¸²æ‹·è´*/
+    printf("dst: %s",dst);						/*æ‰“å°å‡ºç›®çš„å­—ç¬¦ä¸²dstä¸­çš„å†…å®¹*/
 }

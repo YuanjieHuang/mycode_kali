@@ -26,5 +26,4 @@ main()
     printf("Please input a integer to verify Nicoqish Law\n");
     scanf("%d",&N);
     Nicoqish(N);
-    getche();
 }

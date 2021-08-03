@@ -106,7 +106,6 @@ main()
         translate(e,&s2) ;
       }
 
-     getche();
 }
 
 

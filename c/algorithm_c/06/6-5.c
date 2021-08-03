@@ -79,5 +79,4 @@ main()
     scanf("%d",&N);
     printf("-------- Step of Verification---------\n");
     proveFourSquares(N);
-    getche();
 }

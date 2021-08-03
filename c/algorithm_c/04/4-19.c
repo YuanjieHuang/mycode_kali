@@ -13,6 +13,5 @@ main()
 {
     printf("Please input a string ending for '#'\n");
     Print();
-    getche();
 }
 

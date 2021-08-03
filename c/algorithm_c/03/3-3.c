@@ -11,9 +11,8 @@ main()
 {
     int n,s;
     printf("Please input a integer for getting the number of division\n");
-    scanf("%d",&n);                    /*输入正整数n*/
-    s =    P(n,n);                    /*求出正整数n的划分数*/
+    scanf("%d",&n);                    /*杈撳叆姝ｆ暣鏁皀*/
+    s =    P(n,n);                    /*姹傚嚭姝ｆ暣鏁皀鐨勫垝鍒嗘暟*/
     printf("The number of division of %d is %d\n",n,s);
-    getche();
 }
 

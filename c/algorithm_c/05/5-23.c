@@ -19,6 +19,5 @@ main()
     biTOde(0,&sum,&m) ;
     printf("The Decimal Decimal digit is\n");
     printf("%d ",sum);
-    getche();
 }
 

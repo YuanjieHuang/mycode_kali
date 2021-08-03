@@ -86,7 +86,7 @@ EightQueen(int row,int n,int (*chess)[8])
     for(j=0;j<n;j++) {                    
         if(notEqual(row,j,chess))       /*判断棋盘的第row行第j列能否摆放一个皇后*/
         {
-            for(i=0;i<8;i++)
+            for(int i=0;i<8;i++)
 	*(*(chess2+row)+i)=0;
             *(*(chess2+row)+j)=1;     		/*向棋盘的第row行第j列摆放皇后*/
           EightQueen (row+1,n,chess2);   	/*递归地调用EightQueen函数*/  

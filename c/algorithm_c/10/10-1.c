@@ -21,5 +21,4 @@ inputString()
 main()
 {
      inputString();
-     getche();
 }

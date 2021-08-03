@@ -25,5 +25,4 @@ main()
     printf("The original string is %s\n",s);
     reverse(s);
     printf("The reversed string is %s\n",s);
-    getche();
 }

@@ -51,6 +51,5 @@ main()
     printf("The contents of the reversed sqlist are\n");
     for(i=0;i<l.length;i++)
         printf("%d ",l.base[i]);
-       getche();
 
 }

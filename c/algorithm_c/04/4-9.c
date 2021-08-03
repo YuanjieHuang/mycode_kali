@@ -9,6 +9,5 @@ main()
     b=b^a;
     a=a^b;
     printf("a=%d,b=%d\n",a,b);
-    getche();
 }
 

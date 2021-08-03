@@ -74,5 +74,4 @@ main()
     scanf("%d",&n);
     getchar();
     printTriangle(n);
-    getche();
 }

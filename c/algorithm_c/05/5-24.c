@@ -11,6 +11,5 @@ main()
                 printf("乙 told a %s\n",b?"truth":"lie");
                 printf("丙 told a %s\n",c?"truth":"lie");
             }
-    getche();
 }
 

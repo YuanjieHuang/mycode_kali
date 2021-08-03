@@ -35,6 +35,5 @@ main()
     printf("Please input a integer for getting Prime factor\n")  ;
     scanf("%d",&n);
     PrimeFactor(n);   /*对n分解质因数*/
-    getche();
 }
 

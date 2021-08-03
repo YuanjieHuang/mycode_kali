@@ -38,6 +38,5 @@ main()
     getStep(m);
     printf("The result of moving is\n");
     Print(m);
-    getche();
 }
 

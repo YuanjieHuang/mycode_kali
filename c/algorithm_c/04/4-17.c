@@ -43,6 +43,5 @@ main()
         printf("\nSaddlePoint is at (%d,%d)",x+1,y+1);
     else
         printf("\nThere is no in the matrix\n");
-       getche();
 }
 

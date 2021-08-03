@@ -106,10 +106,12 @@ int canPalceQueen(int row, int j, int (*Q)[8])
     }
     if(flag1==1||flag2==1||flag3==1||flag4==1|flag5==1)
     {
-        return 0
+        return 0;
     }
     else 
-    {return 1;}
+    {
+        return 1;
+    }
 
 }
 

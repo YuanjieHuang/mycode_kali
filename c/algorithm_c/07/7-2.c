@@ -101,6 +101,5 @@ main()
 
     Sort(l);
     Print(l);
-    getche();
 }
 

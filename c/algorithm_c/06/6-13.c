@@ -13,5 +13,4 @@
     printf("Please input m and n for C(m,n)\n");
     scanf("%d %d",&m,&n);
     printf("C(%d,%d)=%d",m,n,cnr(m,n));
-    getche();
  }

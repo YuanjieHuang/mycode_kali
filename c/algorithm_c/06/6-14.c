@@ -20,5 +20,4 @@ main()
     printf("Please input the exponent number\n");
     scanf("%d",&n);							/*输入指数n*/
     printf("The result of power(m,n) is %ld\n",myPow(m,n));		/*输出计算结果mn*/
-    getche();
 }

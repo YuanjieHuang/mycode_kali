@@ -75,5 +75,4 @@ main()
      printf("Please input the first maximum number\n");
      scanf("%d",&m) ;
      exJoseph(&jsp,m) ;
-     getche();
 }

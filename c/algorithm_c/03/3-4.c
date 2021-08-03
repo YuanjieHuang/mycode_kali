@@ -28,6 +28,5 @@ main()
     if(-1 != addr)                                /*查找成功*/
     printf("%d is at the %dth unit is array A\n ",n,addr);
     else printf("There is no %d in array A\n",n);            /*查找失败*/
-    getche();
 }
 

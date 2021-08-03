@@ -43,6 +43,5 @@ main()
         printf("x1 = %f;x2 = %f;x3 = %f\n",x1,x2,x3);    /*输出结果*/
     else
         printf("Please adjust the accuracy or limitation\n");    /*本次计算失败*/
-    getche();
 }
 

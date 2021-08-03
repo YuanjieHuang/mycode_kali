@@ -12,6 +12,5 @@ unsigned long func(int n)
 
 main()
 {
-    printf("The 10th item of the sequence is %ld",func(20));		/*直接输出结果*/
-    getche();
+    printf("The 10th item of the sequence is %ld",func(20));		/*鐩存帴杈撳嚭缁撴灉*/
 }

@@ -8,7 +8,7 @@
 ;
 ;  Build using these commands:
 ;    nasm -f elf -g -F stabs eatsyscall.asm
-;    ld -o eatsyscall eatsyscall.o
+;    ld -o eatsyscall eatsyscall.o -m elf_i386
 ;
 
 SECTION .data			; Section containing initialised data

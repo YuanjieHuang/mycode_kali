@@ -35,7 +35,6 @@ void Queen(int j,int (*Q)[4]){
             printf("\n");
         }
          printf("\n");
-        getche();
         count++;
         return;
         
@@ -61,6 +60,5 @@ main()
             Q[i][j] = 0;            /*初始化数组Q*/
     Queen(0,Q);                /*执行四皇后求解*/
     printf("The number of the answers of FOUR_QUEEN are %d",count);
-    getche();
 }
 

@@ -10,6 +10,5 @@ main()
                 if(i!=j && j!=k && i!=k){
                     printf("(%d,%d,%d) ",i,j,k);
                     }
-    getche();
 }
 

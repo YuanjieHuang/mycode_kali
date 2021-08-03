@@ -4,7 +4,6 @@ void encryption(char buffer[],int file_size,int key);
 void decryption(char buffer[],int file_size,int key);
 void Process(int a);
 int openSrcFile(char **buffer);
-void saveDstFile(char *buffer);
 void menu();
 
 

@@ -52,5 +52,4 @@ main()
         scanf("%c",&e);
     }
     printf("The length of the Queue is %d\n",getQueueLen(&q));	/*输出队列的长度*/
-    getche();
 }

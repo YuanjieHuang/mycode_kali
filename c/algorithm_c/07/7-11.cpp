@@ -6,7 +6,10 @@ typedef struct BiTNode{
     char data;   /*结点的数据域*/
     struct BiTNode *lchild , *rchild;  /*指向左孩子和右孩子*/
 } BiTNode , *BiTree;
-
+void gotoxy(int x,int y)
+{
+    printf("%c[%d;%df",0x1B,y,x);
+}
 CreatBiTree(BiTree *T){
     char c;
     gotoxy(5,5)  ;
@@ -53,7 +56,6 @@ int GraphMode;
     setcolor(color);  /*设置图形颜色：红色*/
     CreatBiTree(&T);  /*创建二叉树*/
     printTree(T,x,y);  /*动态显示二叉树创建过程*/
-    getche();
     closegraph();
 }
 

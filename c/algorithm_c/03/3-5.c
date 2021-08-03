@@ -48,6 +48,5 @@ main()
     {
         if(x[i] == 1)     printf("BOX:%d ",i) ;
     }
-    getche();
 }
 

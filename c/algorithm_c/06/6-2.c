@@ -20,5 +20,4 @@ main()
     printf("Please input a integer N\n");
     scanf("%d",&N);
     getXY(N);
-    getche();
 }

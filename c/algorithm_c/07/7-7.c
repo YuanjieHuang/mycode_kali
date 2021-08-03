@@ -70,7 +70,6 @@ main()
         }
     if(!StackLen(s))  printf("The brackets are matched\n");  /*如果栈s为空，则括号完全匹配*/
     else  printf("The brackets are not matched\n");   /*如果栈s不为空，则括号不完全匹配*/
-    getche();
 
 }
 

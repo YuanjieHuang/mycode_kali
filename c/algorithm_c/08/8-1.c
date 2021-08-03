@@ -44,6 +44,5 @@ main()
     printf("The accuracy:");
     scanf("%lf",&e);
     printf("The result of integration is %lf",ING(a,b,e));
-    getche();
 }
 

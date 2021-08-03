@@ -21,5 +21,4 @@ main()
     printf("%s\n",s1);			/*输出字符串s1*/
     printf("%s\n",s2);			/*输出字符串s2*/
     printf("%s\n",cnnString(s1,s2));	/*输出连接后的字符串s3*/
-    getche();
 }

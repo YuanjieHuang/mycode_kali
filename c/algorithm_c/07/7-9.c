@@ -88,6 +88,5 @@ main()
    TransdbLinkList(l);
    scanf("%d",&d);
    }
-   getche();
 }
 

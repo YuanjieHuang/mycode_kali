@@ -20,5 +20,4 @@ main()
     int array2[]={3,5,7,2,10,-1};				/*初始化数组array2*/
     printf("The overlap number of array1 and array2 are\n");
     overlapNumber(array1,5,array2,6);		/*找出array1和array2中的相同元素*/
-    getche();
 }

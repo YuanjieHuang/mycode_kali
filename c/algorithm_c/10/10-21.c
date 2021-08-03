@@ -13,5 +13,4 @@ main()
     printf("Age of the third  person is %d\n",getAge(3));
     printf("Age of the forth  person is %d\n",getAge(4));
     printf("Age of the fifth  person is %d\n",getAge(5));
-    getche();
 }

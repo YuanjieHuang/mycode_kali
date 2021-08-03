@@ -40,6 +40,5 @@ main()
     printf("\nThe result of quick sorting for the array is\n");
     for(i=0;i<10;i++)                         /*显示排序后的结果*/
         printf("%d ",k[i]);
-    getche();
 }
 

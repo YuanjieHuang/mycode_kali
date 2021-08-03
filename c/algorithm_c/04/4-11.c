@@ -1,3 +1,4 @@
+#include <stdio.h> 
 main()
 {
     FILE *myf;
@@ -7,6 +8,5 @@ main()
     f=ftell(myf);
     fclose(myf);
     printf("The length of the file is %d bytes\n",f);
-    getche();
 }
 

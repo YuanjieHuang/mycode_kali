@@ -9,8 +9,11 @@
  * warranty, and with no claim as to its suitability for any purpose.
  */
 // maximum of two int values
+#include <iostream>
 inline int const& max (int const& a, int const& b) 
 {
+    int ret =  a < b ? b : a;
+    std::cout<<"max :"<<ret<<std::endl;
     return  a < b ? b : a;
 }
 
@@ -18,7 +21,9 @@ inline int const& max (int const& a, int const& b)
 template <typename T>
 inline T const& max (T const& a, T const& b)
 {
-    return  a < b ? b : a;
+    T ret=  a < b ? b : a;
+    std::cout<<"max T:"<<ret<<std::endl;
+    return  ret;
 }
 
 // maximum of three values of any type

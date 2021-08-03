@@ -4,7 +4,6 @@ void main()
 {
     printf("The Narcissus numbers below are\n");
     Narcissus();
-    getche();
 }
 
 void Narcissus()

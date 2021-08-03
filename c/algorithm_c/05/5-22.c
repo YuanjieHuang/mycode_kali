@@ -55,6 +55,5 @@ main()
     printf("Please input a longeger from 0~999999\n");
     scanf("%ld",&N);
     translation_A(N);
-    getche();
 }
 

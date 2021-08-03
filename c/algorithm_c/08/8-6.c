@@ -26,6 +26,5 @@ main()
     printf("Please input accuracy\n");            /*输入迭代精度*/
     scanf("%lf",&accuracy);
     printf("The result of function is %lf\n",getResult(x1,accuracy));
-    getche();
 }
 

@@ -16,5 +16,4 @@ float Sum(int n)
 main()
 {
     printf("2+3/2+5/3+...=%f",Sum(50));
-    getche();
 }

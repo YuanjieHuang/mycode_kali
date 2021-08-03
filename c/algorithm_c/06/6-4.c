@@ -26,5 +26,4 @@ main()
     scanf("%d",&n);
     printf("-------- Step of Verification---------\n");
     proveJiaoGu(n);
-    getche();
 }

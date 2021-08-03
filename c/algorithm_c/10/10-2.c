@@ -18,5 +18,4 @@ main()
     }
     printf("The max value is    %d\n",maxVal);
     printf("The second value is %d\n",secondVal);
-    getche();
 }

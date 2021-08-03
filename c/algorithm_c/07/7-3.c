@@ -121,7 +121,6 @@ main()
         printf("%d ",q->data) ;
         q = q->next;
     }
-    getche();
 
 
 }

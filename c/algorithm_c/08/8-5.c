@@ -1,12 +1,12 @@
 #include "stdio.h"
 #include "math.h"
-double SQRT(double a){                /*µü´ú·¨¿ª·½ÔËËã*/
-    double xx = a,x = 0.0;             /*µü´ú³õÖµ*/
+double SQRT(double a){                /*è¿­ä»£æ³•å¼€æ–¹è¿ç®—*/
+    double xx = a,x = 0.0;             /*è¿­ä»£åˆå€¼*/
     while(fabs(xx - x)>0.00001){
         x = xx;
         xx = 0.5*(x + a / x) ;
     }
-    return xx;                        /*·µ»Øµü´ú½á¹û*/
+    return xx;                        /*è¿”å›žè¿­ä»£ç»“æžœ*/
 }
 
 main()
@@ -16,6 +16,5 @@ main()
     scanf("%lf",&a);
     r = SQRT(a);
     printf("Sqrt(%f) = %f\n",a,r);
-    getche();
 }
 

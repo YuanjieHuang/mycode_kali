@@ -59,7 +59,6 @@ main()
     CreatBiTree(&T, &level1,0);
     if(JusticCompleteBiTree(T,0,level1-1,0))  printf("It is a complete binary tree\n");
     else  printf("It is NOT a complete binary tree\n");
-    getche();
 
 
 }

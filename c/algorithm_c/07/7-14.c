@@ -125,5 +125,4 @@ main()
         Pop(&s3,&e);
         printf("%c",e);
     }
-    getche();
 }

@@ -26,5 +26,4 @@ main()
     printf("Please input a integer\n");
     scanf("%d",&n);
     cntnsIntSum(n);
-    getche();
 }

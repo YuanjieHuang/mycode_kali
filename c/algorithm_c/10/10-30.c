@@ -43,5 +43,4 @@ main()
     printf("Please input 10 integer to create a linklist\n");
     l = GreatLinkList(10);      						/*创建10个链结点的单链表*/
     printf("The LinkList includes %d node\n",LinkListLen(l));	/*输出链表的长度*/
-    getche();
 }

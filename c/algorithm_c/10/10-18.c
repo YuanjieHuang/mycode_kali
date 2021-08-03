@@ -41,5 +41,4 @@ main()
     printf("\n%s\n",str);
     printf("The number of consecutive character '0'are %d\n",max0);
     printf("The number of consecutive character '1'are %d\n",max1);
-    getche();
 }

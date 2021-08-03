@@ -108,6 +108,5 @@ main()
     }
     if(flag == 1)printf("It is a circle string.\n");
     else printf("It is not a circle string.\n") ;
-    getche();
 }
 

@@ -1,8 +1,6 @@
 #include <termios.h>
 #include <stdio.h>
-
 static struct termios old, current;
-
 /* Initialize new terminal i/o settings */
 void initTermios(int echo) 
 {
@@ -16,13 +14,11 @@ void initTermios(int echo)
   }
   tcsetattr(0, TCSANOW, &current); /* use these new terminal i/o settings now */
 }
-
 /* Restore old terminal i/o settings */
 void resetTermios(void) 
 {
   tcsetattr(0, TCSANOW, &old);
 }
-
 /* Read 1 character - echo defines echo mode */
 char getch_(int echo) 
 {
@@ -32,19 +28,16 @@ char getch_(int echo)
   resetTermios();
   return ch;
 }
-
 /* Read 1 character without echo */
 char getch(void) 
 {
   return getch_(0);
 }
-
 /* Read 1 character with echo */
 char getche(void) 
 {
   return getch_(1);
 }
-
 // /* Let's test it out */
 // int main(void) {
 //   char c;

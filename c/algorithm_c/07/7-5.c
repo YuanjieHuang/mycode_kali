@@ -12,22 +12,22 @@ typedef struct{
 
 void initStack(sqStack *s)
 {
-    /*ÄÚ´æÖĞ¿ª±ÙÒ»¶ÎÁ¬Ğø¿Õ¼ä×÷ÎªÕ»¿Õ¼ä£¬Ê×µØÖ·¸³Öµ¸øs->base*/
+    /*å†…å­˜ä¸­å¼€è¾Ÿä¸€æ®µè¿ç»­ç©ºé—´ä½œä¸ºæ ˆç©ºé—´ï¼Œé¦–åœ°å€èµ‹å€¼ç»™s->base*/
     s->base = (ElemType *)malloc(STACK_INIT_SIZE * sizeof(ElemType));
-    if(!s->base) exit(0);     /*·ÖÅä¿Õ¼äÊ§°Ü*/
-    s->top = s->base;       /*×î¿ªÊ¼£¬Õ»¶¥¾ÍÊÇÕ»µ×*/
-    s->stacksize = STACK_INIT_SIZE;   /*×î´óÈİÁ¿ÎªSTACK_INIT_SIZE */
+    if(!s->base) exit(0);     /*åˆ†é…ç©ºé—´å¤±è´¥*/
+    s->top = s->base;       /*æœ€å¼€å§‹ï¼Œæ ˆé¡¶å°±æ˜¯æ ˆåº•*/
+    s->stacksize = STACK_INIT_SIZE;   /*æœ€å¤§å®¹é‡ä¸ºSTACK_INIT_SIZE */
 }
 void Push(sqStack *s, ElemType e){
     if(s->top - s->base >= s->stacksize){
-    /*Õ»Âú£¬×·¼Ó¿Õ¼ä*/
+    /*æ ˆæ»¡ï¼Œè¿½åŠ ç©ºé—´*/
     s->base = (ElemType *)realloc(s->base, (s->stacksize + 
     STACKINCREMENT)*sizeof(ElemType));
-    if(!s->base) exit(0);   /*´æ´¢·ÖÅäÊ§°Ü*/
+    if(!s->base) exit(0);   /*å­˜å‚¨åˆ†é…å¤±è´¥*/
     s->top = s->base + s->stacksize;
-    s->stacksize = s->stacksize + STACKINCREMENT; /*ÉèÖÃÕ»µÄ×î´óÈİÁ¿*/
+    s->stacksize = s->stacksize + STACKINCREMENT; /*è®¾ç½®æ ˆçš„æœ€å¤§å®¹é‡*/
     }
-    *(s->top) = e;  /*·ÅÈëÊı¾İ*/
+    *(s->top) = e;  /*æ”¾å…¥æ•°æ®*/
         s->top++;
 }
 
@@ -46,10 +46,10 @@ main()
     sqStack s1;
     sqStack s2;
     int len,i,j,sum = 0;
-    initStack(&s1);  /*´´½¨Ò»¸öÕ»s1£¬ÓÃÀ´´æ·Å¶ş½øÖÆ×Ö·û´®*/
+    initStack(&s1);  /*åˆ›å»ºä¸€ä¸ªæ ˆs1ï¼Œç”¨æ¥å­˜æ”¾äºŒè¿›åˆ¶å­—ç¬¦ä¸²*/
 
     printf("Please input a binary number and type '#' for end\n");
-    /*ÊäÈë0/1×Ö·û±íÊ¾µÄ¶ş½øÖÆÊı£¬ÒÔ#½áÊø*/
+    /*è¾“å…¥0/1å­—ç¬¦è¡¨ç¤ºçš„äºŒè¿›åˆ¶æ•°ï¼Œä»¥#ç»“æŸ*/
     scanf("%c",&c);
     while(c!='#')
     {
@@ -57,24 +57,23 @@ main()
             Push(&s1,c); 
         scanf("%c",&c);
     }
-    initStack(&s2);  /*´´½¨Ò»¸öÕ»s2£¬ÓÃÀ´´æ·Å°Ë½øÖÆ×Ö·û´®*/
-    len = StackLen(s1);  /*µÃµ½Õ»ÖĞµÄÔªËØ¸öÊı£¬¼´¶ş½øÖÆÊıµÄ³¤¶È*/
+    initStack(&s2);  /*åˆ›å»ºä¸€ä¸ªæ ˆs2ï¼Œç”¨æ¥å­˜æ”¾å…«è¿›åˆ¶å­—ç¬¦ä¸²*/
+    len = StackLen(s1);  /*å¾—åˆ°æ ˆä¸­çš„å…ƒç´ ä¸ªæ•°ï¼Œå³äºŒè¿›åˆ¶æ•°çš„é•¿åº¦*/
     for(i=0;i<len;i=i+3){
         for(j=0;j<3;j++){
-             Pop(&s1,&c);  /*È¡³öÕ»¶¥ÔªËØ*/
-             sum = sum + (c-48) * pow(2,j);  /*×ª»»Îª°Ë½øÖÆÊı*/
+             Pop(&s1,&c);  /*å–å‡ºæ ˆé¡¶å…ƒç´ */
+             sum = sum + (c-48) * pow(2,j);  /*è½¬æ¢ä¸ºå…«è¿›åˆ¶æ•°*/
              if(s1.base == s1.top) break;
              }
-             Push(&s2,sum+48) ;  /*½«°Ë½øÖÆÊıÒÔ×Ö·ûĞÎÊ½Ñ¹ÈëÕ»ÖĞ*/
+             Push(&s2,sum+48) ;  /*å°†å…«è¿›åˆ¶æ•°ä»¥å­—ç¬¦å½¢å¼å‹å…¥æ ˆä¸­*/
              sum = 0;
 
           }
 
     printf("The Octal from is \n") ;
-    while(s2.base != s2.top ){ /*Êä³ö°Ë½øÖÆÕ»µÄÄÚÈİ*/
+    while(s2.base != s2.top ){ /*è¾“å‡ºå…«è¿›åˆ¶æ ˆçš„å†…å®¹*/
        Pop(&s2,&c);
        printf("%c",c);
     }
-    getche();
 
 }

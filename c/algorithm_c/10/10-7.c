@@ -14,5 +14,4 @@ main()
     int array[]={1,2,13,11,7,9,3},max;
     max = arrayMaxVal(array,7);
     printf("The max elem in the array is %d\n",max);
-    getche();
 }

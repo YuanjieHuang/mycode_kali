@@ -26,6 +26,5 @@ main()
     scanf("%d",&n);
     printf("The result is about\n");            /*输出计算结果*/
     printf("%f\n",Darts(n));
-    getche();
 }
 

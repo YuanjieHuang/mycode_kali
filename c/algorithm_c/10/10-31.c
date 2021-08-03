@@ -55,5 +55,4 @@ main()
         printf("%d ",p->data);
         p = p->next;
     }
-    getche();
 }

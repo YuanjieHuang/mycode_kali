@@ -49,7 +49,6 @@ int knap_2(int n , int flag ,int c,int price){  /*找到物品装包的最佳方
                 printf("| |price: %2d $ |  |\n\n",val[j]) ;
                 }
              printf("--------------------\n\n") ;
-             getche();
                 return ;
         };
         return ;
@@ -76,6 +75,5 @@ main()
     knap_1(0,n,c,&price);
     knap_2(0,n,c,price);
     printf("The grass price :%d $",price);
-    getche();
 }
 

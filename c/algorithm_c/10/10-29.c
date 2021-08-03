@@ -23,5 +23,4 @@ main()
     puts(cs[i]);
     }
     printf("\n");
-    getche();
 }

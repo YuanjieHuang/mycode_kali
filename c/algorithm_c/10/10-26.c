@@ -20,5 +20,4 @@ main()
     printf("Please input a character\n");		/*输入1个字符*/
     scanf("%c",&c);
     printf("The number of bit '1' in the character are %d\n",bitNumber(c)); /*输出该字符中’1’位的个数*/
-    getche();
 }

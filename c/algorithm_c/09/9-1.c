@@ -40,6 +40,5 @@ pieces(){
 main()
 {
     pieces();
-    getche();
 }
 

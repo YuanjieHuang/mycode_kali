@@ -35,5 +35,4 @@ main()
 {
   printf("The palindrome numbers between 11~999 are\n");
   palindrome(11,999);
-  getche();
 }

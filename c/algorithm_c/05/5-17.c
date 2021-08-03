@@ -51,6 +51,5 @@ void getMatrix(){
 main()
 {
     getMatrix() ; /*输出一个三阶魔幻方阵*/
-    getche();
 }
 

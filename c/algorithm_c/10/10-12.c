@@ -22,5 +22,4 @@ main()
         printf("%d add 100 or add 168 equal a perfect square number\n",i);
     else
         printf("There is no answer in the area of 1~10000\n");
-    getch();
 }

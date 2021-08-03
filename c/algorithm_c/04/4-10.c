@@ -19,6 +19,5 @@ main()
     fp=fopen(pathName,"r");
     fread(txt2,fileLen,1,fp);
     printf("%s\n",txt2);
-    getche();
 }
 

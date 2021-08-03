@@ -12,5 +12,4 @@ main()
 {
     printf("The translation of 12345 from interger to string\n");
     trans(1235);
-    getche();
 }

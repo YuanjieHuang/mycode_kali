@@ -5,6 +5,5 @@ main()
     for(i=9;i>=1;i--)
          sum = (sum + 1) * 2 ;  /*每次循环都得出第i天的桃子数*/
     printf("The number of peach are %d\n",sum);
-    getche();
 }
 

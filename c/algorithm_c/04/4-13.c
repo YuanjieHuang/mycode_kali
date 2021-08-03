@@ -24,6 +24,5 @@ main()
     printf("Please input a Decimal digit\n");
     scanf("%d",&a);
     deTobi(a);
-    getche();
 }
 

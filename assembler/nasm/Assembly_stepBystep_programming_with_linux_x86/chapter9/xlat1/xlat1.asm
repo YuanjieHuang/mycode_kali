@@ -8,7 +8,7 @@
 ;
 ;  Build using these commands:
 ;    nasm -f elf -g -F stabs xlat1.asm
-;    ld -o xlat1 xlat1.o -m efl_i386
+;    ld -o xlat1 xlat1.o -m elf_i386
 ;
 
 SECTION .data			; Section containing initialised data

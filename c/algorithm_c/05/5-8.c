@@ -7,29 +7,28 @@ main()
     for(i=0;i<3;i++)
         for(j=0;j<3;j++)
             for(k=0;k<3;k++)
-                if(i!=j && j!=k && i!=k) /*²»ÄÜ1¸öÐÂÄïÅä2¸öÐÂÀÉ*/
+                if(i!=j && j!=k && i!=k) /*ä¸èƒ½1ä¸ªæ–°å¨˜é…2ä¸ªæ–°éƒŽ*/
                 {
-                    /*µÃµ½Ò»ÖÖÅä¶Ô·½Ê½*/
+                    /*å¾—åˆ°ä¸€ç§é…å¯¹æ–¹å¼*/
                     if (match(i,j,k,wife))
                     {
                         printf("husband  wife\n");
-                        /*ÕâÖÖÅä¶Ô·½Ê½·ûºÏÌâÄ¿ÒªÇó*/
+                        /*è¿™ç§é…å¯¹æ–¹å¼ç¬¦åˆé¢˜ç›®è¦æ±‚*/
                         printf("A---------%c\n",wife[i]);
                         printf("B---------%c\n",wife[j]);
                         printf("C---------%c\n",wife[k]);
                     }
                 }
 
-                getche();
 }
 
 int match(int i,int j,int k,char wife[])
 {
-    /*A²»ºÍX½á»é*/
+    /*Aä¸å’ŒXç»“å©š*/
     if(wife[i] == 'X') return 0;
-    /*X²»ºÍC½á»é*/
+    /*Xä¸å’ŒCç»“å©š*/
     if(wife[k] == 'X') return 0;
-    /*C²»ºÍZ½á»é*/
+    /*Cä¸å’ŒZç»“å©š*/
     if(wife[k] == 'Z') return 0;
     return 1;
 }

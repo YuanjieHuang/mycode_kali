@@ -27,7 +27,7 @@ friendly()                        /*寻找1-3000范围内的亲密数*/
             if(isfriend(x[i],x[j],i,j))
             {
                 printf("(%d,%d) ",i,j);
-                x[j] = -111;                ／*表示j已经找到亲密数*/
+                x[j] = -111;                /*表示j已经找到亲密数*/
             }
     }
   }
@@ -37,6 +37,5 @@ main()
 {
     printf("There are following friendly numbers from 1 to 3000\n");
     friendly();
-    getche();
 }
 

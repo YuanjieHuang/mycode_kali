@@ -18,5 +18,4 @@ main()
 	char str[5]={'a','b','c','d','e'};
 	printf("The string of transferation is\n");
         func(str,5,0);
-        getche();
 }

@@ -33,6 +33,5 @@ main()
     for(i=0;i<n;i++)                /*输入数列中的元素（整数）*/
         scanf("%d",&a[i]);
     Perm(a,n,0,r,n);                /*全排列操作*/
-    getche();
 }
 

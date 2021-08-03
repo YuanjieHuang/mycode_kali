@@ -7,6 +7,5 @@ Fibonacci(n){  /*递归函数*/
 main()
 {
     printf("There are %d pairs of rabbits 1 year later",Fibonacci(12));
-    getche();
 }
 

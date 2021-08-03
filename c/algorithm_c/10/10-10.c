@@ -19,5 +19,4 @@ int fruitPlate()
 main()
 {
     printf("There are %d kinds of motheds for arranging plate.\n",fruitPlate()) ;
-    getche();
 }

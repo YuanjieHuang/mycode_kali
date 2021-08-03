@@ -34,6 +34,5 @@ main()
     scanf("%d %d",&a,&b);         
     printf("The GCD of %d and %d is %d\n",a,b,gcd(a,b));       /*打印出a,b的最大公约数*/
     printf("The LCM of %d and %d is %d\n",a,b,lcm(a,b));       /*打印出a,b的最小公倍数*/
-    getche();
 }
 

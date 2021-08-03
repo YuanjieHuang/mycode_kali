@@ -16,6 +16,5 @@ int Day(int year ,int month,int date)
 main()
 {
     printf("The days of 6th Match 2009 is %d\n",Day(2009,3,6));
-    getche();
 }
 

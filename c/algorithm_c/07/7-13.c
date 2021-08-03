@@ -58,5 +58,4 @@ main()
 {
     printf("The result for conversion of recursion to non recursion is\n");
     printf("f(5)=%d \n",f(5));
-    getche();
 }

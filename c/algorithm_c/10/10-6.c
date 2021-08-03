@@ -11,5 +11,4 @@ main()
     printf("Please input a integer for counting 1+2+...+n\n");
     scanf("%d",&n);
     printf("The result of 1+2+...+%d is\n%d",n,sum(n));
-    getche();
 }

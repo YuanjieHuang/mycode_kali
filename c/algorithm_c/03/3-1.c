@@ -27,6 +27,5 @@ main()
     scanf("%d",&high);
     printf("The whole primes in this domain are\n");
     getPrime(low,high);
-    getche();
 }
 

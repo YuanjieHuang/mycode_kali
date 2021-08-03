@@ -17,7 +17,6 @@ int main(void)
     scanf("%d",&n);                        /*输入盘子数目n*/
     printf("The step to moving %d diskes:\n",n);
     move(n,'A','B','C');                    /*递归调用move，求解盘子的搬运过程*/
-    getche();
     return 0;
 }
 

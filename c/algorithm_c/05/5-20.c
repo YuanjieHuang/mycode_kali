@@ -1,15 +1,15 @@
 #include "stdio.h"
 
-int factorSum(a)            /*ÇóaµÄÒò×ÓºÍ*/
+int factorSum(a)            /*æ±‚açš„å› å­å’Œ*/
 {
     int i, sum = 0;
     for(i=1;i<a;i++)
-        if(a%i == 0)            /*iÊÇaµÄÒ»¸öÒò×Ó*/
-            sum = sum + i;    /*ÀÛ¼ÓÇóºÍ*/
-    return sum;            /*·µ»ØaµÄÒò×ÓµÄºÍ*/
+        if(a%i == 0)            /*iæ˜¯açš„ä¸€ä¸ªå› å­*/
+            sum = sum + i;    /*ç´¯åŠ æ±‚å’Œ*/
+    return sum;            /*è¿”å›açš„å› å­çš„å’Œ*/
 }
 
-int perfextnumber(int a)        /*ÅĞ¶ÏaÊÇ·ñÊÇÍêÈ«Êı*/
+int perfextnumber(int a)        /*åˆ¤æ–­aæ˜¯å¦æ˜¯å®Œå…¨æ•°*/
 {
     if(a == factorSum(a)) return 1;
     else return 0;
@@ -20,10 +20,9 @@ main()
     int a;
     printf("There are following perfect numbers 1~1000 are:\n");
     for(a=1;a<=1000;a++)
-    {                        /*Ñ°ÕÒ1-1000ÒÔÄÚµÄÍêÈ«Êı*/
+    {                        /*å¯»æ‰¾1-1000ä»¥å†…çš„å®Œå…¨æ•°*/
         if(perfextnumber(a))
             printf("%d ",a);
     }
-    getche();
 }
 

@@ -27,6 +27,5 @@ main()
     printf("Please input Xn\n");                        /*输入要求的y(xn)的xn*/
     scanf("%f",&xn);
     printf("The result of the function is %f\n",getResult(x0,y0,h,xn));
-    getche();
 }
 

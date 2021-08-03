@@ -58,26 +58,27 @@ float calculate_model5(float i,float j,float k,float t,int op1,int op2,int op3)
   return r3;
 }
 
-get24(int i,int j,int k,int t)
+int get24(int i,int j,int k,int t)
 {
     int op1,op2,op3;
     int flag=0;
     for(op1=1;op1<=4;op1++)
-        for(op2=1;op2<=4;op2++)
+        for(op2=1;op2<=4;op2++){
             for(op3=1;op3<=4;op3++)
             {
-               if(calculate_model1(i,j,k,t,op1,op2,op3)==24)
-               {printf("((%d%c%d)%c%d)%c%d=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
-               if(calculate_model2(i,j,k,t,op1,op2,op3)==24)
-         {printf("(%d%c(%d%c%d))%c%d=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
-               if(calculate_model3(i,j,k,t,op1,op2,op3)==24)
-         printf("%d%c(%d%c(%d%c%d))=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
-               if(calculate_model4(i,j,k,t,op1,op2,op3)==24)
-         {printf("%d%c((%d%c%d)%c%d)=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
-               if(calculate_model5(i,j,k,t,op1,op2,op3)==24)
-               {printf("(%d%c%d)%c(%d%c%d)=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
+              if(calculate_model1(i,j,k,t,op1,op2,op3)==24)
+              {printf("((%d%c%d)%c%d)%c%d=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
+              if(calculate_model2(i,j,k,t,op1,op2,op3)==24)
+              {printf("(%d%c(%d%c%d))%c%d=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
+              if(calculate_model3(i,j,k,t,op1,op2,op3)==24)
+              {printf("%d%c(%d%c(%d%c%d))=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
+              if(calculate_model4(i,j,k,t,op1,op2,op3)==24)
+              {printf("%d%c((%d%c%d)%c%d)=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
+              if(calculate_model5(i,j,k,t,op1,op2,op3)==24)
+              {printf("(%d%c%d)%c(%d%c%d)=24\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;}
             }
             return flag;
+            }
 }
 main()
 {
@@ -90,6 +91,5 @@ loop:    scanf("%d %d %d %d",&i,&j,&k,&t);
     }
     if(get24(i,j,k,t));
     else printf("Sory, the four integer cannot be calculated to get 24\n");
-    getche();
 }
 

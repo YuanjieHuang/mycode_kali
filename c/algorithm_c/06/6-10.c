@@ -17,5 +17,4 @@ main()
     printf(" The solutions of Marx's topic\n");
     printf("  Men  Women  Children\n");
     Marx();
-    getche();
 }

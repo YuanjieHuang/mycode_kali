@@ -28,6 +28,5 @@ main()
             buf[k] = tmp[k];   /*将第i行的数据存放到buf[0]~buf[i]中*/
         } 
     }
-    getche();
 }
 
