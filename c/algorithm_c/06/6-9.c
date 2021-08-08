@@ -1,5 +1,7 @@
 #include "stdio.h"
-
+/*
+    三重回文数，a a^2 a^3都是回文数。
+*/
 long reverse(long i)
 {   /*求i 的倒置数*/
     long m,j=0;

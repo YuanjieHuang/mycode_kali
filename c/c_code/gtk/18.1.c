@@ -11,3 +11,4 @@ int main (int argc, char *argv[])
   gtk_main ();
   return 0;
 }
+//  gcc 18.1.c -o 18.1 `pkg-config --cflags --libs gtk+-3.0`   

@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+/*动态双向链表应用*/
 typedef struct node{
     int data;
     int freq;

@@ -1,5 +1,7 @@
 #include "stdio.h"
 #include "math.h"
+/*任意长度整数加法*/
+
 #define STACK_INIT_SIZE 20
 #define STACKINCREMENT 10
 /*定义堆栈*/

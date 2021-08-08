@@ -1,4 +1,5 @@
 /***********************Procedure Goldbach Guess*******************************/
+//哥德巴赫猜想：任何一个大于2的偶数都能表示成为两个素数之和。
 #include <string.h> 
 #include <stdio.h> 
 
@@ -22,11 +23,11 @@ int TestifyGB_Guess (int low,int high)
     for(i=low;i<=high;i++)
         if(i%2==0&&i>2)
             if(isGoldbach(i)){           /*偶数i符合歌德巴赫猜想*/
-            j++;                         /*j用来控制输出格式*/
-            if(j==5){
-                printf("\n");
-                j=0;
-                }
+                j++;                         /*j用来控制输出格式*/
+                if(j==5){
+                        printf("\n");
+                        j=0;
+                    }
             }
             else
             {flag=1;break;}

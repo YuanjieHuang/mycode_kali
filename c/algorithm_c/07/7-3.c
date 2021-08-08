@@ -1,5 +1,7 @@
 #include "stdio.h"
-
+/*
+    在原表空间进行链表的归并
+*/
 /*定义int为ElemType类型*/
 typedef int ElemType;
 

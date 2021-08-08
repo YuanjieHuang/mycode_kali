@@ -1,7 +1,7 @@
 #include <string.h> 
 #include <stdio.h> 
 #include <math.h>
-
+/*求pai近似值*/
 double getPI(int n);
 
 void main()

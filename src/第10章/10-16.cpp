@@ -3,7 +3,6 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-　　
 class Girl {
     friend void disp(Girl &x); 
 private:
@@ -12,13 +11,9 @@ private:
 public:
     Girl(char *n, int d)  {strcpy(name,n);  age=d;}  
 };
-　　
 void disp(Girl &x)  {cout<<x.name<<"  "<<x.age<<endl;} //友元函数的定义
-　　
 int main()
 {   Girl e("abc", 15);  
     disp(e); 
-　　
     return 0;
 }
-　　

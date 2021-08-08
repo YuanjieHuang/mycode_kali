@@ -1,4 +1,5 @@
 #include <stdio.h>
+/*输入一个字符串，并输出*/
 inputString()
 {
     char c, lastc = 'a';

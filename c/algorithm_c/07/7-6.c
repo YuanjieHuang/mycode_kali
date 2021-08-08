@@ -2,7 +2,10 @@
 #define STACK_INIT_SIZE 20
 #define STACKINCREMENT 10
 
-
+/*
+回文字符串判定：
+    若字符串正读和反读都相同，如abba
+*/
 typedef char ElemType;   /*将char类型定义为ElemType*/
 
 typedef struct QNode{     /*定义队列结点类*/

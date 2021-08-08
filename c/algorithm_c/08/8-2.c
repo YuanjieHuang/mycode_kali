@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+    计算定积分：(2x+3)dx  [0,1] 
+*/
 float func(float x)
 {
     return 2*x+3;

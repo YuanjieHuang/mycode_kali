@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+/*共5种水果，每果盘一定有3种，且3种水果种类不同*/
 char fruit[][10]={"apple","orange","banana","pineapple","pear"};
 int fruitPlate()
 {

@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+//计算一个字节中有多少位被置为1
 int bitNumber(unsigned char c)
 {
     int count = 0;

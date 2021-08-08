@@ -1,7 +1,7 @@
 #include "stdio.h"
 #define STACK_INIT_SIZE 20
 #define STACKINCREMENT 10
-
+/*动态双向链表应用*/
 typedef char ElemType;   /*将char类型定义为ElemType*/
 typedef struct{        /*定义一个栈类型*/
     ElemType *base;

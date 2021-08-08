@@ -1,5 +1,7 @@
 #include "stdio.h"
-
+/*
+连续整数固定和，如：2+3+...+7=27 8+9+10=27 13+14=27.
+*/
 void cntnsIntSum(int n)
 {
     int i,sum=0,j;

@@ -1,4 +1,5 @@
 #include "stdio.h"
+//判断一年中的第几天
 int Day(int year ,int month,int date)
 {
     int months[13]={0,31,0,31,30,31,30,31,31,30,31,30,31} ,i,days=0;
@@ -15,6 +16,11 @@ int Day(int year ,int month,int date)
 
 main()
 {
-    printf("The days of 6th Match 2009 is %d\n",Day(2009,3,6));
+    int year, month, day;
+    printf("Please input year month day\n");
+    scanf("%d", &year);
+    scanf("%d", &month);
+    scanf("%d", &day);
+    printf("The days of %d th %d %d is %d\n", day, month, year, Day(year,month,day));
 }
 

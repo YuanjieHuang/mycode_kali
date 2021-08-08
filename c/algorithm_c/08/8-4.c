@@ -1,5 +1,8 @@
 #include "stdio.h"
 #include "math.h"
+/*
+    计算定积分：(x^4+x^3+1)dx  [0,1] 
+*/
 float func(float x)
 {
     return pow(x,4)+pow(x,3)+1;

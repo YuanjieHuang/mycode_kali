@@ -1,6 +1,6 @@
 #include"stdio.h"
 #define max 100
-
+//数字全排列
 Perm(int a[], int n ,int s ,int r[], int m){
     int i,j,k,flag=0;
     int b[max];                    /*数组b存放子序列*/
@@ -31,7 +31,8 @@ main()
     scanf("%d",&n);                /*输入待排列的数列中元素的个数*/
     printf("Please input a string for array\n");
     for(i=0;i<n;i++)                /*输入数列中的元素（整数）*/
-        scanf("%d",&a[i]);
+        // scanf("%d",&a[i]);
+        a[i] = i + 2;
     Perm(a,n,0,r,n);                /*全排列操作*/
 }
 

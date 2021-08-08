@@ -1,5 +1,9 @@
 #include "stdio.h"
 
+/*
+打印三角符号
+    2个同号下面是+，2个异号下面是-
+*/
 typedef struct QNode{     /*定义队列结点类*/
     char data;
     struct QNode *next;

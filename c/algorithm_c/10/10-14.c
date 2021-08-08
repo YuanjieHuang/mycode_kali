@@ -1,4 +1,5 @@
 #include "stdio.h"
+//整数转成字符串
 void trans(int n)
 {
     int i;

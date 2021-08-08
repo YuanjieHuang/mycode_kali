@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+    求分数数列：2，3/2，5/3，8/5，13/8...前n项和
+*/
 float Sum(int n)
 {
     int i;

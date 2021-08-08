@@ -1,6 +1,6 @@
 #include "stdio.h"
 
-void loopMove(char *str, int n)
+void loopMove(char *str, int n)//循环右移
 {
     int i,j,strLength;
     char tmp;

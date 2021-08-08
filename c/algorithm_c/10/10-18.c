@@ -1,6 +1,6 @@
 #include "stdio.h"
 
-void getMax(char *str,int *max0,int *max1)
+void getMax(char *str,int *max0,int *max1)//0、1连续出现的最大次数
 {
     int i,len,tmp_max0 = 0, tmp_max1 = 0;
     len = strlen(str);

@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+//输出两个数组的子集
 void overlapNumber(int array1[],int n1,int array2[],int n2)
 {
     int i,j;

@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include <gtk-3.0/gtk/gtk.h>
 #include <time.h>
 #include <stdlib.h>
 int main (int argc, char *argv[])

@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+    计算组合数
+*/
  int cnr(int m,int n)
  {
     if(m == n || n == 0)

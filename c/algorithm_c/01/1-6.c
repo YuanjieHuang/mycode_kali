@@ -7,7 +7,7 @@ typedef struct BiTNode{
 /*创建一棵二叉树*/
 CreatBiTree(BiTree *T){
     char c;
-    scanf("%c",&c);
+    scanf("%c",&c);//A@B@C@@D@@E@F@@ 
     if(c == ' ') *T = NULL;
     else{
        *T = (BiTNode * )malloc(sizeof(BiTNode));  /*创建根结点*/

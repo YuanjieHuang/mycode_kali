@@ -1,4 +1,5 @@
 #include"stdio.h"
+//插入后依然有序
 main()
 {
     char str[11]={'a','b','d','f','h','j','l','p','t'},c;

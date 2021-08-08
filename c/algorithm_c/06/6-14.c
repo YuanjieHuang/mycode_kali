@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+  递归求m^n
+*/
 unsigned long myPow(int m,int n)
 {
   unsigned long tmp;

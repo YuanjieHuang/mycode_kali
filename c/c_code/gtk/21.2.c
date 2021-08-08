@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include <gtk-3.0/gtk/gtk.h>
 void on_clicked(GtkWidget *widget, gpointer data)
 {   
 	char txt[]="this is the new title .";

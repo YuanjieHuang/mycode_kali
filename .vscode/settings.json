@@ -96,6 +96,9 @@
         "types.h": "c",
         "*.ipp": "cpp",
         "shared_mutex": "cpp",
-        "math-vector.h": "c"
-    }
+        "math-vector.h": "c",
+        "gtk.h": "c",
+        "syscall.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -1,5 +1,9 @@
 #include "stdio.h"
-
+/*
+贪心算法：
+    最优装船问题：
+        载重C一定，集装箱质量由用户输入，如何装集装箱最多最多？
+*/
 void sort(int w[], int t[], int n)
 {
     int i,j,tmp;
@@ -36,12 +40,12 @@ void Loading(int x[],int w[],int c,int n)
 
 main()
 {
-    int x[5],w[5],c,i;
+    int x[5], w[5] = {5,7,6,3,4}, c = 13, i;
     printf("Please input the maximum loading of the sheep\n");
-    scanf("%d",&c);                        /*输入货船的最大载重量*/
+    // scanf("%d",&c);                        /*输入货船的最大载重量*/
     printf("Please input the weight of FIVE box\n");
-    for(i=0;i<5;i++)                        /*输入每个集装箱的重量*/
-        scanf("%d",&w[i]);
+    // for(i=0;i<5;i++)                        /*输入每个集装箱的重量*/
+    //     scanf("%d",&w[i]);
     Loading(x,w,c,5);                    /*进行最优装载*/
     printf("The following boxes will be loaded\n");
     for(i=0;i<5;i++)                        /*输出结果*/

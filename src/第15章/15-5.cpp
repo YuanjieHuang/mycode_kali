@@ -9,7 +9,7 @@
 　　            cout << "The quotient is: " << result << endl;
 　　        } 
 　　        catch (DivideByZeroException ex) {
-　　            cout << "Exception occurred: "   << ex.what() << '\n‘;   }
+　　            cout << "Exception occurred: "<< ex.what() << '\n'; }
 　　        cout << "\nEnter two integers (end-of-file to end): ";
 　　    }
 　　    cout << endl;

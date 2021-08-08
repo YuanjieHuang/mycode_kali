@@ -27,5 +27,5 @@ void main()
    fputs(a,fp);
    printf("%s\n",b);
    fclose(fp); 
-   fp =fdopen(fd,"r");  
+   // fp =fdopen(fd,"r");  
 }

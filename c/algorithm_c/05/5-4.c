@@ -1,5 +1,8 @@
 #include "stdio.h"
-/*三色球问题求解*/
+/*
+    三色球问题求解
+        红 3 黄 3 绿 6，任意摸出8个，求摸出球的颜色搭配？
+*/
 main()
 {
     int red,yellow,green;

@@ -1,5 +1,11 @@
 #include "stdio.h"
-
+/*
+    n阶勒让德多项式求解：
+    Pn(x)=
+            1                                        (n=0)
+            x                                        (n=1)
+            ( (2n-1)*x - Pn-1(x)-(n-1)*Pn-2(x) )/n   (n>=1)
+*/
 float Rand(int n,float x){                /*递归函数，求勒让德多项式*/
     if (n==0)  return 1;
     else if(n==1) return x;

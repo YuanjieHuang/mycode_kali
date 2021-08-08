@@ -1,5 +1,8 @@
 #include "stdio.h"
 #include "math.h"
+/*
+    整数+100，为完全平方数；再加168，又为完全平方数
+*/
 func(int low,int high)
 {
     int i;

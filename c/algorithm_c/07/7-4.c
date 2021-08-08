@@ -1,5 +1,8 @@
 #include "stdio.h"
-
+/*
+    约瑟夫环
+    
+*/
 /*链表结点定义*/
 typedef struct node{
     int number;  /*编号*/

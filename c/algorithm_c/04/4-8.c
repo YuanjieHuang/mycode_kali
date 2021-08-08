@@ -8,7 +8,7 @@ int main(void)
     for(i=0;i<2;i++)
         for(j=0;j<4;j++)
             for(k=0;k<3;k++)
-                C[i][j]=C[i][j]+A[i][k]*B[k][j] ;
+                C[i][j]=C[i][j]+A[i][k]*B[k][j] ;//maxtrix multiply
     printf("The result is\n");
     for(i=0;i<2;i++) {
         for(j=0;j<4;j++)

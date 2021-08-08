@@ -1,4 +1,8 @@
 #include "stdio.h"
+/*
+    “魔幻方阵”：n*n的矩阵中填写1～n^2这n^2个数字，使得它每一行每一列基两个对角线之和均相等。
+    实现一种3阶方阵，和15.
+*/
 int match(int i,int j,int k,int l,int m,int n,int o,int p,int q)
 {
     /*判断变量i-q是否互不相等,是则返回1,不是则返回0*/

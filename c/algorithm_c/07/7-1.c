@@ -1,5 +1,6 @@
 #include "stdio.h"
 # define MAXSIZE 10
+/*顺序表就地逆制*/
 typedef struct{
     int * base;
     int length;

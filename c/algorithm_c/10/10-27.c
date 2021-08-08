@@ -1,4 +1,5 @@
 #include <stdio.h>
+//用位运算求整数10的相反数
 int main(void) 
 { 
     int a;

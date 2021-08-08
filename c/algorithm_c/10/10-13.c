@@ -1,4 +1,8 @@
 #include "stdio.h"
+/*
+计算sum:
+    sum=a+aa+...+aaa..a,n项
+*/
 long Sum(int a,int n)
 {
     int i;

@@ -2,6 +2,7 @@
 #include <string.h> 
 #include <stdio.h> 
 #include <malloc.h>
+    /*任意个数整数排序*/
 
 /*定义int为ElemType类型*/
 typedef int ElemType;

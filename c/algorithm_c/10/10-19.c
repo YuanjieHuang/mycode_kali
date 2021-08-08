@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+//计算数列1，3，6，13，26，53，...
 unsigned long func(int n)
 {
     if(n==1)

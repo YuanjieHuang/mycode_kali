@@ -9,7 +9,7 @@ int main()
    sleep(1);
    /*程序运行到现在的时间*/
    end = clock(); 
-   printf("The time was: %f\n", (end - start) / CLOCKS_PER_SEC); 
+   printf("The time was:end[%u]-start[%u] %f\n", end, start, (end - start) / CLOCKS_PER_SEC); 
    return 0; 
 }
 

@@ -1,5 +1,9 @@
 #include "stdio.h"
-
+/*
+已知微分方程的初值：
+    y'=y-2x/y (0<x<1)
+    y(0)=1
+*/
 float func(float x,float y)
 {
    return y - 2*x / y;

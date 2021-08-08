@@ -2,7 +2,10 @@
 #include "math.h"
 #include "stdlib.h"
 #include "time.h"
-
+/*
+计算：
+    以1-x^2为被积函数，被积区间为[0,1]的定积分。
+*/
 double Darts(int n)
 {
     double x,y;

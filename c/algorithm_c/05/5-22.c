@@ -1,4 +1,5 @@
 #include "stdio.h"
+//输出正整数N的英文表达式
 char data_1[19][10]={"one","two","three","four",
                     "five","six","seven","eight",
                     "nine","ten","eleven","twelve",

@@ -1,6 +1,8 @@
 #include "stdio.h"
 #include "math.h"
-
+/*应用牛顿法解方程：
+    x*e^x - 1 = 0
+*/
 double NewtonFun(double x)
 {
     return x-(x-exp(-x))/(1+x);

@@ -1,4 +1,6 @@
 #include <stdio.h>
+/*汉诺Hanoi塔*/
+
 move(int n,char x,char y,char z)
 {
     if(n==1)

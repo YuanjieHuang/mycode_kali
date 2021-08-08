@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+    求：(1/2)^n*n!的前10项和
+*/
 main()
 {
     float m = 1.0;                /*记录(1/2)n*/

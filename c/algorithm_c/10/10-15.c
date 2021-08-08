@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+//itoa
 void reverse(char *str,int i)
 {
     int j=0;

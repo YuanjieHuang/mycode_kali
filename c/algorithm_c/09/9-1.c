@@ -1,5 +1,8 @@
 #include "stdio.h"
-
+/*
+    40磅砝码，分成4块，每块为整数磅、质量各不同，且可在天平上称出1-40磅之间的任意质量。
+    求4块砝码质量各是多少？
+*/
 int getWeight(int i,int j,int k,int s,int weight)
 {
     int x1,x2,x3,x4;

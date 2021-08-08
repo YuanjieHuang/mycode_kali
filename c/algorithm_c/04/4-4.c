@@ -1,4 +1,7 @@
 #include"stdio.h"
+/*
+前缀码：一种无二义性的编码，如哈夫曼编码。
+*/
 void Decode(char *str,int n);
 main()
 {

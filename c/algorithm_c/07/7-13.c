@@ -2,7 +2,13 @@
 #include "math.h"
 #define STACK_INIT_SIZE 20
 #define STACKINCREMENT 10
+/*
+递归函数非递归求解
+f(n)=
+        n+1       n=0;
+        nf([n/2]) n!=0;
 
+*/
 typedef  int ElemType;
 typedef struct{
     ElemType *base;

@@ -1,5 +1,5 @@
 #include "stdio.h"
-void reverse(char *s)
+void reverse(char *s)//逆置
 {
     int len = strlen(s)-1,i=0;
     char tmp;

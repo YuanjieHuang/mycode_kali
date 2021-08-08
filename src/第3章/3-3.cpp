@@ -17,7 +17,7 @@ int main()
 	case 4: cout << "星期四" << endl; break; 
 	case 5: cout << "星期五" << endl; break; 
 	case 6: cout << "星期六" << endl; break;
-　  }
+    }
 
     return 0;
 }

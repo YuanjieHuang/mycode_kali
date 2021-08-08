@@ -1,5 +1,8 @@
 #include "stdio.h"
 #include "math.h"
+/*
+    计算定积分：(x^3+2x-1)dx  [0,1] 
+*/
 float func(float x)
 {
     return pow(x,3)+2*x-1;

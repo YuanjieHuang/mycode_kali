@@ -1,6 +1,8 @@
 #include "stdio.h"
 #include "math.h"
-
+/*
+    已知正整数N，求所有满足X^2+Y^2=N的正整数对X和Y。
+*/
 void getXY(int N)
 {
     int x,y;

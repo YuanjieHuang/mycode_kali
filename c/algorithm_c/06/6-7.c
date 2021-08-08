@@ -1,5 +1,7 @@
 #include "stdio.h"
-
+/*
+	同构数：正整数n是它平方数的尾部，如6^2=36,76^2=2776
+*/
 int func(int i)
 {
 	int j;

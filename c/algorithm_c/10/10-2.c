@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+    获取最大和次大的数
+*/
 main()
 {
     int a,maxVal=-1000,secondVal=-1000,i;

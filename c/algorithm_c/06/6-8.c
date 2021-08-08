@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+  尼科彻斯定理：任何一个整数的立方都可以表示成一串连续奇数的和。。
+*/
 
 void Nicoqish(int N)
 {

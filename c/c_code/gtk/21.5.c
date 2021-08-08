@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <gtk/gtk.h>
+#include <gtk-3.0/gtk/gtk.h>
 float a,b ;/*定义两个参于运算的变量。*/
 int hasdot;/*是否有小数点。*/
 int method;/*运算方法。*/

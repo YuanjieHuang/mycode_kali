@@ -1,5 +1,5 @@
 #include "stdio.h"
-
+//计算字符串中包含的单词个数
 int latterNumber(char *str)
 {
     int i,count=0,flag ;

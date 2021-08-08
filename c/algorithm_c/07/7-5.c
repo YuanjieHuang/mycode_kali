@@ -1,5 +1,9 @@
 #include "stdio.h"
 #include "math.h"
+/*
+    二进制/八进制转换器
+
+*/
 #define STACK_INIT_SIZE 20
 #define STACKINCREMENT 10
 

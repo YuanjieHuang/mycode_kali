@@ -1,4 +1,7 @@
 #include  "stdio.h"
+/*
+    “马”在任意方格中，按国际象棋规则移动；要求每个方格只进入一次，走遍棋盘所有方格。
+*/
 #define X 8
 #define Y 8
 int chess[X][Y];

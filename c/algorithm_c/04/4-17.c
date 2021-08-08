@@ -1,4 +1,7 @@
 #include "stdio.h"
+/*
+    寻找矩阵中的鞍点：该行最大，该列最小。
+*/
 int getSaddlePoint (int *x,int *y,int (*A)[5],int m,int n)
 {
     int max , i, j , k ,flag;
@@ -34,11 +37,19 @@ int getSaddlePoint (int *x,int *y,int (*A)[5],int m,int n)
 
 main()
 {
-    int A[5][5],i,j,x,y;
+    int A[5][5] = 
+    {
+        {1,2,3,4,5}, 
+        {2,3,4,5,6},
+        {3,4,5,6,7},
+        {4,5,6,7,8},
+        {5,6,7,8,9},
+    };
+    int i,j,x,y;
     printf("Please input some digit into the 5*5 matrix\n");
-    for(i=0;i<5;i++)
-        for(j=0;j<5;j++)
-        scanf("%d",&A[i][j]);
+    // for(i=0;i<5;i++)
+    //     for(j=0;j<5;j++)
+    //     scanf("%d",&A[i][j]);
     if(getSaddlePoint (&x,&y,A,5,5))
         printf("\nSaddlePoint is at (%d,%d)",x+1,y+1);
     else

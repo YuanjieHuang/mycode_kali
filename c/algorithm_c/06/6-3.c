@@ -1,5 +1,7 @@
 #include "stdio.h"
-
+/*
+求4位数abcd,已知abcd=(ab+cd)^2
+*/
 void func()
 {
     int a,b,c,d;

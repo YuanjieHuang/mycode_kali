@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <graphics.h>
 
+/*动画模拟创建二叉树*/
 typedef struct BiTNode{
     char data;   /*结点的数据域*/
     struct BiTNode *lchild , *rchild;  /*指向左孩子和右孩子*/

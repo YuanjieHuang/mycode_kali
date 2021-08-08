@@ -1,4 +1,10 @@
 #include "stdio.h"
+/*
+   现有21根火柴，两人轮流取，每人每次可取1-4根，谁去最后一根谁输。
+   人机对弈，人先取，实现计算机常胜。
+*/
+
+
 main()
 {
    int computer , people , spare = 21;

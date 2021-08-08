@@ -1,5 +1,9 @@
 #include "stdio.h"
-
+/*
+加密函数：
+	M=P+Key
+	P 8位明文，M 8位密文
+*/
 void encryption(char buffer[],int file_size,int key);
 void decryption(char buffer[],int file_size,int key);
 void Process(int a);

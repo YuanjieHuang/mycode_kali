@@ -1,5 +1,7 @@
 #include "stdio.h"
-
+/*
+    递归寻找数列的最小值元素
+*/
 int getMin(int array[],int n)
 {
     int val1,val2,val3;

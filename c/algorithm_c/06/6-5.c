@@ -1,6 +1,9 @@
 #include "stdio.h"
 #include "math.h"
-
+/*
+    四方定理：所有自然数最多只要4个数的平方和就可以表示。
+    编程验证
+*/
 int mode_1(N)			/*判断自然数N是否可以表示成为N=a2的形式*/
 {
     if((int)sqrt(N)*(int)sqrt(N)==N)
