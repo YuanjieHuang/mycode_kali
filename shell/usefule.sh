@@ -128,3 +128,6 @@ grep "0\{1,2\}" /etc/passwd
 grep "\(root\).*\1" /etc/passwd
 grep "^$" /etc/passwd
 grep -v "^$" /etc/passwd
+
+
+#########sed#################

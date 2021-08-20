@@ -8,11 +8,11 @@ unsigned long myPow(int m,int n)
   if(n == 0) return 1;
   if(n == 1) return m;
   if(n % 2 == 0){
-    tmp = myPow(m,n/2);
+    tmp = myPow(m,n/2);//
     return tmp * tmp;
     }
   if(n % 2 != 0)
-    return m * myPow(m,n-1);
+    return m * myPow(m,n-1);//
 }
 
 main()

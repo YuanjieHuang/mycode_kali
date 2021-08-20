@@ -10,7 +10,7 @@ int func(int i)
 		if(i/j == 0)
 			break;
 	}
-	if((i*i)%j == i)
+	if((i*i)%j == i)//
 		return 1;
 	else
 		return 0;

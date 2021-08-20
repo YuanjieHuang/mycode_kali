@@ -13,6 +13,8 @@ void cntnsIntSum(int n)
             j++;
             sum = sum + j;
         }
+        // for(j = i-1; sum<n; j++)
+        //     sum = sum + j;
         if(sum == n)
         {
            printf("%d+...+%d = %d\n",i,j,n);

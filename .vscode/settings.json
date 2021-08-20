@@ -98,7 +98,20 @@
         "shared_mutex": "cpp",
         "math-vector.h": "c",
         "gtk.h": "c",
-        "syscall.h": "c"
+        "syscall.h": "c",
+        "stdint.h": "c",
+        "tss.h": "c",
+        "syscall-init.h": "c",
+        "thread.h": "c",
+        "debug.h": "c",
+        "global.h": "c",
+        "interrupt.h": "c",
+        "memory.h": "c",
+        "process.h": "c",
+        "console.h": "c",
+        "fs.h": "c",
+        "file.h": "c",
+        "minicrt.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

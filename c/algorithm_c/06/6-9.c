@@ -7,7 +7,7 @@ long reverse(long i)
     long m,j=0;
     m=i;
     while(m){
-      j=j*10+m%10;
+      j=j*10+m%10;//
       m=m/10;
     }
     return j;   /*返回i的倒置数j*/

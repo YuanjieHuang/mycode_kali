@@ -45,7 +45,7 @@ LinkList p;
     }    
 }
 
-void insertNode(LinkList *q1,LinkList *q2,LinkList *p,LinkList *l2){
+void insertNode(LinkList *q1,LinkList *q2,LinkList *p,LinkList *l2){//为何二级指针？
      if(*q1 == *q2)
      {
          (*p)->next = *q2;

@@ -17,5 +17,5 @@ int getfish(int init,int n)
 
 main()
 {
-    printf("Fish which were gotten by fishers at least are %d",getfish(6,4));
+    printf("Fish which were gotten by fishers at least are %d",getfish(6,4));//Input para?
 }

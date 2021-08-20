@@ -60,11 +60,11 @@ void Sort(LinkList q)
     {
         for(j=0;j<k-i-1;j++)
         {
-            if(p->data>p->next->data)
+            if(p->data > p->next->data)
             {
-              t=p->data;
-              p->data=p->next->data;
-              p->next->data=t;
+              t = p->data;
+              p->data = p->next->data;
+              p->next->data = t;
             }
             p=p->next;
         }
