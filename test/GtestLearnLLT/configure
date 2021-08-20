@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-BUILD='build'
-rm -rf $(BUILD)
-if [ ! -d $(BUILD) ];then mkdir $(BUILD); fi
-cd $(BUILD)
-cmake .. && make all && ../bin/firstGtest
