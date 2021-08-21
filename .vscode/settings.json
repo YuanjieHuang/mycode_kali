@@ -111,7 +111,8 @@
         "console.h": "c",
         "fs.h": "c",
         "file.h": "c",
-        "minicrt.h": "c"
+        "minicrt.h": "c",
+        "mysql.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
