@@ -7,7 +7,7 @@
 #include <log4cplus/loggingmacros.h>
 #include <iostream>
 using namespace log4cplus;
-using namespace log4cplus::helpers
+using namespace log4cplus::helpers;
 int main()
 {
     //用Initializer类进行初始化

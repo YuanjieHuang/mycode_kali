@@ -30,7 +30,7 @@ Pos operator+ (Pos& pos1, Pos& pos2)
 	temp.pos_y = pos1.pos_y + pos2.pos_y;
 	return temp;
 }
-void main(void)
+int main(void)
 {  
 	Pos pos1(25,50), pos2(1,2);
 	Pos pos3;
@@ -41,4 +41,5 @@ void main(void)
      cout <<"Pos 1 + Pos 2:\n";
      pos3 = pos1 + pos2;
      pos3.showPos();
+	 return 0;
 }

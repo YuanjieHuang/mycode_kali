@@ -1,6 +1,5 @@
     #include <iostream>
     using namespace std;
-
     class demo0{
     public:
        demo0():num(new int(0)){
@@ -19,13 +18,10 @@
     demo0 get_demo0(){
         return demo0();
     }
-
     int main(){
         demo0 a = get_demo0();
         return 0;
     }
-
-
 class demo{
     public:
         demo():num(new int(0)){
@@ -52,8 +48,6 @@ class demo{
         demo a = get_demo();
         return 0;
     }
-
-
 class movedemo{
 public:
     movedemo():num(new int(0)){
@@ -82,10 +76,6 @@ int main(){
     //cout << *demo.num << endl;
     return 0;
 }
-    
-
-
-
 class first {
 public:
     first() :num(new int(0)) {

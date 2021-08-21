@@ -1,6 +1,5 @@
     #include <iostream>
     using namespace std;
-
     // /*c++98/03*/
     // //重载被调用函数，查看完美转发的效果
     // void otherdef(int & t) {
@@ -20,7 +19,6 @@
     // void function(T& t) {
     //     otherdef(t);
     // }
-
     // int main()
     // {
     //     function(5);//5 是右值
@@ -28,8 +26,6 @@
     //     function(x);//x 是左值
     //     return 0;
     // }
-
-
     //重载被调用函数，查看完美转发的效果
 void otherdef(int & t) {
     cout << "lvalue\n";
