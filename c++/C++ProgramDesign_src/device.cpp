@@ -78,8 +78,8 @@ public:
 		cout << "Initializing device new by default constructor in DeviceNew..." << endl;
 		weight = 0.56;
 	} 
-	DeviceNew(float newWeight, int vol, bool onOrOff, int newTalkTime, int newStandby-
-        		Time, float powerCent): Device2(newTalkTime, newStandbyTime, powerCent),
+	DeviceNew(float newWeight, int vol, bool onOrOff, int newTalkTime, int newStandbyTime, float powerCent)
+				: Device2(newTalkTime, newStandbyTime, powerCent),
  		Device1(vol, onOrOff)
 	{
 		cout << "Initializing device new by constructor with parameters in DeviceNew ..."

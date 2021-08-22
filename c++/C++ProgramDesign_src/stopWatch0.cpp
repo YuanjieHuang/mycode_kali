@@ -69,28 +69,28 @@ int main()
 	usedTime.showTime();  
 	return 0;
 }
-{
-	ScoreRec tempRec;
-	tempRec.setName(newName);
-	tempRec.setID(newID);
-	tempRec.setScore(newScore);
-	return tempRec;
-}
-void writeScoreRec(ScoreRec &rec)
-{
-     char studentName[50], studentID[50];
-	char studentScore;
- 	rec.getScoreRec(studentName, studentID, studentScore);
-	cout << "ID: "<< studentID << endl;
-     cout << "name: " << studentName << endl;
-	cout << "Score: " << studentScore << endl;
-	return ;
-}
-int main()
-{
-	char studentName[50] = "Henry";
-	char studentID[50] ="123456";
-	char studentScore ='A';
-     writeScoreRec(setScoreRec(studentName, studentID, studentScore));
-	return 0;
-}
+// {
+// 	ScoreRec tempRec;
+// 	tempRec.setName(newName);
+// 	tempRec.setID(newID);
+// 	tempRec.setScore(newScore);
+// 	return tempRec;
+// }
+// void writeScoreRec(ScoreRec &rec)
+// {
+//     char studentName[50], studentID[50];
+// 	char studentScore;
+//  	rec.getScoreRec(studentName, studentID, studentScore);
+// 	cout << "ID: "<< studentID << endl;
+//     cout << "name: " << studentName << endl;
+// 	cout << "Score: " << studentScore << endl;
+// 	return ;
+// }
+// int main()
+// {
+// 	char studentName[50] = "Henry";
+// 	char studentID[50] ="123456";
+// 	char studentScore ='A';
+//      writeScoreRec(setScoreRec(studentName, studentID, studentScore));
+// 	return 0;
+// }

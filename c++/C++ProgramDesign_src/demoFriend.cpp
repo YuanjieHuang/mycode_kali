@@ -26,8 +26,9 @@ void showHouse(House &newHouse)
 	cout << newHouse.name << endl; 			// 可以访问类House的私有成员name
 	cout << newHouse.address << endl; 		// 可以访问类House的私有成员address
 }  
-void main()    
+int main()    
 {  
     House  clientHouse ("王一一","某市某街道某楼");  
-    showHouse(clientHouse);  
+    showHouse(clientHouse);
+    return 0;  
 }

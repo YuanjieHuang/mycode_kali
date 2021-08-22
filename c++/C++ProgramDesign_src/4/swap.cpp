@@ -2,7 +2,7 @@
 // swap.cpp
 // 功能：主函数调用swap函数置换两变量的值
 // ********************************************************
-#include < iostream >
+#include <iostream>
 using namespace std;
 void swap( int&,  int& );
 int main()

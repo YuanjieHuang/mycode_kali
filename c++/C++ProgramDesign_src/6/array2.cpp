@@ -2,7 +2,7 @@
 // array2.cpp
 // 功能：说明二维数组的声明和引用
 // ********************************************************
-#include < iostream >
+#include <iostream>
 using namespace std;
 int main()
 {

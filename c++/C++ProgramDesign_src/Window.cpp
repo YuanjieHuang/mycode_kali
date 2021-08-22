@@ -63,6 +63,16 @@ int main( )
     Screen screen; 
     Window msgWin; 
     cout << "There are " << screen.getWin( ) << " Window(s) on screen" << endl; 
-cout << "There are " << msgWin.getWin( ) << " message Window(s)" << endl; 
+    cout << "There are " << msgWin.getWin( ) << " message Window(s)" << endl; 
     return 0; 
 } 
+/*
+Open a work window
+Open a message window
+Initialize the screen
+There are 3 Window(s) on screen
+There are 3 message Window(s)
+Clear the screen
+Close a message window
+Close a work window
+*/

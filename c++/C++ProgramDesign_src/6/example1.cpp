@@ -2,7 +2,7 @@
 // example1.cpp
 // 功能：说明指针变量的定义，以及操作符*和&的含义和运用
 // ********************************************************
-#include < iostream >
+#include <iostream>
 using namespace std;
 int main()
 {

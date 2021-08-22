@@ -4,6 +4,7 @@
 // ***************************************************************
 #include <iostream>
 #include <cmath> 		// fabs函数所在库
+#include <cstring> 		
 using namespace std;
 // 函数重载，函数名相同，但函数原型不同
 bool equal(int, int);

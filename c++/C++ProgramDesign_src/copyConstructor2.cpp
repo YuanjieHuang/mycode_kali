@@ -4,6 +4,7 @@
 // ***************************************************************
 #include <iostream>
 #include <string>
+#include <cstring>
 using  namespace std;
 // 学生成绩的类
 class ScoreRec {

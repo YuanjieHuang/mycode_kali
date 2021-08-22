@@ -6,7 +6,8 @@
 using namespace std;
 //函数原型
 bool equal(int, int);
-int  equal(int, int);
+// int  equal(int, int);
+int  equal(long, long);
 int main()
 {
 	int int1 = 0, int2 = 3;
@@ -27,7 +28,7 @@ bool equal(int num1, int num2)
     else
         return false;
 }
-int equal(int num1, int num2)
+int equal(long num1, long num2)
 {
     if(num1 == num2)
         return 1;

@@ -23,4 +23,14 @@ int main()
     delete []p;		// ②
     return 0;
 }
-/*函数inv的代码同dynamicAlloc1.cpp，此处略*/
+void inv( int* x, int n )
+{
+    int tmp,i,j;
+    int m = ( n-1 )/2;
+    for( i = 0; i <= m; i++ ) {
+        j = n - 1 - i;
+        tmp = x[i];
+        x[i]= x[j];
+        x[j]= tmp;
+    }
+}

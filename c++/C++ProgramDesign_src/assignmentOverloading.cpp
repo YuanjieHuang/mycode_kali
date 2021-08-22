@@ -3,7 +3,8 @@
 // 赋值运算符重载
 // ***************************************************************
 #include <iostream>
-#include <string>
+// #include <string>
+#include <cstring>
 using  namespace std;
 // 学生成绩的类
 class ScoreRec {

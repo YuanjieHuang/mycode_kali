@@ -37,7 +37,7 @@ int char_array(void)
 		else
 		{
 			cout << " Score " << float(numcorrect) / numques * 100 << "%";
-			ques = 0;	   // reset variables￺冘飙縋一乍伍
+			ques = 0;	   // reset variables
 			numcorrect = 0;
 			cout << endl;
 			continue;

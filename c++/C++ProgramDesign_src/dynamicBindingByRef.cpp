@@ -29,7 +29,7 @@ void printIdentity(Base& obj)
 {	
 	obj.showName(); // 通过基类引用调用虚函数
 }
-void main( )
+int main( )
 {	
 	Base bObj;		
 	DClass1 d1Obj;		
@@ -37,4 +37,5 @@ void main( )
 	printIdentity(bObj);			
 	printIdentity(d1Obj);
 	printIdentity(d2Obj);
+	return 0;
 }

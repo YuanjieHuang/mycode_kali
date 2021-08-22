@@ -1,5 +1,6 @@
 // 为了避免与标准库中定义的swap函数冲突，
 // 将自定义的swap函数放在自定义名字空间中
+#include <iostream>
 namespace myNamespace {
 	template <typename T>
 	void swap(T&, T&);
@@ -33,4 +34,8 @@ void myNamespace::swap(double& v1, double& v2)
 	temp = v1;
 	v1 = v2;
 	v2 = temp;
+}
+int main()
+{
+	return 0;
 }

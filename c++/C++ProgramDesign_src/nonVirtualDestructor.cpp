@@ -18,10 +18,11 @@ public:
 		cout << "Derived class destructor" << endl;
 	}
 };
-void main( )
+int main( )
 {	
 	Base *ptr;			// 定义指向基类的指针
 	ptr = new DClass;	// 动态创建派生类对象
-	... // 省略对ptr的使用
+	// ... // 省略对ptr的使用
 	delete ptr;			// 动态撤销派生类对象
+	return 0; 
 }

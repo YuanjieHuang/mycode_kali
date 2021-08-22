@@ -15,7 +15,7 @@ protected:
     int data; 				// 受保护数据成员
 };
 // 基类1
-class Base1:public Base {
+class Base1:public virtual Base {
 public:
     void setData1(int newData, int newData1)
     {
@@ -26,7 +26,7 @@ protected:
     int data1;
 };
 // 基类2
-class Base2:public Base { 
+class Base2:public virtual Base { 
 public:
     void setData2(int newData, int newData2)
     {

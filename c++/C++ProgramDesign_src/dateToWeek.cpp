@@ -9,8 +9,7 @@ class Date {
 public:
 	Date(int y, int m, int d)
 	// 创建Date对象
-	// 前置条件：
-y年m月d日必须是1582年10月15日之后的某日
+	// 前置条件：y年m月d日必须是1582年10月15日之后的某日
     {
 		year = y;
 		month = m;

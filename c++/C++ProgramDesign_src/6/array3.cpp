@@ -2,7 +2,7 @@
 // array3.cpp
 // 求二维数组中所有元素之和。采用两重循环遍历整个数组。
 // ********************************************************
-#include < iostream >
+#include <iostream>
 using namespace std;
 const int CITYS = 9;
 const int MONTHS = 12;

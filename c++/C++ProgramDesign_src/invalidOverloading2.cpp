@@ -15,7 +15,7 @@ int main()
     point1Y = 5.0;
     cout << "The distance to the origin is: " <<endl;
     cout << "Point 1 (" << point1X << "," << point1Y << ")" << ":" 
-	     << distance(point1X, point1Y) << endl;  // 出现二义性
+	     << distance(point1X, point1Y,0,0) << endl;  // 出现二义性
     return 0;
 }
 // 函数1：求和原点的距离     

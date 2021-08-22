@@ -4,6 +4,7 @@
 // ***************************************************************
 #include <iostream>
 #include <string>
+#include <cstring>
 using  namespace std;
 // 学生成绩的类
 class ScoreRec {
@@ -43,7 +44,7 @@ public:
 		score = anotherScoreRec.score;
 		cout << "Copy constructor...\n";
 	}
-	void getScoreRec(char * nameGet, char * IDGet, char& scoreGet)
+	void getScoreRec(char * nameGet, char * IDGet, char& scoreGet) const
 	{
 		strcpy(nameGet , name) ;
 		strcpy(IDGet , ID) ;
@@ -83,16 +84,17 @@ ScoreRec setScoreRec(char * newName, char * newID, char newScore)
 	tempRec.setScore(newScore);
 	return tempRec;
 }
-void writeScoreRec(ScoreRec &rec)
+		//error: cannot bind non-const lvalue reference of type ‘ScoreRec&’ to an rvalue of type ‘ScoreRec’
+void writeScoreRec(const ScoreRec &rec)//Since you can't make a non-const reference to a temporary object in C++
 // 输出一个成绩记录的值
 // 前置条件：rec已赋值
 // 后置条件：输出各项值 
 {
-     char studentName[50], studentID[50];
+    char studentName[50], studentID[50];
 	char studentScore;
  	rec.getScoreRec(studentName, studentID, studentScore);
 	cout << "ID: "<< studentID << endl;
-     cout << "name: " << studentName << endl;
+    cout << "name: " << studentName << endl;
 	cout << "Score: " << studentScore << endl;
 	return ;
 }
@@ -101,6 +103,6 @@ int main()
 	char studentName[50] = "Henry";
 	char studentID[50] ="123456";
 	char studentScore ='A';
-     writeScoreRec(setScoreRec(studentName, studentID, studentScore));
+    writeScoreRec(setScoreRec(studentName, studentID, studentScore));
 	return 0;
 }

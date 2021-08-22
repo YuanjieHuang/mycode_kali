@@ -63,7 +63,7 @@
         }
         memcpy(ptr,a.ptr,sizeof(T)*a.size);   
         size = a.size;
-         return *this;
+        return *this;
     }
     template <class T>
     void CArray<T>::push_back(const T & v)

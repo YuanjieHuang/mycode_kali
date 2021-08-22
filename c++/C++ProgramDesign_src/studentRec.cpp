@@ -1,23 +1,8 @@
 // ***************************************************************
-// studentRec.h
-// 功能：声明结构类型StudentRec的头文件
-// ***************************************************************
-#include <string>
-using namespace std;
-struct  StudentRec	   
-{		
-    string stuNum;    
-    string stuName;   
-    int score1;       
-    int score2;       
-    bool admit;        
-} ;
-// ***************************************************************
 // client.cpp
 // 功能：使用结构类型StudentRec的客户程序，演示结构类型作函数参数的使用方法
 // ***************************************************************
 #include "studentRec.h"
-#include <iostream>
 using namespace std;
 void input( StudentRec& student )	// 这里必须使用引用形参
 {

@@ -2,7 +2,7 @@
 // array4.cpp
 // 求二维数组每行之和
 // ********************************************************
-#include < iostream >
+#include <iostream>
 using namespace std;
 const int CITYS = 9;
 const int MONTHS = 12;

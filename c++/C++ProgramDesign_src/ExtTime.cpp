@@ -6,19 +6,19 @@ public:
     void set(int hours, int minutes, int seconds );
     Time(int initHrs, int initMins, int initSecs );
     Time();
-private:
+protected:
     int hrs;
     int mins;
     int secs;
 };
 class ExtTime : public Time{
 public:
-void set  (int  hours,  int  minutes, int seconds, 
-ZoneType timeZone );
-ExtTime(int  initHrs, int  initMins, int initSecs, 
-ZoneType initZone );
+    void set  (int  hours,  int  minutes, int seconds, ZoneType timeZone );
+    ExtTime();
+    ExtTime(int  initHrs, int  initMins, int initSecs, 
+    ZoneType initZone );
 private:
-ZoneType zone;
+    ZoneType zone;
 };
 Time::Time(int initHrs, int initMins, int initSecs )
 {
@@ -51,10 +51,9 @@ ExtTime::ExtTime()
 zone = EST;
 cout << "Default constructor in ExtTime class..." << endl;
 }
-void ExtTime::set(int hours, int minutes, int seconds, 
-ZoneType timeZone )
+void ExtTime::set(int hours, int minutes, int seconds, ZoneType timeZone )
 {
- 	hrs = hours;
+ 	hrs  = hours;
     mins = minutes;
     secs = seconds;
     zone = timeZone;

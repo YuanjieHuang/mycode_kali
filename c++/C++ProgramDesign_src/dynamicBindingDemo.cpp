@@ -25,7 +25,7 @@ public:
 		cout << "The second derived class" << endl;
 	}
 };
-void main( )
+int main( )
 {	
 	Base bObj;		
     	DClass1 d1Obj;		
@@ -36,5 +36,6 @@ void main( )
 	ptr = &d1Obj;		// 基类指针指向派生类对象
 	ptr -> showName();    	   
 	ptr = &d2Obj;		// 基类指针指向派生类对象
-	ptr -> showName();           
+	ptr -> showName();
+	return 0;            
 }

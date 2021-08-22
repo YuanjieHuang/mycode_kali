@@ -16,7 +16,7 @@ int main()
 	int1 = 3;
 	double1 = 3.0000;
 	// 输出两个数之间的关系
-	switch(equal (int1, double1)) { // 调用函数1
+	switch(equal ((double)int1, double1)) { // 调用函数1
 		case true: 
 			cout << int1 << "==" << double1 << endl; 
 			break;
