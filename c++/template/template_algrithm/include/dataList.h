@@ -7,7 +7,6 @@ public：
     void setKey(Type k) { key = k; }
 private：
     Type  key;						
-    ...
 };
 
 template <class Type>

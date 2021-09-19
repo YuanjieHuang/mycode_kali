@@ -1,0 +1,1 @@
+desc tabl_name;
