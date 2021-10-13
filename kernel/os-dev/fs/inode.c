@@ -79,10 +79,10 @@ struct inode* inode_open(struct partition* part, uint32_t inode_no) {
    struct list_elem* elem = part->open_inodes.head.next;
    struct inode* inode_found;
    while (elem != &part->open_inodes.tail) {
-      inode_found = elem2entry(struct inode, inode_tag, elem);
-      if (inode_found->i_no == inode_no) {
-	 inode_found->i_open_cnts++;
-	 return inode_found;
+         inode_found = elem2entry(struct inode, inode_tag, elem);
+         if (inode_found->i_no == inode_no) {
+            inode_found->i_open_cnts++;
+            return inode_found;
       }
       elem = elem->next;
    }

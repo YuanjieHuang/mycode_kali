@@ -331,7 +331,7 @@ _syscall2	lib/user/syscall.c	/^#define _syscall2(/;"	d	file:
 _syscall3	lib/user/syscall.c	/^#define _syscall3(/;"	d	file:
 add	boot/loader.S	/^   add di, cx		      ;使di增加20字节指向缓冲区中新的ARDS结构位置$/;"	d
 addr_v2p	kernel/memory.c	/^uint32_t addr_v2p(uint32_t vaddr) {$/;"	f	typeref:typename:uint32_t
-all	makefile	/^all: clean mk_dir mk_img disk_img build hd ctags$/;"	t
+all	makefile	/^all: clean mk_dir mk_img disk_img build hd ctags $/;"	t
 all_list_tag	thread/thread.h	/^   struct list_elem all_list_tag;$/;"	m	struct:task_struct	typeref:struct:list_elem
 allocate_pid	thread/thread.c	/^static pid_t allocate_pid(void) {$/;"	f	typeref:typename:pid_t	file:
 alt_l_char	device/keyboard.c	/^#define alt_l_char	/;"	d	file:

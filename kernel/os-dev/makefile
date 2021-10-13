@@ -211,10 +211,10 @@ mk_dir:
 	if [ ! -d $(BUILD_DIR) ];then mkdir $(BUILD_DIR);fi
 
 mk_img:
-	if [ ! -e $(DISK_IMG) ];then  bximage -hd=30 -mode=create -sectsize=512 -q $(DISK_IMG);fi
+	if [ ! -e $(DISK_IMG) ];then  bximage -hd=30 -mode=flat -sectsize=512 -q $(DISK_IMG);fi
 
 disk_img:
-	if [ ! -e $(DISK_IMG2) ];then bximage -hd=30 -mode=create -sectsize=512 -q $(DISK_IMG2);fi
+	if [ ! -e $(DISK_IMG2) ];then bximage -hd=30 -mode=flat -sectsize=512 -q $(DISK_IMG2);fi
 
 hd:
 	dd if=$(BUILD_DIR)/mbr.bin of=hd3M.img bs=512 count=1  conv=notrunc

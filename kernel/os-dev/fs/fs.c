@@ -32,7 +32,7 @@ static bool mount_partition(struct list_elem* pelem, int arg) {
       /* 在内存中创建分区cur_part的超级块 */
       cur_part->sb = (struct super_block*)sys_malloc(sizeof(struct super_block));
       if (cur_part->sb == NULL) {
-	 PANIC("alloc memory failed!");
+	      PANIC("alloc memory failed!");
       }
 
       /* 读入超级块 */
@@ -45,7 +45,7 @@ static bool mount_partition(struct list_elem* pelem, int arg) {
       /**********     将硬盘上的块位图读入到内存    ****************/
       cur_part->block_bitmap.bits = (uint8_t*)sys_malloc(sb_buf->block_bitmap_sects * SECTOR_SIZE);
       if (cur_part->block_bitmap.bits == NULL) {
-	 PANIC("alloc memory failed!");
+	      PANIC("alloc memory failed!");
       }
       cur_part->block_bitmap.btmp_bytes_len = sb_buf->block_bitmap_sects * SECTOR_SIZE;
       /* 从硬盘上读入块位图到分区的block_bitmap.bits */
@@ -55,7 +55,7 @@ static bool mount_partition(struct list_elem* pelem, int arg) {
       /**********     将硬盘上的inode位图读入到内存    ************/
       cur_part->inode_bitmap.bits = (uint8_t*)sys_malloc(sb_buf->inode_bitmap_sects * SECTOR_SIZE);
       if (cur_part->inode_bitmap.bits == NULL) {
-	 PANIC("alloc memory failed!");
+	      PANIC("alloc memory failed!");
       }
       cur_part->inode_bitmap.btmp_bytes_len = sb_buf->inode_bitmap_sects * SECTOR_SIZE;
       /* 从硬盘上读入inode位图到分区的inode_bitmap.bits */
@@ -919,39 +919,39 @@ void filesys_init() {
    while (channel_no < channel_cnt) {
       dev_no = 0;
       while(dev_no < 2) {
-	 if (dev_no == 0) {   // 跨过裸盘hd60M.img
-	    dev_no++;
-	    continue;
-	 }
-	 struct disk* hd = &channels[channel_no].devices[dev_no];
-	 struct partition* part = hd->prim_parts;
-	 while(part_idx < 12) {   // 4个主分区+8个逻辑
-	    if (part_idx == 4) {  // 开始处理逻辑分区
-	       part = hd->logic_parts;
-	    }
-	 
-	 /* channels数组是全局变量,默认值为0,disk属于其嵌套结构,
-	  * partition又为disk的嵌套结构,因此partition中的成员默认也为0.
-	  * 若partition未初始化,则partition中的成员仍为0. 
-	  * 下面处理存在的分区. */
-	    if (part->sec_cnt != 0) {  // 如果分区存在
-	       memset(sb_buf, 0, SECTOR_SIZE);
+         if (dev_no == 0) {   // 跨过裸盘hd60M.img
+            dev_no++;
+            continue;
+         }
+         struct disk* hd = &channels[channel_no].devices[dev_no];
+         struct partition* part = hd->prim_parts;
+         while(part_idx < 12) {   // 4个主分区+8个逻辑
+            if (part_idx == 4) {  // 开始处理逻辑分区
+               part = hd->logic_parts;
+            }
+         
+         /* channels数组是全局变量,默认值为0,disk属于其嵌套结构,
+         * partition又为disk的嵌套结构,因此partition中的成员默认也为0.
+         * 若partition未初始化,则partition中的成员仍为0. 
+         * 下面处理存在的分区. */
+            if (part->sec_cnt != 0) {  // 如果分区存在
+               memset(sb_buf, 0, SECTOR_SIZE);
 
-	       /* 读出分区的超级块,根据魔数是否正确来判断是否存在文件系统 */
-	       ide_read(hd, part->start_lba + 1, sb_buf, 1);   
+               /* 读出分区的超级块,根据魔数是否正确来判断是否存在文件系统 */
+               ide_read(hd, part->start_lba + 1, sb_buf, 1);   
 
-	       /* 只支持自己的文件系统.若磁盘上已经有文件系统就不再格式化了 */
-	       if (sb_buf->magic == 0x19590318) {
-		  printk("%s has filesystem\n", part->name);
-	       } else {			  // 其它文件系统不支持,一律按无文件系统处理
-		  printk("formatting %s`s partition %s......\n", hd->name, part->name);
-		  partition_format(part);
-	       }
-	    }
-	    part_idx++;
-	    part++;	// 下一分区
-	 }
-	 dev_no++;	// 下一磁盘
+               /* 只支持自己的文件系统.若磁盘上已经有文件系统就不再格式化了 */
+               if (sb_buf->magic == 0x19590318) {
+                  printk("%s has filesystem\n", part->name);
+               } else {			  // 其它文件系统不支持,一律按无文件系统处理
+                  printk("formatting %s`s partition %s......\n", hd->name, part->name);
+                  partition_format(part);
+               }
+            }
+            part_idx++;
+            part++;	// 下一分区
+         }
+         dev_no++;	// 下一磁盘
       }
       channel_no++;	// 下一通道
    }

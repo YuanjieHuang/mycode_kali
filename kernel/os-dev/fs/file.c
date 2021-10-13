@@ -21,7 +21,7 @@ int32_t get_free_slot_in_global(void) {
    uint32_t fd_idx = 3;
    while (fd_idx < MAX_FILE_OPEN) {
       if (file_table[fd_idx].fd_inode == NULL) {
-	 break;
+	      break;
       }
       fd_idx++;
    }
