@@ -28,18 +28,6 @@ typedef struct  _teacher
 	char name[64];
 } teacher_t;  //最常用的写法
 
-/*
-struct _teacher
-{
-	int id;
-	char name[64];
-};
-
-typedef struct _teacher teacher_t;
-*/
-
-
-
 
 void print_teacher(struct teacher* p1)
 {
@@ -64,13 +52,6 @@ void copy2(struct teacher *to, struct teacher *from)
 	*to = *from;
 }
 
-/*
-void print_teacher2(struct {
-	int id;
-	char name[64];
-})
-*/
- 
 int main(void)
 {
 	struct teacher  t1;
@@ -91,6 +72,10 @@ int main(void)
 	print_teacher(&t8);
 
 	struct teacher t9 = t1; //int a = b;
+	print_teacher(&t9);
+	struct teacher t10; //int a = b;
+	copy(t10,t1);
+	print_teacher(&t9);
 
 
 	return 0;

@@ -1,0 +1,1 @@
+// Must define TreeItemType before compilationtypedef desired-type-of-table-item TreeItemType;enum Color {RED, BLACK};class TreeNode{ private:   TreeItemType Item;   TreeNode *leftChildPtr, *rightChildPtr;    Color     leftColor, rightColor;    friend class RedBlackTree;};  // end TreeNode

@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
 #define NAME_LEN 64
-
 struct teacher
 {
 	int id;
@@ -12,63 +10,48 @@ struct teacher
 	char **student_name;
 	int stu_num;
 };
-
 int create_teacher(struct teacher **tpp, int num)
 {
 	struct teacher *tp = NULL;
 	int i = 0;
-
 	if (tpp == NULL) {
 		return -1;
 	}
-
 	tp = (struct teacher *)malloc(sizeof(struct teacher) * num);
 	if (tp == NULL) {
 		fprintf(stderr, "malloc struct teacher * tp error\n ");
 		return -1;
 	}
 	memset(tp, 0, sizeof(struct teacher) *num);
-
-
 	for (i = 0; i < num; i++) {
 		tp[i].name = (char*)malloc(sizeof(char)*NAME_LEN);
 		memset(tp[i].name, 0, NAME_LEN);
 	}
-
 	*tpp = tp;
-
 	return 0;
 }
-
 int create_student(struct teacher *tp)
 {
 	int i = 0;
-
 	if (tp == NULL) {
 		return -1;
 	}
-
 	tp->student_name = (char **)malloc(sizeof(char*)* (tp->stu_num) );
 	if (tp->student_name == NULL) {
 		fprintf(stderr, "malloc tp->studentname error\n");
 		return -1;
 	}
 	memset(tp->student_name, 0, sizeof(char *)* tp->stu_num);
-
-	
 	for (i = 0; i < tp->stu_num; i++) {
 		tp->student_name[i] = (char*)malloc(sizeof(char)*NAME_LEN);
 		memset(tp->student_name[i], 0, sizeof(char)*NAME_LEN);
 	}
-
 	return 0;
 }
-
 void print_teachers(struct teacher *tp, int num)
 {
 	int i = 0;
 	int j = 0;
-
 	for (i = 0; i < num; i++) {
 		//代表一个老师
 		printf("=====\n");
@@ -80,17 +63,14 @@ void print_teachers(struct teacher *tp, int num)
 		}
 	}
 }
-
 void sort_teachers(struct teacher *tp, int num)
 {
 	int i = 0;
 	int j = 0;
 	struct teacher temp_teacher;
-
 	if (tp == NULL) {
 		return;
 	}
-
 	for (i = 0; i < num; i++) {
 		for (j = i; j < num; j++) {
 			if (tp[i].id > tp[j].id) {
@@ -100,25 +80,19 @@ void sort_teachers(struct teacher *tp, int num)
 			}
 		}
 	}
-
 	return ;
 }
-
 void free_teachers(struct teacher **tpp, int num)
 {
 	struct teacher *tp = *tpp;
-
 	int i = 0;
 	int j = 0;
-
 	if (tpp == NULL) {
 		return;
 	}
-
 	if (tp == NULL) {
 		return;
 	}
-
 	for (i = 0; i < num; i++) {
 		//释放一个老师
 		// 线是否老师 名字
@@ -126,37 +100,29 @@ void free_teachers(struct teacher **tpp, int num)
 			free(tp[i].name);
 			tp[i].name = NULL;
 		}
-
 		//释放学生信息
 		if (tp[i].student_name != NULL) {
-
 			for (j = 0; j < tp[i].stu_num; j++) {
 				if (tp[i].student_name[j] != NULL) {
 					free(tp[i].student_name[j]);
 					tp[i].student_name[j] = NULL;
 				}
 			}
-
 			free(tp[i].student_name);
 			tp[i].student_name = NULL;
 		}
 	}
-
 	free(tp);
-
 	*tpp = NULL;
 }
-
 int main(void)
 {
 	int num = 2;
 	int i = 0;
 	int j = 0;
 	struct teacher *tp = NULL;
-
 	//开辟num个teacher空间
 	create_teacher(&tp, num);
-
 	for (i = 0; i < num; i++) {
 		//代表一个老师
 		printf("enter tp[%d]'s id: ", i);
@@ -171,20 +137,13 @@ int main(void)
 			scanf("%s", tp[i].student_name[j]);
 		}
 	}
-
 	print_teachers(tp, num);
-
 	sort_teachers(tp, num);
-
 	printf(" after sort\n");
-
 	print_teachers(tp, num);
-
 	free_teachers(&tp, num);
-
 	if (tp == NULL) {
 		printf("tp == NULL\n");
 	}
-
 	return 0;
 }

@@ -1,3 +1,7 @@
+/*
+
+广度优先搜索+回溯法解决移动迷宫问题的完整代码为：
+*/
     #include <stdio.h>
     typedef enum{false,true} bool;
     typedef struct {
@@ -13,9 +17,10 @@
         return false;
     }
     void createMaze(int n,int m,check a[][110],int *entryx,int *entryy,int *exitx,int *exity){
+        char *maze = "S-#---#-E";
         for (int i=0; i<n; i++) {
             for (int j=0; j<m; j++) {
-                scanf("%c",&a[i][j].mess);
+                a[i][j].mess = *(maze + m*i +j);
                 a[i][j].x=i;
                 a[i][j].y=j;
                 if (a[i][j].mess=='S') {
@@ -26,7 +31,6 @@
                     *exity=j;
                 }
             }
-            getchar();
         }
     }
     //使用的广度优先搜索的思想，采用队列的数据结构实现
@@ -154,10 +158,8 @@
         check a[110][110];
         check queue[1000];
         int top=0,rear=0;   
-        int n,m;
+        int n = 3,m = 3;
         int entryx = 0,entryy=0,exitx=0,exity=0;
-        scanf("%d %d",&n,&m);
-        getchar();
         //创建迷宫，并找到入口和出口的位置坐标
         createMaze(n,m,a,&entryx,&entryy,&exitx,&exity);
         //在迷宫中查找从入口到出口的最短路径，若有，输出最短路径的长度；反之，输出-1

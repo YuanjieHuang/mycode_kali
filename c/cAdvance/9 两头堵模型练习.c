@@ -5,13 +5,12 @@
 #include <ctype.h>
 
 /*
-有一个字符串开头或结尾含有n个空格
-（” abcdefgdddd ”），
-欲去掉前后空格，返回一个新字符串。
-要求1：请自己定义一个接口（函数），并实现功
-能；
-要求2：编写测试用例。
-int trimSpace(char *inbuf, char *outbuf);
+	有一个字符串开头或结尾含有n个空格
+	（” abcdefgdddd ”），
+	欲去掉前后空格，返回一个新字符串。
+	要求1：请自己定义一个接口（函数），并实现功能；
+	要求2：编写测试用例。
+	int trimSpace(char *inbuf, char *outbuf);
 */
 
 int trimSpace(char *inbuf, char *outbuf)
@@ -48,6 +47,7 @@ int trimSpace(char *inbuf, char *outbuf)
 
 int main(void)
 {
+	printf("%d",isspace('\0'));
 	char *str = "   abcdefgdddd   ";
 	char buf[128] = { 0 };
 

@@ -38,9 +38,10 @@
     }
     //构造无向图
     void CreateDN(MGraph *G){
-        scanf("%d,%d",&(G->vexnum),&(G->arcnum));
+            G->vexnum = 8;
+            G->arcnum = 9;
         for (int i=0; i<G->vexnum; i++) {
-            scanf("%d",&(G->vexs[i]));
+            G->vexs[i]=i+1;
         }
         for (int i=0; i<G->vexnum; i++) {
             for (int j=0; j<G->vexnum; j++) {
@@ -49,10 +50,9 @@
             }
         }
         for (int i=0; i<G->arcnum; i++) {
-            int v1,v2;
-            scanf("%d,%d",&v1,&v2);
-            int n=LocateVex(G, v1);
-            int m=LocateVex(G, v2);
+            int v1[]={1,2,2,4,5,1,3,6,7},v2[]={2,4,5,8,8,3,6,7,3};
+            int n=LocateVex(G, v1[i]);
+            int m=LocateVex(G, v2[i]);
             if (m==-1 ||n==-1) {
                 printf("no this vertex\n");
                 return;
@@ -149,3 +149,4 @@
         BFSTraverse(G);//广度优先搜索图
         return 0;
     }
+   

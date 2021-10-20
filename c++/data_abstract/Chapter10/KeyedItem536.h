@@ -1,0 +1,1 @@
+#include <string>using namespace std;typedef string KeyType;class KeyedItem{public:   KeyedItem() {};   KeyedItem(const KeyType& keyValue)      :searchKey(keyValue) { }   KeyType getKey() const  // returns search key   {        return searchKey;   }  // end getKeyprivate:   KeyType searchKey; //  ... and possibly other data members};

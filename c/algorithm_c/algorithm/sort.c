@@ -335,12 +335,12 @@ int binSearch(keytype key[], int n, keytype k)
     return -1;
 }
 
-// int main()
-// {
-//     test_sort(insertSort);
-//     test_sort(selectSort);
-//     test_sort(bubbleSort);
-//     test_sort(diminishingIncrementSort);
-//     test_quickSort();
-//     return 0;
-// }
+int main()
+{
+    test_sort(insertSort);
+    test_sort(selectSort);
+    test_sort(bubbleSort);
+    test_sort(diminishingIncrementSort);
+    test_quickSort();
+    return 0;
+}

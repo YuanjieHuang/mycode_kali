@@ -1,0 +1,1 @@
+#include <iostream>#include "TableB.h"using namespace std;void displayKey(TableItemType& anItem){   cout << anItem.getKey() << endl;}  // end displayKeyint main(){   Table         chart;   TableItemType anItem;   cin >> anItem;   chart.tableInsert(anItem);//   . . .   chart.traverseTable(displayKey);  // traversal in order   return 0;}

@@ -25,16 +25,21 @@
     }
     //初始化连通网
     void CreateUDN(edge *edges,int *vexnum,int *arcnum){
-        printf("输入连通网的边数：\n");
-        scanf("%d %d",&(*vexnum),&(*arcnum));
+        *vexnum = 6;
+        *arcnum = 10;
         printf("输入连通网的顶点：\n");
         for (int i=0; i<(*vexnum); i++) {
-            scanf("%d",&(assists[i].value));
+            assists[i].value = i + 1;
             assists[i].sign=i;
         }
         printf("输入各边的起始点和终点及权重：\n");
+        int startPoint[] = {1,1,1,2,2,3,3,3,4,5};
+        int endPoint[]   = {2,3,4,3,5,4,5,6,6,6};
+        int wight[]      = {6,1,5,5,3,5,6,4,2,6};
         for (int i=0 ; i<(*arcnum); i++) {
-            scanf("%d,%d,%d",&(*edges)[i].initial,&(*edges)[i].end,&(*edges)[i].weight);
+            (*edges)[i].initial = startPoint[i];
+            (*edges)[i].end     = endPoint[i];
+            (*edges)[i].weight  = wight[i];
         }
     }
     //在assists数组中找到顶点point对应的位置下标

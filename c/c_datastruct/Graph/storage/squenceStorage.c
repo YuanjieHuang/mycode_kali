@@ -70,9 +70,10 @@
     }
     //构造无向图
     void CreateDN(MGraph *G){
-        scanf("%d,%d",&(G->vexnum),&(G->arcnum));
+        G->vexnum = 6;
+        G->arcnum = 10;
         for (int i=0; i<G->vexnum; i++) {
-            scanf("%d",&(G->vexs[i]));
+            G->vexs[i] = i + 1;
         }
         for (int i=0; i<G->vexnum; i++) {
             for (int j=0; j<G->vexnum; j++) {
@@ -80,11 +81,10 @@
                 G->arcs[i][j].info=NULL;
             }
         }
+        int v1[] = {1,2,3,1,5,3,6,4,6,5},v2[]= {2,3,1,4,3,6,1,6,5,4};
         for (int i=0; i<G->arcnum; i++) {
-            int v1,v2;
-            scanf("%d,%d",&v1,&v2);
-            int n=LocateVex(G, v1);
-            int m=LocateVex(G, v2);
+            int n=LocateVex(G, v1[i]);
+            int m=LocateVex(G, v2[i]);
             if (m==-1 ||n==-1) {
                 printf("no this vertex\n");
                 return;
@@ -144,7 +144,7 @@
     }
     void CreateGraph(MGraph *G){
         //选择图的类型
-        scanf("%d",&(G->kind));
+        scanf("Input graph kind%d",&(G->kind));
         //根据所选类型，调用不同的函数实现构造图的功能
         switch (G->kind) {
             case DG:

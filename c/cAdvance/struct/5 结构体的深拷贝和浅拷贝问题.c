@@ -1,4 +1,3 @@
-#define  _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -45,10 +44,11 @@ int main(void)
 	memset(tp1.name, 0, NAME_LEN);
 	strcpy(tp1.name, "zhang3");
 
-	//copy_teacher(&tp2, &tp1);
-	copy_teacher_deep(&tp2, &tp1);
+	copy_teacher(&tp2, &tp1);
+	// copy_teacher_deep(&tp2, &tp1);
 
 	print_teacher(&tp1);
+	tp1.name = "lisi";
 	print_teacher(&tp2);
 
 	if (tp1.name != NULL) {

@@ -1,0 +1,1 @@
+class EquidistantShape  // abstract base class{public:   virtual void setRadius(double newRadius) = 0;   virtual double getRadius() const = 0;   virtual void displayStatistics() const = 0;};  // end class

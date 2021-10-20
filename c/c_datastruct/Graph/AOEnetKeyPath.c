@@ -43,21 +43,20 @@ AOE 网是在 AOV 网的基础上，其中每一个边都具有各自的权值�
     void CreateAOE(ALGraph **G){
         *G=(ALGraph*)malloc(sizeof(ALGraph));
        
-        scanf("%d,%d",&((*G)->vexnum),&((*G)->arcnum));
+        (*G)->arcnum = 11;
+        (*G)->vexnum = 9;
         for (int i=0; i<(*G)->vexnum; i++) {
-            scanf("%d",&((*G)->vertices[i].data));
+            (*G)->vertices[i].data = i + 1;
             (*G)->vertices[i].firstarc=NULL;
         }
-        VertexType initial,end,dut;
+        VertexType initial[]={1,1,1,2,3,4,5,5,6,7,8},end[]={2,3,4,5,5,6,7,8,8,9,9},dut[]={6,4,5,1,1,2,9,7,4,2,4};
         for (int i=0; i<(*G)->arcnum; i++) {
-            scanf("%d,%d,%d",&initial,&end,&dut);
-           
             ArcNode *p=(ArcNode*)malloc(sizeof(ArcNode));
-            p->adjvex=LocateVex(*(*G), end);
+            p->adjvex=LocateVex(*(*G), end[i]);
             p->nextarc=NULL;
-            p->dut=dut;
+            p->dut=dut[i];
            
-            int locate=LocateVex(*(*G), initial);
+            int locate=LocateVex(*(*G), initial[i]);
             p->nextarc=(*G)->vertices[locate].firstarc;
             (*G)->vertices[locate].firstarc=p;
         }

@@ -1,0 +1,1 @@
+#include <iostream.h>int main(){	int *p, *q;	p = new int;	*p = 1;	q = new int;	*q = 2;	cout << *p << " "	     << *q << endl;	     	*p = *q + 3;	cout << *p << " "	     << *q << endl;	     	p = q;	cout << *p << " "	     << *q << endl;	*p = 7;	cout << *p << " "	     << *q << endl;	p = new int;	delete p;	p = NULL;	q = NULL;   return 0;} // end main

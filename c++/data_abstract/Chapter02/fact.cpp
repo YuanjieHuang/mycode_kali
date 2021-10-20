@@ -1,0 +1,1 @@
+int fact(int n)// ---------------------------------------------------// Computes the factorial of a nonnegative integer.// Precondition: n must be greater than or equal to 0.// Postcondition: Returns the factorial of n; n is// unchanged.// ---------------------------------------------------{   if (n == 0)      return 1;   else      return n * fact(n-1);} // end fact

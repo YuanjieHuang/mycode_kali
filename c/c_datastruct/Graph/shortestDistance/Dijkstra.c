@@ -33,9 +33,10 @@
     }
     //构造有向网
     void CreateUDG(MGraph *G){
-        scanf("%d,%d",&(G->vexnum),&(G->arcnum));
+        G->vexnum = 6;
+        G->arcnum = 8;
         for (int i=0; i<G->vexnum; i++) {
-            scanf("%d",&(G->vexs[i]));
+            G->vexs[i]=i;
         }
         for (int i=0; i<G->vexnum; i++) {
             for (int j=0; j<G->vexnum; j++) {
@@ -43,8 +44,7 @@
             }
         }
         for (int i=0; i<G->arcnum; i++) {
-            int v1,v2,w;
-            scanf("%d,%d,%d",&v1,&v2,&w);
+            int v1[]={0,0,0,1,2,3,4,4} ,v2[]={5,4,2,2,3,5,3,5},w[]={100,30,10,5,50,10,20,60};
             int n=LocateVex(G, v1);
             int m=LocateVex(G, v2);
             if (m==-1 ||n==-1) {

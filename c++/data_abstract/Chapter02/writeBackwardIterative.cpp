@@ -1,0 +1,1 @@
+void writeBackward(string s, int size)// Iterative version.{   while (size > 0)   {  cout << s.substr(size-1, 1);      --size;   } // end while} // end writeBackward

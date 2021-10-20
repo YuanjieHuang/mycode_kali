@@ -43,9 +43,10 @@
     }
     //构造无向图
     void CreateDN(MGraph *G){
-        scanf("%d,%d",&(G->vexnum),&(G->arcnum));
+        G->vexnum = 13;
+        G->arcnum = 13;
         for (int i=0; i<G->vexnum; i++) {
-            scanf("%d",&(G->vexs[i]));
+            G->vexs[i] = i + 1;
         }
         for (int i=0; i<G->vexnum; i++) {
             for (int j=0; j<G->vexnum; j++) {
@@ -53,11 +54,11 @@
                 G->arcs[i][j].info=NULL;
             }
         }
+        int v1[] = {1,1,1,1,2,4,7,7,7,8,11,11,12};
+        int v2[] = {2,3,6,12,13,5,8,10,9,10,12,13,13};
         for (int i=0; i<G->arcnum; i++) {
-            int v1,v2;
-            scanf("%d,%d",&v1,&v2);
-            int n=LocateVex(G, v1);
-            int m=LocateVex(G, v2);
+            int n=LocateVex(G, v1[i]);
+            int m=LocateVex(G, v2[i]);
             if (m==-1 ||n==-1) {
                 printf("no this vertex\n");
                 return;

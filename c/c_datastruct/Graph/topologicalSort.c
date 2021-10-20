@@ -28,20 +28,18 @@
     void CreateAOV(ALGraph **G){
         *G=(ALGraph*)malloc(sizeof(ALGraph));
        
-        scanf("%d,%d",&((*G)->vexnum),&((*G)->arcnum));
+        (*G)->vexnum = 6;
+        (*G)->arcnum = 8;
         for (int i=0; i<(*G)->vexnum; i++) {
-            scanf("%d",&((*G)->vertices[i].data));
+            (*G)->vertices[i].data = i + 1;
             (*G)->vertices[i].firstarc=NULL;
         }
-        VertexType initial,end;
+        VertexType initial[]={1,1,1,3,3,4,6,6},end[]={2,4,3,2,5,5,4,5};
         for (int i=0; i<(*G)->arcnum; i++) {
-            scanf("%d,%d",&initial,&end);
-           
             ArcNode *p=(ArcNode*)malloc(sizeof(ArcNode));
-            p->adjvex=LocateVex(*(*G), end);
+            p->adjvex=LocateVex(*(*G), end[i]);
             p->nextarc=NULL;
-           
-            int locate=LocateVex(*(*G), initial);
+            int locate=LocateVex(*(*G), initial[i]);
             p->nextarc=(*G)->vertices[locate].firstarc;
             (*G)->vertices[locate].firstarc=p;
         }
@@ -111,7 +109,7 @@
             int index;
             //弹栈，并记录栈中保存的顶点所在邻接表数组中的位置
             pop(S,&index);
-            printf("%d",G.vertices[index].data);
+            printf("%d ",G.vertices[index].data);
             ++count;
             //依次查找跟该顶点相链接的顶点，如果初始入度为1，当删除前一个顶点后，该顶点入度为0
             for (ArcNode *p=G.vertices[index].firstarc; p; p=p->nextarc) {

@@ -1,5 +1,4 @@
-﻿#define  _CRT_SECURE_NO_WARNINGS 
-#pragma	pack(2)					//8字节对⻬
+﻿// #pragma	pack(2)					//8字节对⻬
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -24,6 +23,7 @@ struct B
 
 int main(void)
 {
+	printf("int:%d double:%d long:%d\n",sizeof(int),sizeof(double),sizeof(long));
 	int size_A = 0;
 
 	size_A = sizeof(struct A);

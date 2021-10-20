@@ -28,9 +28,10 @@
     }
     //构造无向网
     void CreateUDN(MGraph* G){
-        scanf("%d,%d",&(G->vexnum),&(G->arcnum));
+        G->vexnum = 6;
+        G->arcnum  = 10;
         for (int i=0; i<G->vexnum; i++) {
-            scanf("%d",&(G->vexs[i]));
+            G->vexs[i] = i + 1;
         }
         for (int i=0; i<G->vexnum; i++) {
             for (int j=0; j<G->vexnum; j++) {
@@ -38,17 +39,16 @@
                 G->arcs[i][j].info=NULL;
             }
         }
+        int v1[] = {1,1,1,2,2,3,3,3,4,5},v2[] = {2,3,4,3,5,4,5,6,6,6},w[] = {6,1,5,5,3,5,6,4,2,6};
         for (int i=0; i<G->arcnum; i++) {
-            int v1,v2,w;
-            scanf("%d,%d,%d",&v1,&v2,&w);
-            int m=LocateVex(*G, v1);
-            int n=LocateVex(*G, v2);
+            int m=LocateVex(*G, v1[i]);
+            int n=LocateVex(*G, v2[i]);
             if (m==-1 ||n==-1) {
                 printf("no this vertex\n");
                 return;
             }
-            G->arcs[n][m].adj=w;
-            G->arcs[m][n].adj=w;
+            G->arcs[n][m].adj=w[i];
+            G->arcs[m][n].adj=w[i];
         }
     }
     //辅助数组，用于每次筛选出权值最小的边的邻接点
