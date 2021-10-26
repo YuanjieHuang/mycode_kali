@@ -3,7 +3,7 @@
     #include<sys/stat.h>
     #include<fcntl.h>
      
-    #include "memdev.h"  /* 包含命令定义 */
+    // #include "memdev.h"  /* 包含命令定义 */
      
     int main()
     {

@@ -33,7 +33,7 @@ int main(void)
 		perror("lseek seek_set error");
 		exit(1);
 	}
-    int ret = write(fd, "a", 1);
+    ret = write(fd, "a", 1);
 	if(ret == -1){
 		perror("write error");
 		exit(1);

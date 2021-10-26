@@ -75,5 +75,5 @@ int main(int argc, char *argv[])
         puts("OK!");
     else
         puts("failer!");
-    exit(0);
+    return 0;
 }

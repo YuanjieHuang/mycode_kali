@@ -4,7 +4,7 @@
  返回-1,失败；成功时父进程返回子进程的进程号，子进程返回0.
  * */
 pid_t pid;
-if((pid = fork()) < 0)
+if((pid = fork() < 0)
 {
 	perror("fork");
 	return -1;

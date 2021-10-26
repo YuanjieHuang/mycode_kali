@@ -78,7 +78,7 @@ int remove_last_1(unsigned int x)//用于消去x最后一位的1
    return x & (x - 1);
 }
 
-int remove_last_1(int x)//保留x最后一位的1
+int reserve_last_1(int x)//保留x最后一位的1
 {
    return x & (-x);
 }
@@ -128,7 +128,7 @@ void swap_xor(int* a, int* b)
 void f(int a, int b, int i)
 {
     a |= 1<<i;
-    a & (b & 1<<i)
+    a & (b & 1<<i);
 }
 
 int main()
