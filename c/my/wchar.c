@@ -23,14 +23,14 @@
             a, b, c, d, e, f, g, h
         );
 
-    wchar_t web_url[] = L"http://c.biancheng.net";
-    wchar_t *web_name = L"C语言中文网";
-   
-    //将本地环境设置为简体中文
-    setlocale(LC_ALL, "zh_CN");
-    //使用通用的 wprintf 输出宽字符
-    wprintf(L"web_url: %ls \nweb_name: %ls\n", web_url, web_name);
-       
+        wchar_t web_url[] = L"http://c.biancheng.net";
+        wchar_t *web_name = L"C语言中文网";
+    
+        //将本地环境设置为简体中文
+        setlocale(LC_ALL, "zh_CN");
+        //使用通用的 wprintf 输出宽字符
+        wprintf(L"web_url: %ls \nweb_name: %ls\n", web_url, web_name);
+        
        
         return 0;
     }

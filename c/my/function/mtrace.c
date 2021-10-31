@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <errno.h>
 #include <mcheck.h>
-
 int main()
 {
     char * hello;

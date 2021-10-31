@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
 void printset(sigset_t *ped)
 {
 	int i;
@@ -15,7 +14,6 @@ void printset(sigset_t *ped)
 	}
 	printf("\n");
 }
-
 int main(void)
 {
 	sigset_t set, ped;
@@ -29,12 +27,10 @@ int main(void)
 	sigfillset(&set);
 #endif
 	sigprocmask(SIG_BLOCK, &set, NULL);	//不获取原屏蔽字
-
 	while (1) {
 		sigpending(&ped);               //获取未决信号集
 		printset(&ped);
 		sleep(1);
 	}
-
 	return 0;
 }

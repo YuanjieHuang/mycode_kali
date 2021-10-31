@@ -20,6 +20,7 @@
         if(vfork() == 0)
         {
             printf("This is the child process\n");
+            _exit(0);
         }
         else
         {

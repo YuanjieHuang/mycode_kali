@@ -14,9 +14,8 @@
         //以有符号数的形式输出无符号类型（只能以十进制形式输出）
         printf("m=%hd, n=%d, p=%ld\n", m, n, p);
 
-            unsigned int a1 = 0x100000000;
-    int b1 = 0xffffffff;
-    printf("a=%u, b=%d\n", a1, b1);
-    return 0;
+        unsigned int a1 = 0x100000000;
+        int b1 = 0xffffffff;
+        printf("a=%u, b=%d\n", a1, b1);
         return 0;
     }

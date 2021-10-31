@@ -22,7 +22,7 @@ void count_sum()
 void my_print (char *string) 
 { 
     count_sum(); 
-    printf ("The string is %s ", string); 
+    printf ("The string is %s \n", string); 
 } 
  
 void my_print2 (char *string) 
@@ -31,10 +31,10 @@ void my_print2 (char *string)
     size = strlen (string); 
     string2 = (char *) malloc (size + 1);
     for (i = 0; i < size; i++) 
-    string2[size -1 - i] = string[i]; string2[size] =' ';
+    string2[size -1 - i] = string[i]; string2[size] ='\0';
     for(i=0; i<5000000; i++) 
     sum += i; 
-    printf ("The string printed backward is %s ", string2); 
+    printf ("The string printed backward is %s \n", string2); 
 } 
 /*
 run steps:

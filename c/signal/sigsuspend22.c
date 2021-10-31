@@ -10,7 +10,6 @@ void handler(int sig)   //信号处理程序
    else
       printf("SIGUSR1 sig\n");
 }
- 
 int main()
 {
     sigset_t newSig,old,wait;   //三个信号集
@@ -21,15 +20,12 @@ int main()
     sigaction(SIGINT, &act, 0);    //可以捕捉以下三个信号：SIGINT/SIGQUIT/SIGUSR1
     sigaction(SIGQUIT, &act, 0);
     sigaction(SIGUSR1, &act, 0);
-   
     sigemptyset(&newSig);
     sigaddset(&newSig, SIGINT);  //SIGINT信号加入到new信号集中
     sigemptyset(&wait);
     sigaddset(&wait, SIGUSR1);  //SIGUSR1信号加入wait
     sigprocmask(SIG_BLOCK, &newSig, &old);       //将SIGINT阻塞，保存当前信号集到old中
-   
     //临界区代码执行    
-  
     if(sigsuspend(&wait) != -1)  
     //程序在此处挂起；用wait信号集替换new信号集。即：过来SIGUSR1信号，阻塞掉，程序继续挂起；
     // 过来其他信号，例如SIGINT，则会唤醒程序。执行sigsuspend的原子操作。

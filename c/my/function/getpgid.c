@@ -5,7 +5,6 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-
 int main(void)
 {
     pid_t pid = fork();
@@ -13,13 +12,10 @@ int main(void)
     if (pid > 0) {
         printf("parnet, getpgrp = %d\n", getpgrp());
         printf("parnet, getpgid() = %d\n", getpgid(getpid()));
-
         setpgid(getpid(), getppid());
         printf("parnet, getpgid() = %d\n", getpgid(getpid()));
-
         wait(NULL);
         printf("After wait\n");
-
     } else {
         printf("child, getpgrp = %d\n", getpgrp());
         printf("child, getpgid() = %d\n", getpgid(getpid()));

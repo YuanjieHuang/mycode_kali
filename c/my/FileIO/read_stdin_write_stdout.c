@@ -6,7 +6,7 @@
 
 int main(void)
 {
-	char buf[10];
+	char buf[10] = "read then write";
 	int n;
 
 	n = read(STDIN_FILENO, buf, 10);   // #define STDIN_FILENO 0   STDOUT_FILENO 1  STDERR_FILENO 2

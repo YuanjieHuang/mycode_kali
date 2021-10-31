@@ -2,15 +2,12 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
- 
 static pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
- 
 struct node {
-int n_number;
-struct node *n_next;
+    int n_number;
+    struct node *n_next;
 } *head = NULL;
- 
 static void cleanup_handler(void *arg)
 {
     printf("Cleanup handler of second thread.\n");
@@ -20,7 +17,6 @@ static void cleanup_handler(void *arg)
 static void *thread_func(void *arg)
 {
     struct node *p = NULL;
- 
     pthread_cleanup_push(cleanup_handler, p);
     while (1) {
         pthread_mutex_lock(&mtx);           //这个mutex主要是用来保证pthread_cond_wait的并发性
@@ -42,7 +38,6 @@ static void *thread_func(void *arg)
     pthread_cleanup_pop(0);
     return 0;
 }
- 
 int main(void)
 {
     pthread_t tid;
@@ -60,8 +55,8 @@ int main(void)
         sleep(1);
     }
     printf("thread 1 wanna end the line.So cancel thread 2.\n");
-    pthread_cancel(tid);             //关于pthread_cancel，有一点额外的说明，它是从外部终止子线程，子线程会在最近的取消点，退出线程，
-                            // 而在我们的代码里，最近的取消点肯定就是pthread_cond_wait()了。关于取消点的信息，有兴趣可以google,这里不多说了
+    pthread_cancel(tid);    //关于pthread_cancel，有一点额外的说明，它是从外部终止子线程，子线程会在最近的取消点，退出线程，
+                            // 而在我们的代码里，最近的取消点肯定就是pthread_cond_wait()了。
     pthread_join(tid, NULL);
     printf("All done -- exiting\n");
     return 0;

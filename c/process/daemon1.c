@@ -17,7 +17,6 @@ void creat_daemon(void){
 	else {
 		exit(0);//
 	}
-
 	setsid();//设置新的会话
 	sa.sa_handler=SIG_IGN;
 	sigemptyset(&sa.sa_mask);
@@ -32,7 +31,6 @@ void creat_daemon(void){
 	else if(pid!=0){
 		exit(0);
 	}
-
 	if(chdir("/")<0){//更改工作目录到根目录
 		printf("child dir error\n");                                                
 		return;
@@ -42,13 +40,11 @@ void creat_daemon(void){
 	dup2(fd0,1);
 	dup2(fd0,2);
 }
-
 int main()
 {
 	creat_daemon();
 	while(1){
-		sleep(1);
-
+		// sleep(1);
 	}
 	return 0;
 }

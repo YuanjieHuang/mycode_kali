@@ -115,7 +115,9 @@
         "mysql.h": "c",
         "stat.h": "c",
         "socket_type.h": "c",
-        "config.h": "c"
+        "config.h": "c",
+        "macro.h": "c",
+        "cassert": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

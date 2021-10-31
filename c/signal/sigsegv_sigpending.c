@@ -3,13 +3,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-
 char *p = "hello";
-
 void printset(const sigset_t *ped)
 {
 	int i;
-
 	for(i = 0; i < 32; i++){
 #if 0
 		if(i == 8)
@@ -24,25 +21,19 @@ void printset(const sigset_t *ped)
 	}
 	printf("\n");
 }
-
 int main(void)
 {
 	sigset_t set, ped;
-
 	sigemptyset(&set);
 	sigaddset(&set, SIGSEGV);			
 	sigaddset(&set, SIGINT);			
 	sigaddset(&set, SIGTSTP);			
-
 	sigprocmask(SIG_BLOCK, &set, NULL);			
-	
 	raise(SIGSEGV);
-
 	while(1){
 		sigpending(&ped);
 		printset(&ped);
 		sleep(1);
 	}
-
 	return 0;
 }

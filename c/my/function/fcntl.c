@@ -1,4 +1,3 @@
-
 /*  reference https://ixyzero.com/blog/archives/3545.html   */
 #include <unistd.h>
 #include <fcntl.h>
@@ -19,7 +18,6 @@ int main(int argc, char *argv[])
 {
     char buf[1024] = {0};
     int ret;
-    
     // int flags;
     // flags = fcntl(0, F_GETFL, 0);
     // if (flags == -1)
@@ -61,7 +59,6 @@ void clr_flag(int fd, int flags)
     if (fcntl(fd, F_SETFL, val) < 0)
         ERR_EXIT("fcntl set flag error");
 }
-
 // 将socket fd设置为非阻塞模式：
 static int make_socket_non_blocking (int sfd)
 {
@@ -79,7 +76,6 @@ static int make_socket_non_blocking (int sfd)
   }
   return 0;
 }
-
 #else
 // 获取、设置文件锁样例：
 #include <unistd.h>
@@ -122,5 +118,4 @@ int main(int argc, char *argv[])
         ERR_EXIT("lock fail");
     return 0; //进程退出会对所有文件解锁
 }
-
 #endif

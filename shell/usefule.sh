@@ -131,3 +131,4 @@ grep -v "^$" /etc/passwd
 
 
 #########sed#################
+for i in {1..255}; do ping -c1 192.168.123.$i |egrep "time=";done

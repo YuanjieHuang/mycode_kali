@@ -3,21 +3,18 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
-
 void func(void)
 {
     pthread_exit(NULL);
 }
-
 void *tfn(void *arg)
 {
     int i = (int)arg;
-//    sleep(i);
+   sleep(i);
     if (i == 2) {
         func();
     }
     printf("I'm %dth pthread   tid = %lu\n", i+1, pthread_self());
-
     return NULL;
 }
 int main(void)
@@ -32,8 +29,5 @@ int main(void)
         }
     }
     printf("----I'm main pthread  tid = %lu\n", pthread_self());
-
     pthread_exit((void *)0);
 }
-
-

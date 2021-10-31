@@ -5,10 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
-
 #define MSG_TRY "try again\n"
-
-
 int my_fcntl()
 {
     pid_t pid;
@@ -20,11 +17,8 @@ int my_fcntl()
         return -1;
     }
     printf("fd = %d\n", fd);
-
     fcntl(fd, F_SETFD, 0);//关闭fd的close-on-exec标志
-
     write(fd, "hello c program\n", strlen("hello c program!\n"));
-
     pid = fork();
     if(pid < 0)
     {
@@ -34,7 +28,6 @@ int my_fcntl()
     if(pid == 0)
     {
         printf("fd = %d\n", fd);
-
         int ret = execl("./main", "./main", (char *)&fd, NULL);
         if(ret < 0)
         {
@@ -43,16 +36,11 @@ int my_fcntl()
         }
         exit(0);
     }
-
     wait(NULL);
-
     write(fd, "hello c++ program!\n", strlen("hello c++ program!\n"));
-
     close(fd);
-
     return 0;
 }
-
 int test_fcntl(int argc, char *argv[])
 {
 	int fd = (int)(*argv[1]);
@@ -66,15 +54,10 @@ int test_fcntl(int argc, char *argv[])
 	close(fd);
 	return 0;
 }
-
-
-
-
 int main(void)
 {
-	char buf[10];
+	char buf[10] = "fcntl tset";
 	int flags, n;
-
 	flags = fcntl(STDIN_FILENO, F_GETFL); //获取stdin属性信息
 	if(flags == -1){
 		perror("fcntl error");
@@ -86,7 +69,6 @@ int main(void)
 		perror("fcntl error");
 		exit(1);
 	}
-
 tryagain:
 	n = read(STDIN_FILENO, buf, 10);
 	if(n < 0){
@@ -99,6 +81,5 @@ tryagain:
 		goto tryagain;
 	}
 	write(STDOUT_FILENO, buf, n);
-
 	return 0;
 }

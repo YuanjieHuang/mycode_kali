@@ -5,12 +5,10 @@
 #include <semaphore.h>
 #include <sys/mman.h>
 #include <sys/wait.h>
-
 int main(void)
 {
 	int i;
 	pid_t pid;
-
 	sem_t *s;
 	s = mmap(NULL, sizeof(sem_t)*5, PROT_READ|PROT_WRITE, 
 			MAP_SHARED|MAP_ANON, -1, 0);
@@ -18,18 +16,14 @@ int main(void)
 		perror("fail to mmap");
 		exit(1);
 	}
-
 	for (i = 0; i < 5; i++)
 		sem_init(&s[i], 0, 1);  //信号量初值制定为1，信号量，变成了互斥锁
-
 	for (i = 0; i < 5; i++)
 		if ((pid = fork()) == 0)
 			break;
-
 	if (i < 5) {				//子进程
 		int l, r;
 		srand(time(NULL));
-
 		if (i == 4) 
 			l = 0, r = i;
 		else
@@ -45,15 +39,10 @@ int main(void)
 		}
 		exit(0);
 	} 
-
 	for (i = 0; i < 5; i++)
 		wait(NULL);	
-
 	for (i = 0; i < 5; i++)
 		sem_destroy(&s[i]);
-
 	munmap(s, sizeof(sem_t)*5);
-
 	return 0;
 }
-

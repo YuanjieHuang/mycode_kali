@@ -7,6 +7,7 @@
 #include<shadow.h>
 #include<string.h>
 #include<crypt.h>
+#include "assert.h"
 #if 0
 int main(int argc, char * argv[])
 {
@@ -47,8 +48,15 @@ int showUserNameById(int argc,char *argv[])
     puts(pwdline->pw_name);
     exit(0);
 }
-
-#define _XOPEN_SOURCE       /* See feature_test_macros(7) */
+void show_spwd(struct spwd *shadowPwd)
+{
+    assert(shadowPwd);
+    printf("Login name:%s\n",shadowPwd->sp_namp);
+    printf("Hashed passphrase:%s\n",shadowPwd->sp_pwdp);
+    printf("Date of last change:%ld\n",shadowPwd->sp_lstchg);
+    printf("Number of days the account may be inactive:%s\n",shadowPwd->sp_inact);
+    printf("Number of days since 1970-01-01 until account expires:%ld\n",shadowPwd->sp_expire);
+}
 int main(int argc, char *argv[])
 {
     
@@ -61,14 +69,17 @@ int main(int argc, char *argv[])
     if(argc<2)
     {
     
-        fprintf(stderr,"Usage...\n");
+        fprintf(stderr,"Input localhost username\n");
         exit(1);
     }
     //口令获取
     input_pass=getpass("PassWord:");
-    
+    printf("%s\n",input_pass);
     shadowline=getspnam(argv[1]);
-
+    printf("%s\n",shadowline->sp_pwdp);
+    // show_spwd(shadowline);
+    assert(input_pass);
+    assert(shadowline);
     crypted_pass=crypt(input_pass,shadowline->sp_pwdp);
 
     if(strcmp(shadowline->sp_pwdp,crypted_pass)==0)

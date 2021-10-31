@@ -14,13 +14,15 @@
      char name[20];
  }__attribute__ ((packed));
 // #pragma pack()
+int test();
 int main()
 {
-    unsigned int offset = offsetof(struct student, id);
+    unsigned int offset = offsetof(struct student, age);
     printf("offset:%d\n", offset);
+    test();
     return 0;
 }
-int test(void)
+int test()
 {
     int i = 1;  
     char *s = "three";    

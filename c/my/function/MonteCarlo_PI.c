@@ -6,17 +6,14 @@
 4.判断上述结果是否在需要的精度之内，如果未达到精度则进行执行步骤2。如果达到精度，则输出近似结果。
 常用有：数值概率算法，蒙特卡洛Monte Carlo，拉斯维加斯Las Vegas，舍伍德Sherwood算法。
 */
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-
 double montoPI(int n)
 {
     double PI;
     double x, y;
     int i, sum;
-
     sum = 0;
     srand(time(NULL));
     for(i=1;i<n;i++)

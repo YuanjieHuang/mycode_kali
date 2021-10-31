@@ -21,8 +21,8 @@
     "\n[]log:%s]\n",  \
     __FILE__, __FUNCTION__, __LINE__, __VA_ARGS__);
 #else
-#define debug(...) ;
-#define debugAssert(x) ;
+#define debug(...) 
+#define debugAssert(x) 
 #endif
  
 #ifdef LOG_ERROR //打印错信息
@@ -125,4 +125,10 @@ virtual void _TempClass##type::Fun()
 #define PXN(n) printf("x"#n" = %d\n",x##n)
 #define PR(...) printf(__VA_ARGS__)
 
+#define FREE(ptr)\
+if(NULL != ptr)\
+{\
+    free(ptr);\
+    ptr = NULL;\
+}
 

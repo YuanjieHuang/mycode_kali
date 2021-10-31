@@ -21,7 +21,6 @@ int exaustive(int head, int foot, int *chicken, int *rabbit)
 递归解决这些子问题；将子问题的解合并得到原问题的解。
 */
 #define MAXNUM 30
-
 int falseCoin(int coin[], int low, int high)
 {
     int i, sum1, sum2, sum3;
@@ -62,7 +61,6 @@ int falseCoin(int coin[], int low, int high)
         }
         else
         {
-                
         }
     }
     else
@@ -88,7 +86,6 @@ int falseCoin(int coin[], int low, int high)
         }
         else
         {
-                
         }
         if(sum1+sum3 == sum2+sum3)
         {
@@ -97,4 +94,3 @@ int falseCoin(int coin[], int low, int high)
         }
     }
 }
-

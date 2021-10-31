@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 double polynomial1D(double a[], int n, double x)
 {
     int i;
@@ -11,7 +10,6 @@ double polynomial1D(double a[], int n, double x)
     }
     return result;
 } 
-
 void polynomial_mul(double A[], double B[], int n, double R[], int k)
 {
     int i, j, m;
@@ -27,7 +25,6 @@ void polynomial_mul(double A[], double B[], int n, double R[], int k)
         }
     }
 }
-
 void main()
 {
     int i;

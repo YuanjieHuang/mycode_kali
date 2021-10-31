@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <errno.h>
-
 void handler(int sig)    //信号处理函数的实现
 {
    printf("SIGINT sig\n");
