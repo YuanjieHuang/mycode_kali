@@ -117,7 +117,8 @@
         "socket_type.h": "c",
         "config.h": "c",
         "macro.h": "c",
-        "cassert": "c"
+        "cassert": "c",
+        "unp.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
