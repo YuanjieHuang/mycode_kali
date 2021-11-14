@@ -18,4 +18,15 @@ sudo vim /etc/samba/smb.conf
   available = yes
   valid users = ubuntu
 
+[public]
+  comment = public folder
+  path = /home/samba
+  read only = no
+  browseable = yes
+  public = yes
+  writable = yes
+
+sudo systemctl restart smbd
 sudo service smbd restart
+
+man 5 smb.conf

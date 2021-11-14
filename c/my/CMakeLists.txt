@@ -20,12 +20,12 @@ foreach(src IN LISTS allCSrcs)
     # add_executable(${tarName} ${src})
 endforeach()
 
-get_filename_component(tarName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-aux_source_directory(. SRC)
-file(GLOB_RECURSE CURRENT_HEADERS  *.h *.hpp)
-add_executable(${tarName} ${SRC} ${CURRENT_HEADERS})
-add_test(NAME ${tarName} COMMAND ${tarName})
-set_target_properties(${tarName} PROPERTIES FOLDER "DesignPattern")
+# get_filename_component(tarName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+# aux_source_directory(. SRC)
+# file(GLOB_RECURSE CURRENT_HEADERS  *.h *.hpp)
+# add_executable(${tarName} ${SRC} ${CURRENT_HEADERS})
+# add_test(NAME ${tarName} COMMAND ${tarName})
+# set_target_properties(${tarName} PROPERTIES FOLDER "DesignPattern")
 
 #[[
 # If necessary, use the RELATIVE flag, otherwise each source file may be listed 
