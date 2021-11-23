@@ -118,7 +118,18 @@
         "config.h": "c",
         "macro.h": "c",
         "cassert": "c",
-        "unp.h": "c"
+        "unp.h": "c",
+        "any": "cpp",
+        "charconv": "cpp",
+        "future": "cpp",
+        "scoped_allocator": "cpp",
+        "span": "cpp",
+        "unpipc.h": "c",
+        "ipc.h": "c",
+        "features.h": "c",
+        "ipctypes.h": "c",
+        "msg.h": "c",
+        "poll.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
