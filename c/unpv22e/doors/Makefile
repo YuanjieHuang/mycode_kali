@@ -1,4 +1,4 @@
-include ../Make.defines
+-include ../Make.defines
 
 # incr_map_anon and incr_dev_zero are not in PORGS since they're
 # not on all platforms.

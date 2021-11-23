@@ -61,7 +61,7 @@ public:
 Empty Derived6::se { };
 
 #pragma pack(1)
-class Derived7 : public Empty
+class Derived7 : public Empty//size 8
 {
 public:
   std::int32_t i32;

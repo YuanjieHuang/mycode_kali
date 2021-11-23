@@ -129,7 +129,8 @@
         "features.h": "c",
         "ipctypes.h": "c",
         "msg.h": "c",
-        "poll.h": "c"
+        "poll.h": "c",
+        "tlpi_hdr.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
