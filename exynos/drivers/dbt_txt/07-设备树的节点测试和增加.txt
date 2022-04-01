@@ -1,0 +1,20 @@
+第7课：设备树的节点测试和增加
+目标：把设备树文件和系统信息一一对应；
+	  学习如何增加简单的设备树节点。
+	
+1 开发板启动之后，通过sys可以查询到设备树的所有信息
+	在/proc/device-tree目录下有所有的node的信息；---这里有，表明有节点
+	在/sys/devices/platform/目录下有所有设备node的信息。--这里有表明设备注册了
+	--有设备注册，最后驱动才能进入probe！
+
+2 设备树节点增加和测试
+根节点下增加
+leds_test_node:leds_test_node {
+                compatible = "leds_test";
+				status = "disabled";
+        //     	status = "okay";
+        };
+根节点之后 &adc之前增加
+&leds_test_node {
+      status = "okay";
+};

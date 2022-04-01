@@ -1,0 +1,82 @@
+10-04-pinctrl子系统之设备树部分的分析和写
+
+1 设备树部分pinctrl子系统自学文档和文件
+	设备树文件：arch/arm/boot/dts/exynos4412-pinctrl.dtsi
+	参考文档：Documentation/devicetree/bindings/pinctrl/samsung-pinctrl.txt
+	
+2 compatible 和 reg
+	了解即可
+	
+3 Pin banks
+  它是pinctrl的子节点，Pin banks子节点必须要有的属性：
+  -- gpio-controller: identifies the node as a gpio controller and pin bank
+  -- #gpio-cells: number of cells in GPIO specifier.
+  例子：
+  Eg: <&gpx2 6 0>
+        <[phandle of the gpio controller node]
+        [pin number within the gpio controller]
+        [flags]>
+
+        Values for gpio specifier:
+        - Pin number: is a value between 0 to 7.
+        - Flags: 0 - Active High
+                 1 - Active Low
+ 前面gpio的例程,设备树中增加如下：			 
+  leds_test_node:leds_test_node {
+                compatible = "leds_test";
+                status = "disabled";
+                gpios1 = <&gpl2 0 GPIO_ACTIVE_HIGH>; --gpl2引用的pinctrl文件下的gpl2，
+                gpios2 = <&gpk1 1 GPIO_ACTIVE_HIGH>;
+        };
+
+4 Pin mux/config groups
+  它是pinctrl的子节点，Pin banks子节点实现的功能： 
+   The pin mux (selecting pin function mode) and pin config (pull up/down, driver strength) settings are represented
+  as child nodes of the pin-controller node.
+  
+  子节点的要求和语法：
+  The child node should contain a list of pin(s) on which a particular pin
+  function selection or pin configuration (or both) have to applied.
+  list of pins的写法：
+  A the property name "samsung,pins"
+  B 引用管脚using pin names："[pin bank name]-[pin number within the bank]"。eg："gpa0-0", "gpa0-1", "gpa0-2" and so on
+  C 功能复用属性："samsung,pin-function"
+	The pin function selection that should be applied on the pins listed in the
+  child node is specified using the "samsung,pin-function" property.
+  D 配置属性：
+  - samsung,pin-val: Initial value of pin output buffer.
+  - samsung,pin-pud: Pull up/down configuration.
+  - samsung,pin-drv: Drive strength configuration.
+  - samsung,pin-pud-pdn: Pull up/down configuration in power down mode.
+  - samsung,pin-drv-pdn: Drive strength configuration in power down mode.
+  语法还要遵守"pinctrl-bindings.txt"文件的规则
+  其中中断部分，后续介绍，这部分只是以GPIO功能为例
+  
+5 设备树文档中的例程。
+  Example 0 分析
+  Example 1 分析，并增加1个led灯的pinctrl配置
+  
+  例子1：为什么function是1，val是1...
+  #include <dt-bindings/pinctrl/samsung.h>
+  leds_gpios1:leds-gpios1{
+			samsung,pins = "gpl2-0" ;
+			samsung,pin-function = <1>;
+			samsung,pin-val = <1>;
+			samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
+	};
+		
+  例子2：以下代码添加到arch/arm/boot/dts/exynos4412-pinctrl.dtsi		
+	leds_gpios1{
+		leds_gpios1_on:leds_gpios1-on {
+			samsung,pins = "gpl2-0" ;
+						samsung,pin-function = <1>;
+						samsung,pin-val = <1>;
+						samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
+		};
+		leds_gpios1_off:leds_gpios1-off {
+			samsung,pins = "gpl2-0" ;
+							samsung,pin-function = <1>;
+							samsung,pin-val = <0>;
+							samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
+		};
+	};

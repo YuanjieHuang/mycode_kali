@@ -1,0 +1,62 @@
+10-06-pinctrl子系统之驱动中实现led初始化的驱动例程
+
+1 pinctrl子系统提供给驱动的API接口
+  参考文档：doc "Documentation/driver-api/pinctl.rst"
+  例程：page1225  
+  API介绍：page1261.
+  
+2 使用pinctrl完成初始化的步骤
+	A：pinctrl设备树文件中，添加描述
+	B：设备树中添加引用
+	C：驱动中使用：
+	三步：获取一个pinctrl句柄，获取其中一个状态，选取其中一个状态设置
+	
+3 设备树中添加引用代码
+	&leds_test_node {
+		status = "okay";
+        pinctrl-names = "itop-leds1-on","itop-leds1-off";
+        pinctrl-0 = <&leds_gpios1_on>;
+        pinctrl-1 = <&leds_gpios1_off>;
+	};
+
+4 API简介：
+	功能：获取pinctrl句柄。---“devm机制”。
+	struct pinctrl *devm_pinctrl_get(struct device *dev)  
+	@dev: the device to obtain the handle for
+	参数：dev。
+	返回值：错误码或者pinctrl的句柄。
+	销毁句柄的函数：devm_pinctrl_put(struct pinctrl *p)。
+	
+	功能：获取引脚状态。
+	struct pinctrl_state *pinctrl_lookup_state(struct pinctrl *p, const char *name)  
+	参数p：pinctrl的句柄。
+	参数name：配置的名字，用于pinctrl检索。
+	返回：状态或者返回错误码。
+	
+	功能：设置状态。
+	int pinctrl_select_state(struct pinctrl *p, struct pinctrl_state *state) 
+	参数p：句柄。
+	参数state：引脚状态。
+	返回值：错误，返回错误码。
+	
+5 驱动代码分析和测试
+	#include <linux/pinctrl/consumer.h> 
+	xxx_probe(struct platform_device *pdev){
+		...
+		struct pinctrl *leds_pin_ctrl;
+		struct pinctrl_state *leds_state;
+		
+		leds_pin_ctrl = devm_pinctrl_get(&pdev->dev);	---返回句柄
+		
+		leds_state = pinctrl_lookup_state(leds_pin_ctrl,"itop-leds1-on");	---获取状态
+		pinctrl_select_state(leds_pin_ctrl, leds_state);	---设置状态
+		
+		devm_pinctrl_put(leds_pin_ctrl);	---释放句柄
+	}
+	probe运行之后，其中一个灯会被点亮。
+	
+	例程也可以参考：Documentation/devicetree/bindings/pinctrl/samsung-pinctrl.txt page341的Example 4
+	pinctrl = devm_pinctrl_get_select_default(&pdev->dev);
+		pinctrl-names的值设置为“default”，就可以调用这个函数，直接初始化。
+	include/linux/pinctrl/pinctrl-state.h:30:#define PINCTRL_STATE_DEFAULT "default"
+

@@ -130,7 +130,12 @@
         "ipctypes.h": "c",
         "msg.h": "c",
         "poll.h": "c",
-        "tlpi_hdr.h": "c"
+        "tlpi_hdr.h": "c",
+        "module.h": "c",
+        "semaphore": "c",
+        "except.h": "c",
+        "binarytree.h": "c",
+        "stack": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

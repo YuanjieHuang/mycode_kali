@@ -1,0 +1,7 @@
+10-02-设备树驱动GPIO完整驱动和应用
+
+由于设备树中保留了GPIO子系统，GPIO原来的控制函数都是可以使用的
+对于驱动，生成设备节点以及file_operations这部分全部一样
+
+测试命令：
+./ledstest /dev/leds_test 0 1

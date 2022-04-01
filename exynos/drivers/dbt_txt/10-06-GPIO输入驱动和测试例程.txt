@@ -1,0 +1,22 @@
+10-06-GPIO输入驱动和测试例程
+
+1 硬件部分
+  使用开发板上的home（gpx1 1）按键，作为GPIO的输入。
+  按下低电平，默认高电平
+  
+2 设备树部分的修改
+ 屏蔽掉其它代码对gpx1 1的引用
+ 添加设备树注册部分
+itop_gpio_in {
+                compatible = "gpio_in";
+                status = "okay";
+                gpioin = <&gpx1 1 0>;
+        };
+		
+3 驱动部分
+ gpio_pin = of_get_named_gpio(node, "gpioin", 0);
+ gpio_direction_input(gpio_pin);
+ value = gpio_get_value(gpio_pin);
+
+4 测试
+

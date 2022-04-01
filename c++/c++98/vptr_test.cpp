@@ -8,7 +8,7 @@ public:
 		cout << "Parent func " << endl;
 	}
 private:
-	int a;
+	long a;
 };
 class Parent2
 {
@@ -18,7 +18,7 @@ public:
 		cout << "Parent2 func " << endl;
 	}
 private:
-	int a;
+	long a;
 };
 int main(void)
 {

@@ -1,0 +1,71 @@
+09-设备树属性的获取-以LED为例
+ps：本节实验仍然使用“08-以设备树的方式注册设备驱动-以led为例”中的设备树文件。
+
+Linux引入设备树，把硬件分到设备树文件中，驱动中仍然需要硬件信息。
+所以必须将设备树中的硬件信息传到驱动中，这也是本节视频中介绍的内容。
+
+1 设备树最重要的结构体
+设备树属性获取函数头文件：include/linux/of.h
+
+设备树中使用 device_node 结构体描述节点，of.h中的API需要device_node作为参数传入
+struct device_node {
+        const char *name;		//节点名称
+        const char *type;		//设备类型
+        phandle phandle;
+        const char *full_name;	//全路径节点
+        struct fwnode_handle fwnode;
+
+        struct  property *properties;
+        struct  property *deadprops;    /* removed properties */
+        struct  device_node *parent;		//父节点指针
+        struct  device_node *child;			//子节点指针
+        struct  device_node *sibling;
+        struct  kobject kobj;
+        unsigned long _flags;
+        void    *data;
+#if defined(CONFIG_SPARC)
+        const char *path_component_name;
+        unsigned int unique_id;
+        struct of_irq_controller *irq_trans;
+#endif
+};
+重点：如果我们想要获取设备树中的属性（数据），必须先获取device_node，这个节点会在probe初始化的时候传入。
+会传入：struct platform_device * pdev
+	驱动中获取device_node方法： struct device_node *node = pdev->dev.of_node;
+
+2 节点中属性的结构体property，定义了属性常用的值
+struct property {
+        char    *name;
+        int     length;
+        void    *value;
+        struct property *next;
+        unsigned long _flags;
+        unsigned int unique_id;
+        struct bin_attribute attr;
+};
+获取属性参数的函数：
+
+根据属性名称，提取属性值
+struct property *of_find_property(const struct device_node *np, const char *name, int *lenp);
+/** 
+ * of_find_property - 提取指定属性的值
+ * @np - 设备树节点指针
+ * @name - 属性名称
+ * @lenp - 属性值的字节数
+ * 返回值：成功，属性值的首地址；失败：NULL
+ */
+ 
+3 例程实现：
+	获取并输出 device_node的name和fullname
+	获取并输出 property中“compatible"和"status"的值
+
+4 常用API--参考视频目录下，文本“设备树of常用API”。
+	用到的时候研究就成，后面视频教程中会用到其中的几个。
+ 
+5 提醒：
+ 在网上关于linux驱动的资料中，看到设备节点，可能有三种意思：
+ 设备树节点；平台文件的设备节点；/dev下的设备节点。注意这个词用到的情景^_^。
+
+ 
+ 
+ 

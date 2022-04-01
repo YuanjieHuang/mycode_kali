@@ -1,0 +1,15 @@
+bootm + uImage地址 + ramdisk地址 + 设备树镜像地址
+SMDK2440 #  bootm 0x30007FC0 - 0x30001000 （- 表示不使用ramdisk加载，如果使用ramdisk则提供其加载地址）
+nand read.jffs2 0x30007FC0 kernel; // 读内核uImage到内存0x30007FC0
+nand read.jffs2 32000000 device_tree; // 读dtb到内存32000000
+bootm 0x30007FC0 - 0x32000000 // 启动, 没有initrd时对应参数写为"-"
+————————————————
+版权声明：本文为CSDN博主「韦东山」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/thisway_diy/article/details/84338249
+内存基址 0x30000000
+nand read.jffs2 30000000 device_tree
+nand read.jffs2 0x30007FC0 kernel
+bootm 0x30007FC0 - 30000000
+
+grep -n “reader_loop” *
+main()–>reader_loop()–>read_command()–>parse_command()–>yyparse()–>yylex()–>read_token()——>read_token_word()————>global_command

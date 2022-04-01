@@ -28,15 +28,15 @@ int main(void)
 	value_a = getA1();   //正确
 	cout << "value_a " << value_a << endl;
 
-	value_a = getA2();// int value_a = temp;   // int value_a = *temp; //这是一个值拷贝
-	cout << "value_a " << value_a << endl;
-	cout << "value_a " << value_a << endl;
+	// value_a = getA2();// int value_a = temp;   // int value_a = *temp; //这是一个值拷贝
+	// cout << "value_a " << value_a << endl;
+	// cout << "value_a " << value_a << endl;
 
 
-	int &r_a = getA2(); //没有值拷贝动作  ，禁止
-	//当函数返回值，是一个局部变量的引用的时候，不能再用引用来接收。
-	cout << "r_a  " << r_a << endl;
-	cout << "r_a  " << r_a << endl;
+	// int &r_a = getA2(); //没有值拷贝动作  ，禁止
+	// //当函数返回值，是一个局部变量的引用的时候，不能再用引用来接收。
+	// cout << "r_a  " << r_a << endl;
+	// cout << "r_a  " << r_a << endl;
 
 	int &r_b = getBB(); //此时的r_b 就是 getBB中的 static int b
 	//当函数返回值，不是子函数内部局部变量，就可以用引用进行接收，

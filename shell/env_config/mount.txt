@@ -1,0 +1,2 @@
+mount -t cifs -o username=xxx,password=xxx //10.0.0.11/Jing /home/zhangchengfei/tmp
+mount -t cifs -o username=xxx,password=xxx //10.0.0.11/Jing /home/zhangchengfei/tmp>aaaaa

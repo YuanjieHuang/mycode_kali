@@ -1,0 +1,24 @@
+11-01-设备树简单的中断例程
+
+1 中断简单例程的实现流程
+前面通过 of_get_named_gpio 能够获取GPIO的编号。
+介绍过在设备树中GPIO lib的API仍然保留，那么通过 gpio_to_irq 函数即可获取中断号。
+linux驱动中申请中断request_irq，只需要从平台文件或者设备树文件中传输过来中断号。
+
+那么中断的程序可以通过以下方式实现：
+of_get_named_gpio获取GPIO编号；
+gpio_to_irq获取中断号；
+使用request_irq申请中断函数
+
+2 设备树部分
+  仍然使用HOME按键的GPIO。
+  ...
+  itop_inter {
+                compatible = "itop4412,inter_pin";
+                status = "okay";
+                inter_gpio = <&gpx1 1 0>;
+        };
+  ...
+  
+3 测试例程分析和测试
+  按下HOME键之后，有两条打印信息。

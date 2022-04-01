@@ -71,13 +71,13 @@ int main(void)
 #endif
 	//病人通过填写病单 来找医生
 	Doctor *doctor = new Doctor;
-	CommandEyes *cmdEyes = new CommandEyes(new Doctor);
+	CommandEyes *cmdEyes = new CommandEyes(doctor);
 	cmdEyes->treat();
 
 	delete cmdEyes;
 
 
-	CommandNose *cmdNose = new CommandNose(new Doctor);
+	CommandNose *cmdNose = new CommandNose(doctor);
 	cmdNose->treat();
 	delete cmdNose;
 	delete doctor;

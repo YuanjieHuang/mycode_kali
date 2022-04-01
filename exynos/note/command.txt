@@ -1,0 +1,99 @@
+
+deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse
+1为SD卡
+fdisk -c 1
+fatformat  mmc 1:1
+ext3format mmc 1:2
+ext3format mmc 1:3
+ext3format mmc 1:4
+fastboot
+
+fastboot.exe flash bootloader u-boot-SMDK4X12.bin
+fastboot.exe flash kernel zImage
+fastboot.exe flash ramdisk ramdisk-uboot.img
+fastboot.exe flash system system.img
+
+fastboot -w
+fastboot reboot
+
+tftp -g -l helloworld -r helloworld 192.168.123.138
+mount -t nfs -o nolock 192.168.123.138:/mnt/nfs /nfs
+
+insmod加载模块命令
+lsmod查看模块命令
+rmmod卸载模块命令
+cd busybox-1.22.1/
+make menuconfig
+make
+make install
+mkdir -p dev etc lib mnt proc sys tmp var
+vim eth0-setting
+chmod 755 eth0-setting
+
+make_ext4fs -s -l 314572800 -a root -L linux system.img system
+
+
+compile uboot
+./build_uboot.sh SCP_2GDDR
+compile kernel
+    make zImage
+    make modules
+
+../gcc-4.4.7/configure --with-system-zlib --prefix=/user/gcc-4.4.7/gcc-4.4obj --enable-threads=posix --with-cpu=generic --enable--long-long --enable-languages=c,c++  --with-gmp=/user/gmp-6.1.0/gmp-6.1.0-obj --with-mpfr=/user/mpfr-3.1.6/mpfr-3.1.6-obj 
+make
+make install
+
+setenv bootargs 'noinitrd console=ttySAC2,115200 root=/dev/nfs ip=192.168.123.230:192.168.123.138:192.168.123.1:255.255.255.0:SMDK4X12:eth0:off nfsroot=192.168.123.138:/mnt/nfs/rootfs rootwait rw consoleblank=0 init=/sbin/init'
+
+开机按任意键，进入uboot环境(这里我修改为生产环境的内网IP)
+>setenv bootargs 'noinitrd console=ttySAC2,115200 root=/dev/nfs ip=192.168.123.230:192.168.123.138:192.168.123.1:255.255.255.0:SMDK4X12:eth0:off nfsroot=192.168.123.138:/mnt/nfs/rootfs rootwait rw consoleblank=0 init=/sbin/init'
+/*
+root=/dev/nfs  这里指定开发板内核开启后的nfs设备文件（/dev/）所在路径，注意不要要萌萌哒写上你服务器的nfs文件路径（不是/mnt/nfs/rootfs）！
+
+ip=192.168.123.230:192.168.123.138:192.168.123.1:255.255.255.0:SMDK4X12:eth0:off  
+        ip=ip-addr:server-ip-addr:gateway:netmask:device-name:which netcard:off
+        ip-addr（开发板IP地址）、server-ip-addr（nfs服务器IP）、gateway（网关）、netmask（子网掩码）、device-name（设备名）、which netcard（开发板上的哪个网卡设备）、off（网络模式，设置为off就行）
+
+nfsroot=192.168.123.138:/mnt/nfs/rootfs    //这里设置nfs的IP和路径，中间用冒号隔开，通过此参数去挂载nfs设备（就是前面的/dev/nfs设备）
+其他参数请查看前面的编译uboot的文章。
+*/
+>setenv nfsload  'tftp 40008000 zImage'
+/*这个nfsload变量是下面的bootcmd中使用run命令引用的，他负责吧内核和设备树文件用tftp拷贝到内存指定的位置。40008000是内核要拷贝在内存中的位置，0x18000000是设备树要拷贝在内存中的位置，请查询芯片手册。*/
+>setenv bootcmd 'run nfsload;  movi read rootfs 40df0000 100000;bootm 40008000 40df0000'
+>setenv bootcmd 'run nfsload; go 40008000'
+/*bootcmd是uboot运行结束后要执行的命令，也就是说他执行了两条命令。
+run nfsload;//运行 nfsload这个变量所存的质量
+ bootm 40008000 - 0x18000000;//运行内核和设备树，后面的地址是文件在内存中的位置*/
+>setenv serverip 192.168.123.138;setenv gatewayip 192.168.123.1;setenv netmask 255.255.255.0;setenv ethaddr 08:90:90:90:90:90;setenv ipaddr 192.168.123.230;
+>saveenv//保存环境变量
+>reset//重启开发板
+
+
+
+----------------------------------下面是开机后进入uboot打印出的环境变量内容
+
+CPU:   Extended Commercial temperature grade (-20C to 105C) at 32C
+Reset cause: POR
+Board: MX6-SabreSD
+I2C:   ready
+DRAM:  2 GiB
+MMC:   FSL_SDHC: 0, FSL_SDHC: 1, FSL_SDHC: 2
+No panel detected: default to Hannstar-XGA
+Display: Hannstar-XGA (1024x768)
+In:    serial
+Out:   serial
+Err:   serial
+switch to partitions #0, OK
+mmc0 is current device
+Net:   FEC [PRIME]
+Normal Boot
+Hit any key to stop autoboot:  0
+=> printenv bootargs
+bootargs=noinitrd console=ttySAC2,115200 root=/dev/nfs ip=192.168.1.230:192.168.1.235:192.168.1.1:255.255.255.0:SMDK4X12:eth0:off nfsroot=192.168.1.235:/mnt/nfs/rootfs rootwait rw consoleblank=0 init=/sbin/init
+=> printenv bootcmd
+bootcmd=run nfsload;  bootm 40008000 - 0x18000000
+=> printenv nfsload
+nfsload=tftp 11ffffc0 uImage;tftp 18000000 SMDK4X12-krt.dtb
+=>
+
+全能版和精英版，而两者所用的以太网接口芯片不同，一种是LAN9215另一种是DM9621

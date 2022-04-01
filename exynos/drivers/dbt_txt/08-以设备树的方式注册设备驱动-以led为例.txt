@@ -1,0 +1,46 @@
+08-以设备树的方式注册设备驱动-以led为例
+
+使用设备树的方式，设备驱动进入probe
+和平台文件的方式类似，需要设备名称和驱动名称匹配。
+
+1 设备树文件中：
+leds_test_node:leds_test_node {
+                compatible = "leds_test";
+              //status = "disabled";
+                status = "okay";
+        };
+先确定设备树中已经有了对应的compatible
+cat /sys/devices/platform/leds_test_node/of_node/compatible
+	
+	
+2 驱动代码中：
+#define DRIVER_NAME "leds_test"
+...
+static const struct of_device_id of_leds_dt_match[] = {
+	{.compatible = DRIVER_NAME},
+	{},
+};
+MODULE_DEVICE_TABLE(of,of_leds_dt_match);
+
+static struct platform_driver leds_driver = {
+	.probe 	= leds_probe,
+	.remove = leds_remove,
+	.driver = {
+		.name = DRIVER_NAME,
+		.owner = THIS_MODULE,
+		.of_match_table = of_leds_dt_match,
+		},
+};
+...
+匹配的关键是of_leds_dt_match中的compatible和设备树中的compatible相同，
+如果相同驱动就会进入probe。
+
+
+3 测试：
+编译测试：驱动和Makefile文件拷贝，make命令编译生成ko文件
+加载 insmod itop4412_register_dev_drv.ko
+
+卸载 rmmod itop4412_register_dev_drv
+mkdir /lib/modules
+mkdir /lib/modules/4.14.2
+

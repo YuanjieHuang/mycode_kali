@@ -1,0 +1,38 @@
+欢迎大家观看迅为驱动视频教程，前面介绍了GPIO的输出，本期介绍GPIO的读
+
+在视频14的基础上做
+
+1.利用拨码开关来实现GPIO的输入
+	拨码开关的3和4
+	先看原理图 AP_SLEEP→GPC0_3→EXYNOS4_GPC0(3)
+	XEINT6→GPX0_6→EXYNOS4_GPX0(6)
+	向内是低电平，输入0;向外是高电平1.8v，输入1
+	分析寄存器，需要设置：
+	1.设置为输入
+	2.读寄存器
+	3.不上拉，不下拉
+
+2.GPIO的输入需要哪些函数
+	申请gpio_request
+	读寄存器的值gpio_get_value
+	设置GPIO为输入模式s3c_gpio_cfgpin  S3C_GPIO_INPUT
+	设置上拉下拉 s3c_gpio_setpull S3C_GPIO_PULL_NONE
+	释放GPIO gpio_free
+
+3.平台文件中设备注册
+	struct platform_device s3c_device_read_gpio_ctl = {
+        .name   = "read_gpio_ctl",
+        .id     = -1,
+	};
+	 &s3c_device_read_gpio_ctl,
+	gpio_free(EXYNOS4_GPC0(3));
+	gpio_free(EXYNOS4_GPX0(6))
+4.Makefile修改
+5.驱动的修改
+
+	
+	
+	
+	
+	
+	

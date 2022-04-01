@@ -1,0 +1,58 @@
+10-01-简单设备树GPIO驱动例程
+
+前面关于设备树学习了：节点增加和测试、节点和属性值的获取
+本期开始基于linux官方文档和三星官方文档来学习设备树。
+第十期是关于GPIO子系统和设备树pinctrl子系统：GPIO在设备树中的写法、驱动中GPIO的调用、管脚设备树配置等等
+PS：设备树的引入是为了节省代码，平台文件中，对应pin的管理是很糟糕的，在设备树中添加了pinctrl子系统；
+ pinctrl和原来的GPIO子系统同时存在，大家先有这个概念。
+
+1 参考文档：
+1.1 GPIO文档
+linux的GPIO系统官方文档：
+	Documentation/devicetree/bindings/gpio/gpio.txt
+参考的内容：
+Example of a node using GPIOs:
+ node {
+                enable-gpios = <&qe_pio_e 18 GPIO_ACTIVE_HIGH>;
+        };
+	设备树的节点，可以包含，互相也可以引用--看到“&”，表示做了引用（也可以理解面向对象编程的重写）；
+	设备树的节点，“xxx ：xxx”表示这个节点可以引用
+	&bank gpioa1 gpiob1  
+	18表示gpio在bank中编号
+	GPIO_ACTIVE_HIGH 表示高电平（测试无效，是设备树中强制规定必须有2个cells）
+	
+三星的GPIO系统官方文档：
+	Documentation/devicetree/bindings/gpio/gpio-samsung.txt
+
+1.2 pinctrl文档
+linux的pinctrl系统官方文档：
+	Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
+
+三星的pinctrl系统官方文档：
+	Documentation/devicetree/bindings/pinctrl/samsung-pinctrl.txt
+	
+源码文件：
+	dt-bindings/pinctrl/samsung.h
+	arch/arm/boot/dts/exynos4412-pinctrl.dtsi 
+
+
+2 硬件：4412的两个led灯
+ gpl2-0对应<&gpl2 0 GPIO_ACTIVE_HIGH>
+ gpk1-1对应<&gpk1 1 GPIO_ACTIVE_HIGH>
+ 设备树增加属性两个属性：
+ gpios1 = <&gpl2 0 GPIO_ACTIVE_HIGH>;
+ gpios2 = <&gpk1 1 GPIO_ACTIVE_HIGH>;
+ 屏蔽掉其它代码对它们的引用
+ 
+3 驱动
+ 函数：int of_get_named_gpio(struct device_node *np, const char *propname, int index);
+	功能：of_get_named_gpio，从设备树中提取gpio 口；
+	参数np：设备节点指针；
+	参数propname：属性名；
+	参数index：gpio口引脚标号；
+	返回值： 成功，得到GPIO 口编号；失败，负数，绝对值是错误码。
+	of_get_named_gpio(node,"gpios1",0)
+	of_get_named_gpio(node,"gpios2",0)
+
+4 设备树、驱动分析以及测试
+	驱动能够把灯点亮

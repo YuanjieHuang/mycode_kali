@@ -1,0 +1,22 @@
+第六课：NFS功能
+	前一期教程中，网卡功能已经实现。
+	NFS功能其实已经默认配置上了，可以测试下。
+	具体参考系统编程或者独立文档，这部分就不再过多介绍。
+	
+	后面学习：
+	修改dts源码，需要烧写设备树镜像；
+	驱动将以模块的方式编译，通过nfs来调试；
+	mkdir /mnt/udisk
+	mount -t nfs -o nolock 192.168.2.98:/home/minilinux /mnt/nfs
+	
+	用户如果没有局域网，可以通过u盘或者tf卡来测试。
+	mkdir /mnt/udisk
+	mount  /dev/sdaX /mnt/udisk
+
+	
+
+
+
+
+
+ 

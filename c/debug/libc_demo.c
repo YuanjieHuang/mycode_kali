@@ -8,13 +8,13 @@ gcc -nostartfile -nostdlib
 __attribute__((section(".init")))必须使用汇编指令，不能让编译器产生"ret"指令
 */
 #include <stdio.h>
-void my_init(void) __attribute__ ((constructor));
-void my_init(void)
+// void my_init(void) __attribute__ ((constructor));
+void my_init(void) 
 {
     printf("Hello ");
 }
-// typedef void(*ctor_t)(void);
-// ctor_t __attribute__((section (".ctors"))) my_init_p = &my_init;
+typedef void(*ctor_t)(void);
+ctor_t __attribute__((section (".ctors"))) my_init_p = &my_init;
 
 int main()
 {
