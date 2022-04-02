@@ -2,12 +2,14 @@
     #include <stdlib.h>
     #define TElemType char//宏定义，结点中数据域的类型
     //枚举，Link为0，Thread为1
-    typedef enum {
+    typedef enum 
+    {
         Link,
         Thread
     }PointerTag;
     //结点结构构造
-    typedef struct BiThrNode {
+    typedef struct BiThrNode 
+    {
         TElemType data;//数据域
         struct BiThrNode* lchild, *rchild;//左孩子，右孩子指针域
         PointerTag Ltag, Rtag;//标志域，枚举类型
@@ -15,15 +17,18 @@
     BiThrTree pre = NULL;
     //采用前序初始化二叉树
     //中序和后序只需改变赋值语句的位置即可
-    void CreateTree(BiThrTree * tree) {
+    void CreateTree(BiThrTree * tree) 
+    {
         char data;
         scanf("%c", &data);
         if (data != '#') {
-            if (!((*tree) = (BiThrNode*)malloc(sizeof(BiThrNode)))) {
+            if (!((*tree) = (BiThrNode*)malloc(sizeof(BiThrNode)))) 
+            {
                 printf("申请结点空间失败");
                 return;
             }
-            else {
+            else 
+            {
                 (*tree)->data = data;//采用前序遍历方式初始化二叉树
                 (*tree)->Ltag = Link;
                 (*tree)->Rtag = Link;
@@ -31,7 +36,8 @@
                 CreateTree(&((*tree)->rchild));//初始化右子树
             }
         }
-        else {
+        else 
+        {
             *tree = NULL;
         }
     }

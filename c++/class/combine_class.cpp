@@ -31,6 +31,7 @@ public:
 	Point(int xx=0, int yy=0) {X=xx;Y=yy;cout<<"Point构造函数被调用"<<endl;}
 	Point(Point &p);
 	int GetX() {return X;}
+	int GetX() const {return X;}
 	int GetY() {return Y;}
 	~Point()	{cout<<"Point析构函数被调用"<<endl;}
 private:

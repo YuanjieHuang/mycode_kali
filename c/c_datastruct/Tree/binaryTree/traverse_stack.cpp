@@ -8,14 +8,11 @@ void levelTraverse()
 {
     printf("\n层序遍历: \n");
     BiTree tree;
-    //初始化二叉树
     CreateBiTree(&tree);
     BiTNode * p;
-    //采用顺序队列，初始化创建队列数组
     queue<BiTree> a;
     //根结点入队
     a.push(tree);
-    //当队头和队尾相等时，表示队列为空
     while(!a.empty()) 
     {
         //队头结点出队
@@ -64,9 +61,9 @@ void InOrderTraverse1(BiTree Tree)
     BiTNode * p;//临时指针
     a.push(Tree);//根结点进栈
     while(! a.empty()) 
-    {//top!=-1说明栈内不为空，程序继续运行
+    {
         while ((p = a.top()) && p)
-        {//取栈顶元素，且不能为NULL
+        {
             a.push(p->lchild);//将该结点的左孩子进栈，如果没有左孩子，NULL进栈
         }
         a.pop();//跳出循环，栈顶元素肯定为NULL，将NULL弹栈
@@ -83,8 +80,7 @@ void InOrderTraverse1(BiTree Tree)
 void InOrderTraverse2(BiTree Tree)
 {
     stack<BiTNode *> a;
-    BiTNode * p;//临时指针
-    p=Tree;
+    BiTNode * p = Tree;//临时指针
     //当p为NULL或者栈为空时，表明树遍历完成
     while (p || !a.empty()) 
     {
@@ -109,37 +105,36 @@ void InOrderTraverse2(BiTree Tree)
 void PostOrderTraverse(BiTree Tree)
 {
     stack<SNode> a;
-    BiTNode * p;//临时指针
+    BiTNode * p = Tree;//临时指针
     int tag;
     SNode sdata;
-    p=Tree;
     while (p || !a.empty()) 
     {
         while (p) 
         {
             //为该结点入栈做准备
-            sdata.p=p;
-            sdata.tag=0;//由于遍历是左孩子，设置标志位为0
+            sdata.p = p;
+            sdata.tag = 0;//由于遍历是左孩子，设置标志位为0
             a.push(sdata);//压栈
-            p=p->lchild;//以该结点为根结点，遍历左孩子
+            p = p->lchild;//以该结点为根结点，遍历左孩子
         }
-        sdata=a.top();//取栈顶元素
+        sdata = a.top();//取栈顶元素
         a.pop();//栈顶元素弹栈
-        p=sdata.p;
-        tag=sdata.tag;
+        p   = sdata.p;
+        tag = sdata.tag;
         //如果tag==0，说明该结点还没有遍历它的右孩子
-        if (tag==0) 
+        if (tag == 0) 
         {
-            sdata.p=p;
-            sdata.tag=1;
+            sdata.p   = p;
+            sdata.tag = 1;
             a.push(sdata);//更改该结点的标志位，重新压栈
-            p=p->rchild;//以该结点的右孩子为根结点，重复循环
+            p = p->rchild;//以该结点的右孩子为根结点，重复循环
         }
         //如果取出来的栈顶元素的tag==1，说明此结点左右子树都遍历完了，可以调用操作函数了
         else
         {
             displayElem(p);
-            p=NULL;
+            p = NULL;
         }
     }
 }
