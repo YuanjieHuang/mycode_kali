@@ -135,7 +135,8 @@
         "semaphore": "c",
         "except.h": "c",
         "binarytree.h": "c",
-        "stack": "cpp"
+        "stack": "cpp",
+        "_malloc.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
