@@ -1,4 +1,7 @@
 .vscode
+build
+install
+out
 ######################
 # OS generated files #
 ######################
