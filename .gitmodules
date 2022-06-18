@@ -1,3 +1,4 @@
 [submodule "submodules"]
 	path = submodules
 	url = https://github.com/YuanjieHuang/unit_test.git
+	branch = master
