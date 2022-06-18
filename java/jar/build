@@ -1,0 +1,12 @@
+javac com/lynu/service/A.java
+jar cvf projectA.jar com/lynu/service/*.java
+
+javac -cp projectA.jar cn/lynu/service/B.java
+jar cvfe projectB.jar cn.lynu.service.B cn/lynu/service/*.java
+
+
+jar -cvfm projectM.jar MANIFEST.MF .
+java -jar projectB.jar
+
+
+java -cp .;/projectA/projectA.jar  -jar projectB.jar
