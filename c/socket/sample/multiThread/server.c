@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <sys/un.h>
 
 #define N 64
 
@@ -43,7 +44,8 @@ int main(int argc, char *argv[])
 	myaddr.sin_family = PF_INET;
 	myaddr.sin_port = htons(atoi(argv[2]));
 	myaddr.sin_addr.s_addr = inet_addr(argv[1]);
-
+	int reuse = 1;
+	setsockopt(listenfd,SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
 	if (bind(listenfd, (SA *)&myaddr, sizeof(myaddr)) < 0)
 	{
 		perror("fail to bind");
@@ -53,9 +55,14 @@ int main(int argc, char *argv[])
 	listen(listenfd, 5);
 
 	signal(SIGCHLD, handler);
+	struct sockaddr_in  peeraddr;
+	socklen_t peerlen;
+	peerlen = sizeof(peeraddr);
 	while ( 1 )
 	{
-		if ((connfd = accept(listenfd, NULL, NULL)) < 0)
+		connfd = accept(listenfd, (struct sockaddr *)&peeraddr, &peerlen);
+		printf("connfd:%d\t",connfd);
+		if ((connfd) < 0)
 		{
 			perror("fail to accept");
 			exit(-1);
@@ -69,12 +76,14 @@ int main(int argc, char *argv[])
 		{
 			while (recv(connfd, buf, N, 0) >0)
 			{
+				printf("%s:%s", inet_ntoa(peeraddr.sin_addr), buf);
 				send(connfd, buf, N, 0);
 			}
 			exit(0);
 		}
 		else
 		{
+			printf("close connfd:%d\n",connfd);
 			close(connfd);
 		}
 	}

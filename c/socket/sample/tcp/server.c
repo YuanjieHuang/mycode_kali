@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
 	myaddr.sin_family = PF_INET;
 	myaddr.sin_port = htons(atoi(argv[2]));
 	myaddr.sin_addr.s_addr = inet_addr(argv[1]);
+	int reuse = 1;
+	setsockopt(listenfd,SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
 	if (bind(listenfd, (SA *)&myaddr, sizeof(myaddr)) < 0)
 	{
 		perror("fail to bind");
@@ -58,12 +60,10 @@ int main(int argc, char *argv[])
 			exit(-1);
 		}
 		printf("connection from [%s:%d]\n", inet_ntoa(peeraddr.sin_addr), ntohs(peeraddr.sin_port));
-		/*
 		recv(connfd, buf, N, 0);
 		printf("recv from client : %s\n", buf);
 		strcpy(buf, "Welcome to Farsight Server");
 		send(connfd, buf, N, 0);
-		*/
 		close(connfd);
 	}
 

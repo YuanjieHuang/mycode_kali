@@ -32,6 +32,14 @@ int main(void)
     newact.sa_handler = do_sigchild;
     sigemptyset(&newact.sa_mask);
     newact.sa_flags = 0;
+//     在linux系统中，父进程通常会接收子进程SIGCHLD信号监测子进程是否退出，通过waitpid函数对子进程进行回收。
+//     但是实际应用过程中waitpid使用不当，会出现子进程成为僵尸进程。原因在于，SIGCHLD信号是不可靠信号，
+//     不可靠信号在Linux中不进行排队，只是放到一个缓冲区，一旦该信号解除阻塞则会立即被发送一次(不可靠信号会丢失)。
+// 任何一个子进程（init除外）在exit()之后，并非马上就消失，而是留下一个称为僵尸进程(Zombie)的数据结构，等待父进程回收。
+// 由于SIGCHLD信号的丢失，如果父进程不进行回收处理，子进程就会一直处于僵尸状态。
+// 解决的办法有两个，一是在信号处理函数中，以非阻塞的方式调用waitpid，使用while循环，
+// 直到waitpid回收完所有等待回收的子进程。如下所示：
+
     sigaction(SIGCHLD, &newact, NULL);    //建立信号，处理子进程退出
 
     listenfd = Socket(AF_INET, SOCK_STREAM, 0);
