@@ -1,0 +1,88 @@
+
+.data_io_ctrl = ground_mgn_data_io_ctrl
+    message_dispatch	DBG("dipatch\n");
+        handle_json_transfer_alink	DBG("ground v^^^^^^ LASER_COMMAND SENTO air\n");
+            lasercmd_to_mavlink	DBG(">>>>phone_accessorycmd_to_mavlink:%s ,dst_id:%04x\n", msg->data, msg->msg_dst);hexdump((unsigned char*)&mav_msg->magic, 16);
+                laser_cmdid_handle		DBG("laser CMDID %u\n", command->command);
+	
+.module_init = ground_mgn_init,
+    handle_message  gd_ctx.tcp_client_mgn.handle_message_cb = handle_message;
+        handle_alink_transfer_json  DBG("ground ^vvvvv LASER_ACK  trans to json \n : %s \n--- src: %04x, dst: %04x\n", out_msg->data, out_msg->msg_src, out_msg->msg_dst);
+            laser_command_ack_to_json   
+                data_transfer_to_json
+                    data_to_json_cb
+
+
+
+
+up_data_handle  DBG("v^^^^^^^Receive cmd %hhu data[%hhu]\n", alink_cmd->command, alink_cmd->data[0]);
+    fake_ack2app     DBG("fake ack\n");
+        down_handle_alink_msg   DBG("^vvvvv downmsg: ");
+            accessory_data_io_ctrl  DBG("accessory_data_io_ctrl MSG_DISPACH:\n");
+                up_data_handle((struct msg_head_s*)msg, length);
+
+
+
+
+
+
+====================station=====================
+[mavlink_json_transfer.c-laser_cmdid_handle()-3034]
+RECEIVE APP cmd [MAV_CMD_RADIATION]
+[mavlink_json_transfer.c-laser_cmdid_handle()-3051] laser CMDID 0
+000: fd 03 00 00 1b 20 8a c5 00 03 03 2f a5 00 00 00   ..... ...../....
+[mavlink_json_transfer.c-laser_command_ack_to_json()-1858] UNKNOW CMD 123
+[ground_mgn.c-handle_alink_transfer_json()-692] ground ^vvvvv LASER_ACK  trans to json
+ : {
+  "method":"LASER_COMMAND_ACK",
+  "command":"UN_KNOWN",
+  "params":{
+    "command_ack":0
+  }
+}
+--- src: 0020, dst: 1000
+[tele_ctrl.c-report_logmsg_tostation()-289] report_logmsg_tostation: 229  10
+[tele_ctrl.c-report_logmsg_tostation()-289] report_logmsg_tostation: 229  9
+[ground_mgn.c-handle_alink_transfer_json()-696] ground ^vvvvv LASER_INFO : {
+  "method":"LASER_INFO",
+  "params":{
+    "stat":0,
+    "distance":0,
+    "temp":33
+  }
+}
+--- src: 0020, dst: 1000
+[ground_mgn.c-message_dispatch()-983] dipatch
+[ground_mgn.c-handle_json_transfer_alink()-911] ground v^^^^^^ LASER_COMMAND SENTO air
+[mavlink_json_transfer.c-lasercmd_to_mavlink()-3069] >>>>phone_accessorycmd_to_mavlink:{"method":"LASER_COMMAND","command":"MAV_CMD_RADIATION","params":{"code":3,"time":3}} ,dst_id:0025
+[mavlink_json_transfer.c-lasercmd_to_mavlink()-3089] method   = LASER_COMMAND, command MAV_CMD_RADIATION data0  = 0
+[mavlink_json_transfer.c-lasercmd_to_mavlink()-3091] code:3, time 3, mode 0, frequency 0, data0 0
+[mavlink_json_transfer.c-laser_cmdid_handle()-3034]
+
+
+====================air=====================
+[airplane_mgn.c-handle_message()-601] v^^^^^^^^^^airmgn recv AU_MAV_LASER_COMMAND send to movidius
+[airplane_mgn.c-handle_message()-602] msg->length:0x65
+000: 00 56 01 c0 65 00 00 10 20 00 20 09 00 00 00 00   .V..e... . .....
+016: 7b 22 6d 65 74 68 6f 64 22 3a 22 4c 41 53 45 52   {"method":"LASER
+032: 5f 43 4f 4d 4d 41 4e 44 22 2c 22 63 6f 6d 6d 61   _COMMAND","comma
+048: 6e 64 22 3a 22 4d 41 56 5f 43 4d 44 5f 52 41 44   nd":"MAV_CMD_RAD
+064: 49 41 54 49 4f 4e 22 2c 22 70 61 72 61 6d 73 22   IATION","params"
+080: 3a 7b 22 63 6f 64 65 22 3a 33 2c 22 74 69 6d 65   :{"code":3,"time
+096: 22 3a 33 7d 7d 
+
+
+
+====================laser=====================
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-fake_ack2app()-314] fake ack
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-down_handle_alink_msg()-215] ^vvvvv downmsg: 7b 00 00 00 00 00
+[/home/r22116/code/Platform/mydoc/laser/src/airplane_mgn.c-airplane_mgn_data_io_ctrl()-178] AIR ---AU_ACC_COMMAND_ACK:  src: 0020, dst: 1000
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-recv_cb()-359] LASERDATA  55 40 00 00 21 34
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-recv_cb()-366] ^vvvvvvvvvv M7 laser data :55 40 00 00 21 34
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-down_handle_alink_msg()-215] ^vvvvv downmsg: 03 40 00 00 21 34
+[/home/r22116/code/Platform/mydoc/laser/src/airplane_mgn.c-airplane_mgn_data_io_ctrl()-178] AIR ---AU_ACC_COMMAND_ACK:  src: 0020, dst: 1000
+receive: 101
+00 56 01 c0 65 00 00 10 20 00 20 09 00 00 00 00 7b 22 6d 65 74 68 6f 64 22 3a 22 4c 41 53 45 52 5f 43 4f 4d 4d 41 4e 44 22 2c 22 63 6f 6d 6d 61 6e 64 22 3a 22 4d 41 56 5f 43 4d 44 5f 52 41 44 49 41 54 49 4f 4e 22 2c 22 70 61 72 61 6d 73 22 3a 7b 22 63 6f 64 65 22 3a 33 2c 22 74 69 6d 65 22 3a 33 7d 7d
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-accessory_data_io_ctrl()-629] accessory_data_io_ctrl MSG_DISPACH:
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-up_data_handle()-603] v^^^^^^^Receive cmd 123 data[34]
+[/home/r22116/code/Platform/mydoc/laser/src/accessory_ctl.c-fake_ack2app()-314] fake ack
