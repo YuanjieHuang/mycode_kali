@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #define PORT 21
-#define REMOTE_IP "202.38.97.197"
+#define REMOTE_IP "192.168.123.1"
 
 int   main(int argc,char *argv[])
 {   

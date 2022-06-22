@@ -7,7 +7,7 @@
 int  main(int argc,char *argv[])
 {
    struct hostent *host;
-   char addr[]="202.108.249.216";
+   char addr[]="192.168.123.1";
    struct in_addr in;
    struct sockaddr_in addr_in;
    extern int h_errno;

@@ -41,9 +41,16 @@ int main(int argc, char *argv[])
 		perror("fail to connect");
 		exit(-1);
 	}
-	send(sockfd, buf, N, 0);
-	recv(sockfd, buf, N, 0);
-	printf("recv from server : %s\n", buf);
+	while (1)
+	{
+		// send(sockfd, buf, N, 0);
+		// recv(sockfd, buf, N, 0);
+		read(sockfd, buf, N);
+		printf("recv from server : %s\n", buf);
+		// sprintf(buf,"from client");
+		fgets(buf,N,stdin);
+		write(sockfd, buf, N);
+	}
 	close(sockfd);
 
 	return 0;

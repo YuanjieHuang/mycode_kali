@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	while ( 1 )
 	{
 		recvfrom(sockfd, buf, N, 0, (SA *)&peeraddr, &peerlen);
-		printf("recv from client : %s\n", buf);
+		printf("recv from client(%s) : %s\n",inet_ntoa(peeraddr.sin_addr), buf);
 		sendto(sockfd, buf, N, 0, (SA *)&peeraddr, sizeof(peeraddr));
 	}
 

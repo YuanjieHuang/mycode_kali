@@ -3,7 +3,7 @@
 #include<netinet/in.h>
 #include<arpa/inet.h>
 #include<unistd.h>
-#define PORT 6677
+#define PORT 5678
 main()
 {
    int sockfd,newsockfd,fd;

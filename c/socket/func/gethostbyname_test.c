@@ -24,12 +24,11 @@ int   main(int argc,char *argv[])
        printf("IP          : %s \n\n",inet_ntoa(in));
     }
     else
-    
-   {
-   	    printf("Domain name: %s \n",hostname);
-   	    printf("error: %d\n",h_errno);
-   		printf("%s\\nn",hstrerror(h_errno));
-   }
+    {
+        printf("Domain name: %s \n",hostname);
+        printf("error: %d\n",h_errno);
+        printf("%s\\nn",hstrerror(h_errno));
+    }
    
    if((host=gethostbyname(hostname2))!=NULL)
    {
@@ -41,10 +40,9 @@ int   main(int argc,char *argv[])
        printf("Type:    %d\n",host->h_addrtype);
     }
     else
-    
-   {
-   	    printf("Domain name: %s \n",hostname2);
-   	    printf("error: %d\n",h_errno);
-   		printf("%s\n",hstrerror(h_errno));
-   }   
+    {
+        printf("Domain name: %s \n",hostname2);
+        printf("error: %d\n",h_errno);
+        printf("%s\n",hstrerror(h_errno));
+    }   
 }

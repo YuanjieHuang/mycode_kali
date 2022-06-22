@@ -15,10 +15,10 @@ int  main()
   {
   	  printf("a socket was created.\n");
   	  printf("socket number:%d\n",s);
-   }
-   getsockopt(s,SOL_SOCKET,SO_TYPE,&val,&len);
-   perror("socket:");
-   printf("optval = %d\n",val);
-    getsockopt(100,SOL_SOCKET,SO_TYPE,&val,&len);
-   perror("socket:");
+  }
+  getsockopt(s,SOL_SOCKET,SO_TYPE,&val,&len);
+  perror("socket:");
+  printf("optval = %d\n",val);
+  getsockopt(100,SOL_SOCKET,SO_TYPE,&val,&len);
+  perror("socket:");
 }
