@@ -67,7 +67,12 @@ int main(int argc, char *argv[])
         ret = epoll_wait(epoll_fd, epoll_events, max_link, -1);
         if (ret < 0)
         {
-            std::cout << "epoll多路复用失败" << std::endl;
+            std::cout << "epoll error:" << perror(errno)<<std::endl;
+            break;
+        }
+        if (ret == 0)
+        {
+            std::cout << "no file descriptor became ready " << std::endl;
             break;
         }
         //只返回已有事件的socket

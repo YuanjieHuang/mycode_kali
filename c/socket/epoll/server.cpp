@@ -100,8 +100,9 @@ int main( int argc, char* argv[] )
                 char buf[ UDP_BUFFER_SIZE ];
                 memset( buf, '\0', UDP_BUFFER_SIZE );
                 struct sockaddr_in client_address;
+                bzero( &client_address, sizeof( client_address ) );
                 socklen_t client_addrlength = sizeof( client_address );//客户端地址
-		//UDP专用接收数据
+		        //UDP专用接收数据
                 ret = recvfrom( udpfd, buf, UDP_BUFFER_SIZE-1, 0, ( struct sockaddr* )&client_address, &client_addrlength );
                 if( ret > 0 )
                 {//UDP专用发送数据(回射数据)

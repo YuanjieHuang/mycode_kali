@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
             conn.fd = conn_fd;
             conn.events = POLLRDNORM;
             pollfds[link_count++] = conn;
-            cout << "Connected! conn_fd:" << conn_fd << endl;
+            cout << "Connected! conn_fd:" << conn_fd << "link_count:"<<link_count<<endl;
         }
 
         //连接事件队列client中有事件，遍历扫描

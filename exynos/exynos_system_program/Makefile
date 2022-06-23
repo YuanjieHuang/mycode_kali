@@ -1,7 +1,7 @@
 src=$(wildcard *.c)
 obj=$(patsubst %.c,%,$(src))
 
-PRE=arm-none-linux-gnueabi-
+# PRE=arm-none-linux-gnueabi-
 CC=$(PRE)gcc
 RM= rm -f
 CFLAGS= -lm -w -lpthread

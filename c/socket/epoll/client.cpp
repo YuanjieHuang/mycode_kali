@@ -11,6 +11,17 @@
 using namespace std;
 int main(int argc,char* argv[])
 {
+    fd_set fds;
+    FD_ZERO(&fds);
+    FD_SET(fd, &fds);
+    int ret = select(fd+1, &fds, NULL, NULL, NULL);
+    if(ret>0)
+    {
+        if(FD_ISSET(fd, &fds))
+        {
+            ret = read(fd, "data", 5);
+        }
+    }
     if(argc<=2){
         cout<<"argc<=2"<<endl;
         return 1;
