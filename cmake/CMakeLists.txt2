@@ -1,0 +1,101 @@
+# set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CAMKE_CXX_FLAGS} -std=c++11 -pthread -fprofile-arcs -ftest-coverage")
+set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -DCONFIG_LLT -fprofile-arcs -ftest-coverage")
+set(third_party ${CMAKE_CURRENT_SOURCE_DIR}/third_party)
+set(gtest_example_dir ${third_party}/googletest/googletest/src)
+set(prj_dir /home/r22116/code/openssl-3.0.3/_install/src)
+include_directories(
+    # ${third_party}/googletest/googletest
+    ${third_party}/googletest/googletest/include
+    ${third_party}/googletest/googlemock/include
+    ${third_party}/mockcpp/include/3rdparty/include
+    ${prj_dir}/comm
+
+)
+
+link_directories(${third_party}/lib)
+add_subdirectory( ${prj_dir} myopenssl)
+set(SRC_FILES 
+    ${gtest_example_dir}/gtest_main.cc
+    # ${gtest_example_dir}/gtest-all.cc
+
+)
+add_executable(test ${SRC_FILES})
+target_link_libraries(test libmockcpp.a libgmock.a libgtest.a)
+
+
+
+macro(install_symlink filepath sympath)
+    install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${filepath} ${sympath})")
+    install(CODE "message(\"-- Created symlink: ${sympath} -> ${filepath}\")")
+endmacro(install_symlink)
+
+# macro(makeLink src dest target)
+#   add_custom_command(TARGET ${target} PRE_BUILD
+#     COMMAND ln -sf ${src} ${dest} DEPENDS ${dest} COMMENT "mklink ${src} -> ${dest}")
+# endmacro()
+macro(makeLink src dest target)
+ add_custom_command(TARGET ${target} PRE_BUILD
+   COMMAND ${CMAKE_COMMAND} -E create_symlink ${src} ${dest} DEPENDS  ${dest} COMMENT "mklink ${src} -> ${dest}")
+endmacro()
+makeLink(/home/r22116/A810/a810v2010/UpgradeService/include/alink /home/r22116/A810/a810v2010/UpgradeService/cmake makelinks)
+message(FATAL_ERROR "+++++++++++++++++++++++++++++++++")
+find src_directory/ -name "*.jpg" -printf %P\\0\\n | rsync -a --files-from=- src_directory/ dst_directory/
+# 在目标构建完成后执行一些操作
+add_executable(myExe myExe.c)
+add_custom_command(
+  TARGET myExe POST_BUILD
+  COMMAND someHasher -i "$<TARGET_FILE:myExe>"
+                     -o "$<TARGET_FILE:myExe>.hash"
+  VERBATIM)
+
+  add_custom_command(OUTPUT config_bootstrap
+  COMMAND ./bootstrap.sh --prefix=/usr/local
+  WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/boost/" 
+  COMMENT "begin config_bootstrap")
+
+add_custom_target(build_boost_libs
+  COMMAND ./b2 link=static runtime-link=static threading=multi --with-system --with-thread --with-filesystem
+  WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/boost/" 
+  DEPENDS config_bootstrap
+  COMMENT "begin build_boost_libs")
+
+#=============Copy Source files to Build Runtime Dir=============== 
+#该内容一般放在项目顶层CMakelists.txt的最后，
+#目的是将项目生成后的执行文件所需的第三方库复制到执行程序目录，
+#并区分Debug和Release版本。
+#该方法中的COMMAND_EXPAND_LISTS参数值得关注，可以复制列表内所有文件。
+FILE(GLOB Plugin_Runtime_Debug_DLL_FILES CONFIGURE_DEPENDS 
+    ${CMAKE_CURRENT_SOURCE_DIR}/Plugin_Runtime_Dir/Debug/ *.*
+) 
+FILE(GLOB Plugin_Runtime_Release_DLL_FILES CONFIGURE_DEPENDS 
+    ${CMAKE_CURRENT_SOURCE_DIR}/Plugin_Runtime_Dir/Release/ *.* 
+) 
+FILE(GLOB Plugin_Runtime_Debug_Resources_FILES CONFIGURE_DEPENDS 
+    ${CMAKE_CURRENT_SOURCE_DIR}/Plugin_Runtime_Dir/Debug/Resources/icos/ *.* 
+) 
+FILE(GLOB Plugin_Runtime_Release_Resources_FILES CONFIGURE_DEPENDS 
+    ${CMAKE_CURRENT_SOURCE_DIR}/Plugin_Runtime_Dir/Release/Resources/icos/ *.* 
+) 
+   
+add_custom_target(CopyRuntimeFiles ALL 
+  VERBATIM 
+  COMMAND_EXPAND_LISTS 
+  COMMAND ${CMAKE_COMMAND} -E 
+          make_directory "${PROJECT_BINARY_DIR}/$<$<CONFIG:Release>:Release>$<$<CONFIG:Debug>:Debug>/" 
+COMMAND ${CMAKE_COMMAND} -E 
+         copy_if_different  
+                "$<$<CONFIG:Release>:${Plugin_Runtime_Release_DLL_FILES}>"  
+                 "$<$<CONFIG:Debug>:${Plugin_Runtime_Debug_DLL_FILES}>" 
+                "${PROJECT_BINARY_DIR}/$<$<CONFIG:Release>:Release>$<$<CONFIG:Debug>:Debug>/"   
+COMMAND ${CMAKE_COMMAND} -E 
+        make_directory "${PROJECT_BINARY_DIR}/$<$<CONFIG:Release>:Release>$<$<CONFIG:Debug>:Debug>/Resources/icos/" 
+COMMAND ${CMAKE_COMMAND} -E 
+        copy_if_different  
+               "$<$<CONFIG:Release>:${Plugin_Runtime_Release_Resources_FILES}>"  
+               "$<$<CONFIG:Debug>:${Plugin_Runtime_Debug_Resources_FILES}>" 
+               "${PROJECT_BINARY_DIR}/$<$<CONFIG:Release>:Release>$<$<CONFIG:Debug>:Debug>/Resources/icos/" 
+COMMAND ${CMAKE_COMMAND} -E 
+        make_directory "${PROJECT_BINARY_DIR}/$<$<CONFIG:Release>:Release>$<$<CONFIG:Debug>:Debug>/Plugins/org_test_plugins/" 
+) 
+

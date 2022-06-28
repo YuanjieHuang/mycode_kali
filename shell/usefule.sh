@@ -26,7 +26,7 @@ delete first line
 # 1.采用awk
 awk '{$1="";print $0}'  file
 # 2.采用sed
-sed -e 's/[^ ]* //'  file
+sed -ei 's/[^ ]* //'  file
 
 ########################################################################
 find ~/github/mycode_kali -name "*.txt" |xargs -0  echo 
