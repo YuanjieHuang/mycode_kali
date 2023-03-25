@@ -1,20 +1,4 @@
 #include "sort.h"
-// void insertsort(keytype k[], int n)
-// {
-//     int i,j;
-//     keytype tmp;
-//     for(i=2; i <= n; i++)
-//     {
-//         tmp = k[i];
-//         j = i -1;
-//         while (j > 0 && tmp < k[j])
-//         {
-//             k[j+1] = k[j--];         //a=++i 相当于 i++ , a=i
-                                        //a=i++ 相当于 a=i , i++
-//         }
-//         k[j+1] = tmp;
-//     }
-// }
 
 void insertSort(int a[], int n)
 {
@@ -26,7 +10,7 @@ void insertSort(int a[], int n)
         while (j > 0 && a[0] > a[j])//找a[i]插入位置，即j的值
         {
             a[j+1] = a[j];
-            j-=1;
+            j -= 1;
         }
         a[j+1] = a[0];
     }
@@ -53,7 +37,7 @@ void selectSort(int a[], int n)
         }
     }
 }
-#if 1
+
 void bubbleSort(int a[], int n)//先排尾部
 {
     int i,j,flag = 1;
@@ -73,26 +57,6 @@ void bubbleSort(int a[], int n)//先排尾部
         }
     }
 }
-#else
-void bubbleSort(int a[], int n)
-{
-    int i,j;
-    for(i=1; i<= n-1; i++)
-    {
-        for(j=1; j <= n-i; j++)
-        {
-            if(a[j] > a[j+1])
-            {
-                a[0] = a[j+1];
-                a[j+1] = a[j];
-                a[j] = a[0];
-                
-            }
-
-        }
-    }
-}
-#endif
 
 void diminishingIncrementSort(int a[], int n)//shell's sort
 {
@@ -158,6 +122,34 @@ void quickSort(int a[], int s, int t)
         quickSort(a, j+1, t);   //..........后面.......
     }
 }
+#if 0
+// 将 arr 从 start 到 end 分区，左边区域比基数小，右边区域比基数大，然后返回中间值的下标
+static int partition(int[] arr, int start, int end) {
+    // 取第一个数为基数
+    int pivot = arr[start];
+    // 从第二个数开始分区
+    int left = start + 1;
+    // 右边界
+    int right = end;
+    while (left < right) {
+        // 找到第一个大于基数的位置
+        while (left < right && arr[left] <= pivot) left++;
+        // 找到第一个小于基数的位置
+        while (left < right && arr[right] >= pivot) right--;
+        // 交换这两个数，使得左边分区都小于或等于基数，右边分区大于或等于基数
+        if (left < right) {
+            exchange(arr, left, right);
+            left++;
+            right--;
+        }
+    }
+    // 如果 left 和 right 相等，单独比较 arr[right] 和 pivot
+    if (left == right && arr[right] > pivot) right--;
+    // 将基数和轴交换
+    exchange(arr, start, right);
+    return right;
+}
+#endif
 int min(int a, int b)
 {
     if(a>=b)
@@ -340,7 +332,7 @@ int main()
     test_sort(insertSort);
     test_sort(selectSort);
     test_sort(bubbleSort);
-    test_sort(diminishingIncrementSort);
-    test_quickSort();
+    // test_sort(diminishingIncrementSort);
+    // test_quickSort();
     return 0;
 }
