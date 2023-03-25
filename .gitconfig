@@ -1,0 +1,11 @@
+[core]
+        editor = vim
+[alias]
+        co = checkout 
+        ci = commit
+        st = status
+        br = branch
+        hist = log --pretty=format:\"%h %ad | %s%d [%an] \"  --graph --date=short
+        type = cat-file -t
+        dump = cat-file -p
+	lg = log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
