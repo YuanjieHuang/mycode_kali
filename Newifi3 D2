@@ -16,3 +16,16 @@ LAN口数量	4
 USB 3.0	1
 是否支持刷机	是（可以刷padavan/op等）
 当前参考价格	90
+
+
+斐讯
+Specifications
+CPU: MediaTek MT7621A @880MHz (Dual Core MIPS 1004Kc)
+Wireless Chipset: 1x MediaTek MT7615DN (2x 2T2R DBDC)
+Wireless Standard: 802.11bgn (2.4GHz), 802.11an/ac (5GHz)
+Wireless Speed: 300Mbps for 2.4GHz, 867Mbps for 5GHz
+Hardware Version
+K2P (A1) • CPU: MT7621A @880MHz (Dual Core MIPS 1004Kc)
+K2P (A2) • CPU: MT7621A @880MHz (Dual Core MIPS 1004Kc)
+K2P (B1) • CPU: BCM47189 @900MHz (Single Core)
+K2P (B2) • CPU: BCM47189 @900MHz (Single Core)
