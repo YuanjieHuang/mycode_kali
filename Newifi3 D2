@@ -29,3 +29,11 @@ K2P (A1) • CPU: MT7621A @880MHz (Dual Core MIPS 1004Kc)
 K2P (A2) • CPU: MT7621A @880MHz (Dual Core MIPS 1004Kc)
 K2P (B1) • CPU: BCM47189 @900MHz (Single Core)
 K2P (B2) • CPU: BCM47189 @900MHz (Single Core)
+
+
+三、精选app的理由：
+   1. AdGuard home ：最强大的去广告插件，没有之一。功能强大，配置和规则可以参考论坛其他人的帖子。（建议关闭日志或使用截断日志功能，避免日志无限增大占满剩余空间）
+   2. 33r                     ：占用资源最少，速度最快。
+   3. Turbo ACC         :  必装
+   4. ZeroTier             ：神器，在公司可以像在家一样输入 \\nas访问黑裙文件，并且可以跑满带宽。
+   5.SQM QOS           ：功能和效果适合。
