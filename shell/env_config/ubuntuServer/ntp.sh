@@ -1,3 +1,0 @@
-timedatectl
-sudo timedatectl set-timezone your_time_zone
-timesyncd
