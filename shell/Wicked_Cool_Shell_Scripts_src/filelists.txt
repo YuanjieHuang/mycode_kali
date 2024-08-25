@@ -1,0 +1,143 @@
+.
+├── 1
+│   ├── 01-inpath
+│   ├── 02-validalnum
+│   ├── 03-normdate
+│   ├── 04-nicenumber
+│   ├── 05-validint
+│   ├── 06-validfloat
+│   ├── 07-valid-date
+│   ├── 08-echon
+│   ├── 09-scriptbc
+│   ├── 10-filelock
+│   ├── 11-initializeANSI
+│   ├── 12-library_test
+│   ├── 13a-hilow_broken
+│   ├── 13b-hilow_fixed
+│   └── library.sh
+├── 10
+│   ├── 73-webaccess
+│   ├── 74-searchinfo
+│   ├── 75-weberrors
+│   ├── 76a-remotebackup
+│   ├── 76b-trimmailbox
+│   ├── 77a-getstats
+│   ├── 77b-netperf
+│   ├── 78-renicename
+│   └── 79-watch_and_nice
+├── 1024-2006_1011_093752.jpg
+├── 11
+│   ├── 79-screencapture2
+│   ├── 80-titleterm
+│   ├── 81-ituneslist
+│   └── 82-open2
+├── 12
+│   ├── 83-unscramble
+│   ├── 84-hangman
+│   ├── 85-states
+│   ├── 86-isprime
+│   ├── 87-rolldice
+│   └── 88-aceydeucey
+├── 13
+│   ├── 89-startdropbox
+│   ├── 90-syncdropbox
+│   ├── 91-slideshow
+│   ├── 92-syncgdrive
+│   └── 93-sayit
+├── 14
+│   ├── 94-imagesize
+│   ├── 95-watermark
+│   ├── 96-frameit
+│   ├── 97-thumbnails
+│   └── 98-geoloc
+├── 15
+│   ├── 100-daysago
+│   ├── 101-daysuntil
+│   └── 99-dayinpast
+├── 2
+│   ├── 14-fmt
+│   ├── 15-newrm
+│   ├── 16-unrm
+│   ├── 17-logrm
+│   ├── 18-formatdir
+│   ├── 19a-mklocatedb
+│   ├── 19b-locate
+│   ├── 20-DIR
+│   ├── 21-timein
+│   ├── numcommands
+│   └── ragged.txt
+├── 3
+│   ├── 22a-remember
+│   ├── 22b-remindme
+│   ├── 23-calc
+│   ├── 24-convertatemp
+│   ├── 25-loancalc
+│   ├── 26a-addagenda
+│   └── 26b-agenda
+├── 4
+│   ├── 27-numberlines
+│   ├── 28-toolong
+│   ├── 29-showfile
+│   ├── 30-newquota
+│   ├── 31-mysftp
+│   ├── 32-cgrep
+│   ├── 33-zcat
+│   ├── 34-bestcompress
+│   └── ragged.txt
+├── 5
+│   ├── 35-fquota
+│   ├── 36-diskhogs
+│   ├── 37-newdf
+│   ├── 38-diskspace
+│   ├── 39a-mkslocatedb
+│   ├── 39b-slocate
+│   ├── 40-adduser
+│   ├── 41-suspenduser
+│   ├── 42-deleteuser
+│   ├── 43-validator
+│   └── 44-fixguest
+├── 6
+│   ├── 45-findsuid
+│   ├── 46-setdate
+│   ├── 47-killall
+│   ├── 48-verifycron
+│   ├── 49-docron
+│   ├── 50-rotatelogs
+│   ├── 51-backup
+│   ├── 52-archivedir
+│   └── my.crontab
+├── 7
+│   ├── 53-ftpget
+│   ├── 54-getlinks
+│   ├── 55-githubuser
+│   ├── 56-zipcode
+│   ├── 57-areacode
+│   ├── 58-weather
+│   ├── 59-moviedata
+│   ├── 60-convertcurrency
+│   ├── 61-getbtcaddr
+│   └── 62-changetrack
+├── 8
+│   ├── 63-showCGIenv
+│   ├── 64-log-duckduckgo-search
+│   ├── 65-kevin-and-kell
+│   ├── 66-getdope
+│   ├── 67-album
+│   └── 68-randomquote
+├── 9
+│   ├── 69-checklinks
+│   ├── 70-checkexternal
+│   ├── 71-apm
+│   ├── 72a-sftpsync
+│   ├── 72b-ssync
+│   └── footer.html
+├── README.md
+├── apdx
+│   ├── A1-bulkrename
+│   ├── A2-bulkrun
+│   └── A3-moonphase
+├── filelists.txt
+├── sample.crontab
+└── wcss_shell.sh
+
+17 directories, 124 files
